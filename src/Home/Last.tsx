@@ -7,10 +7,10 @@ interface ArticleProps {
   shortdescription: string;
 }
 
-function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
+function Last({ image, title, slug, shortdescription }: ArticleProps) {
   return (
     <div className="">
-      <div className="row   ">
+      <div className="row  pt-5  ">
 
       {/* ----------------------------------------------------------------------------------1st---------------------------- */}
 
@@ -418,4 +418,4 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
   );
 }
 
-export default Repeat;
+export default Last;

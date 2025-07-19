@@ -4,6 +4,8 @@ import business from "../data/business.json";
 import BreackingNEws from "@/Home/BreackiingNews";
 import Repeat from "@/Home/Repeat";
 import LatestNews from "@/Home/LatestNews";
+import NewsCard from "@/Home/NewsCard";
+import Last from "@/Home/Last";
 
 function page() {
   return (
@@ -24,57 +26,83 @@ function page() {
             slug={business[2].slug}
           />
 
-         {/* -------------repeat------------- */}
-         <Repeat image={business[2].image}
+          {/* ---------------------------------------------------repeat------------- */}
+          <Repeat
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-        
+          {/* ---------------------------------------------------Cards------------- */}
+
+
+         
         </div>
 
-        {/*  */}
+        
 
-        {/* --------------right---------------- */}
+        {/* ------------------------------------------------------------------------------------------------------right---------------- */}
         <div className="col-lg-4">
           <div className="divider"></div>
 
           <p className="fw-bold align-items-center p-2">Latest News</p>
 
-
-          <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-            <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-            <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-            <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-
-            <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+            slug={business[2].slug}
+          />
 
-            <LatestNews image={business[2].image}
+          <LatestNews
+            image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
-
-
+            slug={business[2].slug}
+          />
         </div>
+
+         <NewsCard />
+
+        {/* ------------------------------------------------------------------------------------------------------Last---------------- */}
+
+
+         <div className="col-lg-8 border-end   ">
+          <Last image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+         </div>
+
       </div>
     </div>
   );

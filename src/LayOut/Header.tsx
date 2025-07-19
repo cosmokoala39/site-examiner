@@ -2,17 +2,17 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container, Row, Col, Navbar, Nav, Button } from "react-bootstrap";
 import logo from "../../public/images/examiner-head.svg";
 
 const navItems = [
-  { title: "NEWS", href: "#" },
-  { title: "SPORT", href: "#" },
-  { title: "NOTICEBOARD", href: "#" },
-  { title: "CLASSIFIEDS", href: "#" },
-  { title: "EXPLORE TRAVEL", href: "#" },
-  { title: "ENTERTAINMENT", href: "#" },
-  { title: "LIFESTYLE", href: "#" },
+  { label: "Business", slug: "business" },
+  { label: "Technology", slug: "technology" },
+  { label: "Sports", slug: "sports" },
+  { label: "Health", slug: "health" },
+  { label: "Science", slug: "science" },
+  { label: "Politics", slug: "politics" },
 ];
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <div className="container">
-      {/* ✅ Mobile Header Only */}
+      {/* ✅ Mobile Header */}
       <div className="d-md-none border-1 border-bottom bg-white">
         {/* Top Row */}
         <div className="d-flex align-items-center px-3 border-bottom">
@@ -29,13 +29,15 @@ const Header = () => {
             onClick={() => setIsMobileNavOpen(true)}
             style={{ cursor: "pointer" }}
           ></i>
-          <Image
-            src={logo}
-            alt="Logo"
-            width={200}
-            height={50}
-            style={{ marginLeft: "40px" }}
-          />
+          <Link href="/" className="ms-4">
+            <Image
+              src={logo}
+              alt="Logo"
+              width={200}
+              height={50}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Weather */}
@@ -61,10 +63,7 @@ const Header = () => {
         </div>
 
         {/* Blue banner */}
-        <div
-          className="text-center py-2"
-          style={{ backgroundColor: "#e6f0ff", height: "50px" }}
-        >
+        <div className="text-center py-2" style={{ backgroundColor: "#e6f0ff", height: "50px" }}>
           <span className="text-primary">
             <a href="#" className="text-decoration-underline text-black">
               The Examiner’s complete view of property
@@ -100,14 +99,14 @@ const Header = () => {
                 ></i>
               </div>
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href={item.href}
+                  href={`/${item.slug}`}
                   className="d-block py-2 text-dark fw-semibold border-bottom"
                   style={{ fontSize: "0.95rem" }}
                 >
-                  {item.title}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
 
@@ -129,7 +128,7 @@ const Header = () => {
         )}
       </div>
 
-      {/* ✅ Desktop Header (unchanged) */}
+      {/* ✅ Desktop Header */}
       <div className="d-none d-md-block mobile-hd">
         {/* Top Header */}
         <div className="bg-white border-bottom py-4 px-3 d-flex align-items-center justify-content-between flex-wrap">
@@ -139,13 +138,15 @@ const Header = () => {
           </div>
 
           <div className="text-center flex-grow-1">
-            <Image
-              src={logo}
-              alt="The Examiner Logo"
-              width={320}
-              height={70}
-              className="mx-auto"
-            />
+            <Link href="/">
+              <Image
+                src={logo}
+                alt="The Examiner Logo"
+                width={320}
+                height={70}
+                className="mx-auto"
+              />
+            </Link>
           </div>
 
           <div className="d-flex flex-column align-items-center gap-2">
@@ -167,21 +168,17 @@ const Header = () => {
         <Container fluid className="border-bottom py-0 px-2 bg-white">
           <Row className="align-items-center">
             <Col xs={12} md={8}>
-              <Navbar
-                expand="md"
-                className="justify-content-md-end text-black"
-                style={{ fontSize: "0.75rem" }}
-              >
+              <Navbar expand="md" className="justify-content-md-end text-black" style={{ fontSize: "0.75rem" }}>
                 <Navbar.Toggle aria-controls="main-nav" />
                 <Navbar.Collapse id="main-nav">
                   <Nav className="ms-md-auto text-center">
                     {navItems.map((item, index) => (
                       <Nav.Link
                         key={index}
-                        href={item.href}
+                        href={`/${item.slug}`}
                         className="px-2 py-0 text-black fw-normal"
                       >
-                        {item.title}
+                        {item.label}
                       </Nav.Link>
                     ))}
                   </Nav>
@@ -192,10 +189,7 @@ const Header = () => {
         </Container>
 
         {/* Utility Info Section */}
-        <Container
-          fluid
-          className="border-top border-bottom border-black py-2 bg-white"
-        >
+        <Container fluid className="border-top border-bottom border-black py-2 bg-white">
           <Row className="text-center text-md-start">
             <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-1">
               <i className="bi bi-newspaper fs-2 mb-1"></i>
@@ -255,7 +249,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ✅ Inline animation keyframes */}
+      {/* ✅ Animation */}
       <style jsx global>{`
         @keyframes slideIn {
           from {

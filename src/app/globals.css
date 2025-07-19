@@ -40,3 +40,18 @@ a {
     color-scheme: dark;
   }
 }
+
+
+/* -------------------breacking---------------- */
+
+.breacking{
+font-size: 10px;
+background-color: rgb(243, 123, 143);
+color: rgb(147, 13, 17);
+
+}
+.divider{
+  height: 1px;
+  background-color: #dddd;
+  margin: 10px 20px;
+}

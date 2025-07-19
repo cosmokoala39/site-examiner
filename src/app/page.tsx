@@ -3,6 +3,7 @@ import React from "react";
 import business from "../data/business.json";
 import BreackingNEws from "@/Home/BreackiingNews";
 import Repeat from "@/Home/Repeat";
+import LatestNews from "@/Home/LatestNews";
 
 function page() {
   return (
@@ -35,7 +36,45 @@ function page() {
         {/*  */}
 
         {/* --------------right---------------- */}
-        <div className="col-lg-4"></div>
+        <div className="col-lg-4">
+          <div className="divider"></div>
+
+          <p className="fw-bold align-items-center p-2">Latest News</p>
+
+
+          <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+            <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+            <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+            <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+
+            <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+            <LatestNews image={business[2].image}
+            title={business[2].title}
+            shortdescription={business[2].shortdescription}
+            slug={business[2].slug}/>
+
+
+        </div>
       </div>
     </div>
   );

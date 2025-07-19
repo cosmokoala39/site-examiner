@@ -16,6 +16,8 @@ function Featured({ image, title, slug, shortdescription }: ArticleProps) {
               <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">breacking</p>
           <p className="fw-bold fs-3">{title}</p>
           <p className="fw-bold text-muted">{shortdescription.slice(0, 100)}</p>
+          <p className="text-muted">2 hrs ago</p>
+
         </div>
 
         <div className="col-lg-7">

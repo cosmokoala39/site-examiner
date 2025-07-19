@@ -16,14 +16,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
 
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -31,15 +31,18 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
 
         {/* -----------horizontal-------------- */}
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6  ">
           {/* -----------1st horiz-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -62,7 +65,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd horiz-------------- */}
-          <div className=" ">
+          <div className="  p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -97,9 +100,9 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
       <div className="row   ">
         {/* -----------horizontal-------------- */}
 
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6 border-end">
           {/* -----------1st-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -122,7 +125,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd-------------- */}
-          <div className=" ">
+          <div className="p-3 ">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -145,17 +148,17 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
         </div>
 
-        {/* -------------------Reverse--------------------- */}
+       
         {/* ------------vertical------------ */}
-        <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+       <div className="col-lg-6 border-end p-3">
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -163,9 +166,12 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
       </div>
       <div className="divider"></div>
@@ -178,15 +184,15 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
       {/* ----------------------1st---------------------------- */}
 
         {/* ------------vertical------------ */}
-        <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+       <div className="col-lg-6 border-end p-3">
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -194,15 +200,18 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
 
         {/* -----------horizontal-------------- */}
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -225,7 +234,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd horiz-------------- */}
-          <div className=" ">
+          <div className=" p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -258,9 +267,9 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
       <div className="row   ">
         {/* -----------horizontal-------------- */}
 
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6  border-end">
           {/* -----------1st-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -283,7 +292,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd-------------- */}
-          <div className=" ">
+          <div className="p-3 ">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -306,17 +315,16 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
         </div>
 
-        {/* -------------------Reverse--------------------- */}
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -324,9 +332,12 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
       </div>
       <div className="divider"></div>
@@ -341,14 +352,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
 
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -356,15 +367,18 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
 
         {/* -----------horizontal-------------- */}
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6  ">
           {/* -----------1st horiz-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -387,7 +401,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd horiz-------------- */}
-          <div className=" ">
+          <div className="p-3 ">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>

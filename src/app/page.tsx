@@ -24,6 +24,8 @@ function page() {
             title={business[2].title}
             shortdescription={business[2].shortdescription}
             slug={business[2].slug}
+            
+            
           />
 
           {/* ---------------------------------------------------repeat------------- */}

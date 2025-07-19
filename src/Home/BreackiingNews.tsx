@@ -13,14 +13,14 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
       <div className="row   ">
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-            breacking
+          {/* Top labels: Breaking + Title */}
+          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
+            Breaking
           </p>
+          <p className="fw-bold text-muted mb-2">{title}</p>
 
-          <p className="fw-bold"> {title}</p>
-
-          <div className="div h-25">
-            {" "}
+          {/* Image */}
+          <div className="mb-2">
             <img
               src={image}
               alt={title}
@@ -28,16 +28,19 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
-          <div className="div">
-            <p> {shortdescription.slice(0, 30)}</p>
-          </div>
+
+          {/* Text under image */}
+          <p className="text-muted small mb-0">
+            {shortdescription.slice(0, 100)}...
+          </p>
+          <p className=" text-muted mb-2">Author</p>
         </div>
 
         {/* -----------horizontal-------------- */}
 
-        <div className="col-lg-6 p-3 ">
+        <div className="col-lg-6  ">
           {/* -----------1st-------------- */}
-          <div className="border-bottom ">
+          <div className="border-bottom p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -60,7 +63,7 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
           </div>
 
           {/* -----------2nd-------------- */}
-          <div className=" ">
+          <div className=" p-3">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -87,7 +90,7 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
       {/* -------------lower-------------- */}
       <div className="row ">
         {/* -----------1st-------------- */}
-        <div className="col-lg-6 p-3  border-end">
+        <div className="col-lg-6  border-end p-3">
           <div className=" ">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
@@ -112,7 +115,7 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
         </div>
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
-          <div className="pt-2 ">
+          <div className="p-3 ">
             <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
               breacking
             </p>
@@ -137,25 +140,26 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
       </div>
       <div className="divider"></div>
 
-
       {/* ---------------horizontal one------- */}
-      <div className="row pt-5 ">
-    <div className='col-lg-9'>
-        <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">breacking</p>
-         <p className="fw-bold text-muted"> {title}</p>
-         <p className='text-muted'> jel maco</p>
-
-    </div>
-    <div className="col-lg-3">  <img
-                src={image}
-                alt={title}
-                className="img-fluid w-100 rounded"
-                style={{ height: "100px", objectFit: "cover" }}
-              /></div>
-    </div>
-    <div className="divider"></div>
-
-    
+      <div className="row p-5">
+        <div className="col-lg-9">
+          <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
+            breacking
+          </p>
+          <p className="fw-bold text-muted"> {title}</p>
+          <p className="text-muted"> jel maco</p>
+        </div>
+        <div className="col-lg-3">
+          {" "}
+          <img
+            src={image}
+            alt={title}
+            className="img-fluid w-100 rounded"
+            style={{ height: "140px", objectFit: "cover" }}
+          />
+        </div>
+      </div>
+      <div className="divider"></div>
     </div>
   );
 }

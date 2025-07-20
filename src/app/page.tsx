@@ -14,10 +14,10 @@ function page() {
         {/* -----------left--------------- */}
         <div className="col-lg-8 border-end   ">
           <Featured
-            image={business[0].image}
-            title={business[0].title}
-            shortdescription={business[0].shortdescription}
-            slug={business[0].slug}
+            image={business[9].image}
+            title={business[9].title}
+            shortdescription={business[9].shortdescription}
+            slug={business[9].slug}
           />
           <BreackingNEws
             image={business[2].image}
@@ -58,38 +58,38 @@ function page() {
           />
 
           <LatestNews
-            image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}
+            image={business[3].image}
+            title={business[3].title}
+            shortdescription={business[3].shortdescription}
+            slug={business[3].slug}
           />
 
           <LatestNews
-            image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}
+            image={business[4].image}
+            title={business[4].title}
+            shortdescription={business[4].shortdescription}
+            slug={business[4].slug}
           />
 
           <LatestNews
-            image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}
+            image={business[5].image}
+            title={business[5].title}
+            shortdescription={business[5].shortdescription}
+            slug={business[5].slug}
           />
 
           <LatestNews
-            image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}
+            image={business[6].image}
+            title={business[6].title}
+            shortdescription={business[6].shortdescription}
+            slug={business[6].slug}
           />
 
           <LatestNews
-            image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}
+            image={business[7].image}
+            title={business[7].title}
+            shortdescription={business[7].shortdescription}
+            slug={business[7].slug}
           />
         </div>
 
@@ -99,10 +99,10 @@ function page() {
 
 
          <div className="col-lg-8 border-end   ">
-          <Last image={business[2].image}
-            title={business[2].title}
-            shortdescription={business[2].shortdescription}
-            slug={business[2].slug}/>
+          <Last image={business[8].image}
+            title={business[8].title}
+            shortdescription={business[8].shortdescription}
+            slug={business[8].slug}/>
          </div>
 
       </div>

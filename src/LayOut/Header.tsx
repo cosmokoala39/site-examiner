@@ -63,7 +63,7 @@ const Header = () => {
         </div>
 
         {/* Blue banner */}
-        <div className="text-center py-2" style={{ backgroundColor: "#e6f0ff", height: "50px" }}>
+        <div className="text-center py-2" style={{ backgroundColor: "#DEF0FC", height: "50px" }}>
           <span className="text-primary">
             <a href="#" className="text-decoration-underline text-black">
               The Examiner’s complete view of property
@@ -102,7 +102,8 @@ const Header = () => {
                 <Link
                   key={index}
                   href={`/${item.slug}`}
-                  className="d-block py-2 text-dark fw-semibold border-bottom"
+                  className="d-block py-2 text-dark fw-semibold border-bottom text-decoration-none"
+
                   style={{ fontSize: "0.95rem" }}
                 >
                   {item.label}
@@ -171,7 +172,7 @@ const Header = () => {
               <Navbar expand="md" className="justify-content-md-end text-black" style={{ fontSize: "0.75rem" }}>
                 <Navbar.Toggle aria-controls="main-nav" />
                 <Navbar.Collapse id="main-nav">
-                  <Nav className="ms-md-auto text-center">
+                  <Nav className="ms-md-auto text-center fw-bold gap-3">
                     {navItems.map((item, index) => (
                       <Nav.Link
                         key={index}
@@ -239,7 +240,7 @@ const Header = () => {
         </Container>
 
         {/* Property Banner */}
-        <div className="text-center py-3" style={{ backgroundColor: "#e6f0ff" }}>
+        <div className="text-center py-3" style={{ backgroundColor: "#DEF0FC" }}>
           <span className="fw-bold text-primary">
             🏠{" "}
             <a href="#" className="text-decoration-underline text-black">

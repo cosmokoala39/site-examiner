@@ -11,7 +11,7 @@ function LatestNews({ image, title, slug, shortdescription }: ArticleProps) {
   return (
     <div className='row p-3 '>
         <div className="col-lg-8"> 
-            <div className="div fw-bold"> <p> {title}</p>
+            <div className="div "> <p className='fw-bold'> {title}</p>
             <p className='text-muted'> 30 mint ago</p></div>
             
         </div>

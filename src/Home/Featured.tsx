@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import Image from "next/image";
 
 interface ArticleProps {
   image: string;
@@ -9,27 +12,34 @@ interface ArticleProps {
 
 function Featured({ image, title, slug, shortdescription }: ArticleProps) {
   return (
-    <div className=" pb-3 ">
-        
+    <div className=" p-3">
       <div className="row">
+        {/* Left Section: Text */}
         <div className="col-lg-5">
-              <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">breacking</p>
-          <p className="fw-bold fs-3">{title}</p>
-          <p className="fw-bold text-muted">{shortdescription.slice(0, 100)}</p>
+          
+          <p className="fw-bold text-muted fs-3">{title}</p>
+          <p className=" text-muted">
+            {shortdescription ? shortdescription.slice(0, 100) : ""}
+          </p>
           <p className="text-muted">2 hrs ago</p>
-
         </div>
 
+        {/* Right Section: Image */}
         <div className="col-lg-7">
-          <img
-            src={image}
-            alt={title}
-            className="img-fluid w-100 rounded"
-            style={{ height: "220px", objectFit: "cover" }}
-          />
+          <div className="position-relative" style={{ width: "100%", height: "280px" }}>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="rounded "
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </div>
-      <div className="divider"></div>
+
+      {/* Divider */}
+      <div className="divider mt-3 mb-3" style={{ borderBottom: "1px solid #ddd" }}></div>
     </div>
   );
 }

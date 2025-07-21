@@ -9,7 +9,7 @@ interface ArticleProps {
   category:string;
 }
 
-function Repeat({ image, title, slug, shortdescription,category }: ArticleProps) {
+function RepeatPage({ image, title, slug, shortdescription,category }: ArticleProps) {
   return (
     <div className="">
       <div className="row   ">
@@ -431,4 +431,4 @@ function Repeat({ image, title, slug, shortdescription,category }: ArticleProps)
   );
 }
 
-export default Repeat;
+export default RepeatPage;

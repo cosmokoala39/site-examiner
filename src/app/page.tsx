@@ -6,6 +6,7 @@ import Repeat from "@/Home/Repeat";
 import LatestNews from "@/Home/LatestNews";
 import NewsCard from "@/Home/NewsCard";
 import Last from "@/Home/Last";
+import RepeatPage from "@/Home/Repeat";
 
 function page() {
   return (
@@ -24,11 +25,12 @@ function page() {
             title={business[2].title}
             shortdescription={business[2].shortdescription}
             slug={business[2].slug}
-            category="business"
+            
+            
           />
 
           {/* ---------------------------------------------------repeat------------- */}
-          <Repeat
+          <RepeatPage
             image={business[2].image}
             title={business[2].title}
             shortdescription={business[2].shortdescription}
@@ -37,7 +39,12 @@ function page() {
           />
 
           {/* ---------------------------------------------------Cards------------- */}
+
+
+         
         </div>
+
+        
 
         {/* ------------------------------------------------------------------------------------------------------right---------------- */}
         <div className="col-lg-4">

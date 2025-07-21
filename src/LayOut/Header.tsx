@@ -18,63 +18,81 @@ const navItems = [
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
+  const currentDate = new Date().toLocaleDateString("en-AU", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <div className="container">
-      {/* ✅ Mobile Header */}
-      <div className="d-md-none border-1 border-bottom bg-white">
-        {/* Top Row */}
-        <div className="d-flex align-items-center px-3 border-bottom">
+      {/* ✅-------------------------------------------------------- Mobile Header------------------------ */}
+      <div className="d-md-none border-bottom bg-white">
+        {/* Top Row: Menu, Logo */}
+        <div className="d-flex justify-content-between align-items-center px-3 py-2">
           <i
             className="bi bi-list fs-2"
             onClick={() => setIsMobileNavOpen(true)}
             style={{ cursor: "pointer" }}
           ></i>
-          <Link href="/" className="ms-4">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={200}
-              height={50}
-              priority
-            />
+          <Link href="/" className="text-center">
+            <Image src={logo} alt="Logo" width={180} height={40} priority />
           </Link>
+          <div style={{ width: "32px" }} /> 
         </div>
 
-        {/* Weather */}
-        <div className="px-3 py-1 d-flex justify-content-between border-1 border-bottom">
-          <p className="mb-0 text-muted">
-            <small>Friday July 18</small>
-          </p>
-          <div className="d-flex gap-2">
-            <p className="text-danger fw-semibold mb-0">subscribe</p>
-            <p className="border-start ps-3 mb-0">login</p>
+        {/*----------- Date + Subscribe + Login -----------*/}
+        <div className="d-flex justify-content-between align-items-center px-3 py-1 border-top border-bottom">
+          <div className="text-muted" style={{ fontSize: "0.8rem" }}>
+            {currentDate}
+          </div>
+          <div className="d-flex align-items-center gap-3">
+            <span className="text-danger fw-semibold" style={{ fontSize: "0.8rem" }}>
+              Subscribe
+            </span>
+            <span className="text-dark" style={{ fontSize: "0.8rem" }}>
+              Log in
+            </span>
           </div>
         </div>
 
-        {/* Location */}
-        <div className="d-flex justify-content-between py-1 px-3">
+        {/*----------- Weather Info -----------*/}
+        <div className="d-flex justify-content-between align-items-center px-3 py-2 border-bottom">
           <div>
-            <p className="text-black fw-semibold mb-0">kochi</p>
-            <p className="mb-0 text-muted">Raining</p>
+            <p className="mb-0 fw-semibold text-dark" style={{ fontSize: "0.9rem" }}>
+              Launceston
+            </p>
+            <p className="mb-0 text-muted" style={{ fontSize: "0.8rem" }}>
+              Mostly cloudy
+            </p>
           </div>
-          <div>
-            <p className="mb-0">weather</p>
+          <div className="d-flex align-items-center gap-2">
+            <i className="bi bi-cloud fs-4 text-secondary"></i>
+            <div className="text-end">
+              <div className="fw-semibold text-dark" style={{ fontSize: "1rem" }}>
+                11.9°
+              </div>
+              <div className="text-muted" style={{ fontSize: "0.75rem" }}>
+                2° / 15°
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Blue banner */}
-        <div className="text-center py-2" style={{ backgroundColor: "#DEF0FC", height: "50px" }}>
-          <span className="text-primary">
-            <a href="#" className="text-decoration-underline text-black">
-              The Examiner’s complete view of property
+        {/*--------------- Double Line + Blue Banner -----------*/}
+        <div style={{ borderTop: "3px double #000" }}>
+          <div className="d-flex align-items-center gap-2 px-3 py-2" style={{ backgroundColor: "#DEF0FC" }}>
+            <i className="bi bi-house-door-fill fs-4 text-primary"></i>
+            <a href="#" className="text-decoration-underline text-black fw-semibold" style={{ fontSize: "0.85rem" }}>
+              The Examiner's complete view of property
             </a>
-          </span>
+          </div>
         </div>
 
-        {/* ✅ Slide-in Mobile Menu */}
+        {/* ------------------------------------------------------------------Slide-in Mobile Menu ------------------*/}
         {isMobileNavOpen && (
           <>
-            {/* Sidebar */}
             <div
               className="mobile-nav-sidebar"
               style={{
@@ -103,7 +121,6 @@ const Header = () => {
                   key={index}
                   href={`/${item.slug}`}
                   className="d-block py-2 text-dark fw-semibold border-bottom text-decoration-none"
-
                   style={{ fontSize: "0.95rem" }}
                 >
                   {item.label}
@@ -111,7 +128,6 @@ const Header = () => {
               ))}
             </div>
 
-            {/* Backdrop */}
             <div
               className="mobile-nav-backdrop"
               onClick={() => setIsMobileNavOpen(false)}
@@ -129,30 +145,29 @@ const Header = () => {
         )}
       </div>
 
-      {/* ✅ Desktop Header */}
+      {/* ✅--------------------------------------------------------------- Desktop Header----------------------- */}
       <div className="d-none d-md-block mobile-hd">
-        {/* Top Header */}
+        {/* -----------Top Header------------ */}
         <div className="bg-white border-bottom py-4 px-3 d-flex align-items-center justify-content-between flex-wrap">
-          <div className="d-flex align-items-center gap-3">
-            <i className="bi bi-list fs-4"></i>
-            <i className="bi bi-search fs-4"></i>
+          <div className="d-flex flex-column align-items-start gap-1">
+            <div className="d-flex align-items-center gap-3">
+              <i className="bi bi-list fs-4"></i>
+              <i className="bi bi-search fs-4"></i>
+            </div>
+            <div>
+              <small className=" fw-bold text-small">{currentDate}</small>
+            </div>
           </div>
 
           <div className="text-center flex-grow-1">
             <Link href="/">
-              <Image
-                src={logo}
-                alt="The Examiner Logo"
-                width={320}
-                height={70}
-                className="mx-auto"
-              />
+              <Image src={logo} alt="The Examiner Logo" width={320} height={70} className="mx-auto" />
             </Link>
           </div>
 
           <div className="d-flex flex-column align-items-center gap-2">
             <div className="d-flex align-items-center gap-3">
-              <Button variant="danger" className="px-2 subscribe-btn">
+              <Button variant="danger" className="px-2 py-1" style={{ fontSize: "0.75rem" }}>
                 SUBSCRIBE
               </Button>
               <a href="#" className="text-dark text-decoration-none fw-bold">
@@ -165,11 +180,11 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Date and Navigation */}
+        {/* Navigation */}
         <Container fluid className="border-bottom py-0 px-2 bg-white">
           <Row className="align-items-center">
             <Col xs={12} md={8}>
-              <Navbar expand="md" className="justify-content-md-end text-black" style={{ fontSize: "0.75rem" }}>
+              <Navbar expand="md" className="justify-content-md-end text-black" style={{ fontSize: "0.80rem" }}>
                 <Navbar.Toggle aria-controls="main-nav" />
                 <Navbar.Collapse id="main-nav">
                   <Nav className="ms-md-auto text-center fw-bold gap-3">
@@ -190,9 +205,9 @@ const Header = () => {
         </Container>
 
         {/* Utility Info Section */}
-        <Container fluid className="border-top border-bottom border-black py-2 bg-white">
+        <Container fluid className="border-top border-bottom border-black py-1 bg-white">
           <Row className="text-center text-md-start">
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-1">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-1 border-end">
               <i className="bi bi-newspaper fs-2 mb-1"></i>
               <div>
                 <p className="mb-0 fw-semibold text-black" style={{ fontSize: "0.75rem" }}>
@@ -203,50 +218,52 @@ const Header = () => {
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 border-end">
               <i className="bi bi-grid-3x3-gap-fill fs-2 mb-2"></i>
               <div>
-                <strong className="d-block mb-0 text-black" style={{ fontSize: "0.75rem" }}>
+                <strong className="d-block mb-0 text-black" style={{ fontSize: "0.70rem" }}>
                   Puzzle
                 </strong>
                 <span className="text-muted" style={{ fontSize: "0.8rem" }}>
-                  Sign up to stay updated
+                  Test your skills with crossword, Sudoku and ultimate Trivia
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 border-end">
               <i className="bi bi-envelope fs-2 mb-0"></i>
               <div>
                 <strong className="d-block mb-0 text-black" style={{ fontSize: "0.75rem" }}>
                   Newsletters
                 </strong>
                 <span className="text-muted" style={{ fontSize: "0.8rem" }}>
-                  Sign up to stay updated
+                  Sign up to newsletters tailored to your intrests
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 ">
               <i className="bi bi-fingerprint fs-2 mb-0 text-warning"></i>
               <div>
                 <strong className="d-block mb-0 text-black" style={{ fontSize: "0.75rem" }}>
-                  ViewJobs
+                  ViewJobs 
                 </strong>
                 <span className="text-muted" style={{ fontSize: "0.8rem" }}>
-                  Best job opportunities across Australia
+                  ViewJobs Brings you the best job oppertunities across Australia
                 </span>
               </div>
             </Col>
           </Row>
         </Container>
 
-        {/* Property Banner */}
-        <div className="text-center py-3" style={{ backgroundColor: "#DEF0FC" }}>
-          <span className="fw-bold text-primary">
-            🏠{" "}
-            <a href="#" className="text-decoration-underline text-black">
-              The Examiner’s complete view of property
-            </a>
-          </span>
+        {/* Double Line + Blue Banner */}
+        <div style={{ borderTop: "3px double #000" }}>
+          <div className="text-center py-3" style={{ backgroundColor: "#DEF0FC" }}>
+            <span className="fw-bold text-primary">
+              🏠{" "}
+              <a href="#" className="text-decoration-underline text-black">
+                The Examiner’s complete view of property
+              </a>
+            </span>
+          </div>
         </div>
       </div>
 

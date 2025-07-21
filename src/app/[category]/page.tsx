@@ -52,8 +52,6 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: PageProps) {
   const { category } = params;
 
-  console.log("categorySlug:", category);
-
   let filteredArticles: Article[] = [];
 
   switch (category) {
@@ -90,39 +88,44 @@ export default async function CategoryPage({ params }: PageProps) {
       {/* ---------- Header -------------- */}
       <div className="my-3 pb-4 border-bottom">
         <h1 className="fw-bold text-capitalize">{category} News</h1>
-        <div className=" py-2">
-          <div className="d-flex gap-2 ">
-            {sportSubCategories.map((item, index) => (
-              <Button
-                key={index}
-                variant="light"
-                className="rounded-pill py-1 text-nowrap d-flex align-items-center gap-2"
-              >
-                {item.icon && <span>{item.icon}</span>}
-                {item.label}
-              </Button>
-            ))}
-          </div>
+        <div className="py-2">
+         <div className="d-flex flex-wrap gap-1">
+  {sportSubCategories.map((item, index) => (
+    <Button
+      key={index}
+      variant="light"
+      className="rounded-pill py-0 px-2 small text-nowrap d-flex align-items-center gap-1"
+    >
+      {item.icon && <span>{item.icon}</span>}
+      {item.label}
+    </Button>
+  ))}
+</div>
+
         </div>
       </div>
 
       <div className="row">
+
+
+        
         {/* --------------------- Left -------------------- */}
         <div className="col-lg-8 border-end">
-          {filteredArticles.map((article, index) => (
+          {filteredArticles.slice(0, 1).map((article, index) => (
             <CatPage
               key={index}
               image={article.image}
               title={article.title}
               shortdescription={article.shortdescription}
               slug={article.slug}
+              category={category}
             />
           ))}
         </div>
 
         {/* --------------------------- Right ---------------------- */}
         <div className="col-lg-4">
-          {/* You can place sidebar content here, e.g. trending news */}
+          {/* Sidebar content can go here */}
         </div>
       </div>
     </div>

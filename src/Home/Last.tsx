@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
@@ -6,9 +7,10 @@ interface ArticleProps {
   title: string;
   slug: string;
   shortdescription: string;
+  category:string
 }
 
-function Last({ image, title, slug, shortdescription }: ArticleProps) {
+function Last({ image, title, slug, shortdescription,category }: ArticleProps) {
   return (
     <div className="">
       <Row className="mb-3 pt-5">
@@ -43,9 +45,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+       
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -69,9 +69,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -92,9 +90,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd horiz-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -120,9 +116,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------1st-------------- */}
         <div className="col-lg-6 p-3  border-end">
           <div className=" ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -131,12 +125,14 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -144,9 +140,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
           <div className="pt-2 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -155,12 +149,14 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>{" "}
@@ -200,9 +196,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 border-end ">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -211,21 +205,21 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /></Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+            
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -234,12 +228,14 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -248,19 +244,19 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6  p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+          
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            /></Link>
           </div>
 
           {/* Text under image */}
@@ -276,9 +272,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------1st-------------- */}
         <div className="col-lg-6 p-3  border-end">
           <div className=" ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -287,12 +281,14 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /></Link>
               </div>
             </div>
           </div>
@@ -300,9 +296,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
           <div className="pt-2 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -311,12 +305,14 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /></Link>
               </div>
             </div>
           </div>{" "}
@@ -330,13 +326,12 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+            
             <img
               src={image}
               alt={title}
@@ -356,9 +351,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -379,9 +372,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd horiz-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -408,9 +399,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------1st-------------- */}
         <div className="col-lg-6 p-3  border-end">
           <div className=" ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+        
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -432,9 +421,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
           <div className="pt-2 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -487,9 +474,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 border-end ">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -510,9 +495,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -535,9 +518,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6  p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -565,9 +546,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -591,9 +570,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom  p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+       
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -614,9 +591,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd horiz-------------- */}
           <div className=" p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+         
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -643,9 +618,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------1st-------------- */}
         <div className="col-lg-6 p-3  border-end">
           <div className=" ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -667,9 +640,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
           <div className="pt-2 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -724,9 +695,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  border-end ">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -747,9 +716,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+         
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -772,9 +739,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -800,9 +765,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------1st-------------- */}
         <div className="col-lg-6 p-3  border-end">
           <div className=" ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+         
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -824,9 +787,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* -----------2nd-------------- */}
         <div className="col-lg-6">
           <div className="pt-2 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -853,9 +814,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+        
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -879,9 +838,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -902,9 +859,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd horiz-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -957,9 +912,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  border-end">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -980,9 +933,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -1004,9 +955,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
         <div className="col-lg-6  p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -1034,9 +983,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
@@ -1060,9 +1007,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -1083,9 +1028,7 @@ function Last({ image, title, slug, shortdescription }: ArticleProps) {
 
           {/* -----------2nd horiz-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+         
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">

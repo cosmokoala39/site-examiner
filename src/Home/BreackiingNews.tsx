@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface ArticleProps {
@@ -5,19 +6,21 @@ interface ArticleProps {
   title: string;
   slug: string;
   shortdescription: string;
+  category:string
 }
 
-function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
+function BreackingNEws({ image, title, slug, shortdescription,category }: ArticleProps) {
   return (
     <div className="div">
       <div className="row   ">
         {/* ------------vertical------------ */}
-        <div className="col-lg-6 border-end p-3">
-          {/* Top labels: Breaking + Title */}
+        <div className="col-lg-6 border-end px-3">
          
-          <p className="fw-bold text-muted mb-2">{title}</p>
+         
+          <p className="fw-bold text-muted mb-2 Times New Roman">{title}</p>
 
           {/* Image */}
+          <Link href={`/${category || 'business'}/${slug}`}>
           <div className="mb-2">
             <img
               src={image}
@@ -26,6 +29,7 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
+          </Link>
 
           {/* Text under image */}
           <p className="text-muted small mb-0">
@@ -46,7 +50,10 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
                 <p className="text-muted">{shortdescription.slice(0, 30)}</p>
                 <p className="text-muted">46 mint ago</p>
               </div>
+         
+
               <div className="col-lg-4">
+                 <Link href={`/${category || 'business'}/${slug}`}>
                 {" "}
                 <img
                   src={image}
@@ -54,7 +61,9 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
                 />
+</Link>
               </div>
+              
             </div>
           </div>
 
@@ -69,12 +78,14 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -95,12 +106,14 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -116,13 +129,14 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
                 <p className="text-muted">46 mint ago</p>
               </div>
               <div className="col-lg-4">
-                {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                {" "} 
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>{" "}
@@ -139,12 +153,14 @@ function BreackingNEws({ image, title, slug, shortdescription }: ArticleProps) {
         </div>
         <div className="col-lg-3">
           {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
           <img
             src={image}
             alt={title}
             className="img-fluid w-100 rounded"
             style={{ height: "140px", objectFit: "cover" }}
-          />
+          /> </Link>
         </div>
       </div>
       <div className="divider"></div>

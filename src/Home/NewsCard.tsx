@@ -59,12 +59,14 @@ const NewsCardGrid: React.FC = () => {
                 borderRadius: "4px",
               }}
             >
+                 
+              
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 style={{ objectFit: "cover", borderRadius: "4px" }}
-              />
+              /> 
             </div>
             <p className="mb-1 text-muted small">{item.slug.substring(0, 5)}</p>
             <h6 className="mb-1">{item.title.substring(0, 10)}</h6>

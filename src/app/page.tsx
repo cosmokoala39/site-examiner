@@ -24,8 +24,7 @@ function page() {
             title={business[2].title}
             shortdescription={business[2].shortdescription}
             slug={business[2].slug}
-            
-            
+            category="business"
           />
 
           {/* ---------------------------------------------------repeat------------- */}
@@ -34,15 +33,11 @@ function page() {
             title={business[2].title}
             shortdescription={business[2].shortdescription}
             slug={business[2].slug}
+            category={business[2].category}
           />
 
           {/* ---------------------------------------------------Cards------------- */}
-
-
-         
         </div>
-
-        
 
         {/* ------------------------------------------------------------------------------------------------------right---------------- */}
         <div className="col-lg-4">
@@ -93,18 +88,19 @@ function page() {
           />
         </div>
 
-         <NewsCard />
+        <NewsCard />
 
         {/* ------------------------------------------------------------------------------------------------------Last---------------- */}
 
-
-         <div className="col-lg-8 border-end   ">
-          <Last image={business[8].image}
+        <div className="col-lg-8 border-end   ">
+          <Last
+            image={business[8].image}
             title={business[8].title}
             shortdescription={business[8].shortdescription}
-            slug={business[8].slug}/>
-         </div>
-
+            slug={business[8].slug}
+            category={business[2].category}
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface ArticleProps {
@@ -5,9 +6,10 @@ interface ArticleProps {
   title: string;
   slug: string;
   shortdescription: string;
+  category:string;
 }
 
-function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
+function Repeat({ image, title, slug, shortdescription,category }: ArticleProps) {
   return (
     <div className="">
       <div className="row   ">
@@ -16,20 +18,19 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
 
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            />  </Link>
           </div>
 
           {/* Text under image */}
@@ -43,9 +44,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+            
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -54,21 +53,21 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd horiz-------------- */}
           <div className="  p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -76,13 +75,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
                 <p className="text-muted">46 mint ago</p>
               </div>
               <div className="col-lg-4">
-                {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                {" "} 
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -103,9 +103,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 border-end">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -114,21 +112,21 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -137,12 +135,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -151,20 +151,19 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
        
         {/* ------------vertical------------ */}
        <div className="col-lg-6 border-end p-3">
-          {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+          
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+            
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            /> </Link>
           </div>
 
           {/* Text under image */}
@@ -186,19 +185,19 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
        <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            /></Link>
           </div>
 
           {/* Text under image */}
@@ -212,9 +211,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6 ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -223,21 +220,21 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd horiz-------------- */}
           <div className=" p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+            
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -246,12 +243,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -270,9 +269,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  border-end">
           {/* -----------1st-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -281,21 +278,21 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -304,12 +301,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
@@ -318,19 +317,19 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+          
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+            
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            /> </Link>
           </div>
 
           {/* Text under image */}
@@ -353,19 +352,19 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
           {/* Top labels: Breaking + Title */}
-          <p className="breacking d-inline-block  px-2 py-1 rounded-pill">
-            Breaking
-          </p>
+         
           <p className="fw-bold text-muted mb-2">{title}</p>
 
           {/* Image */}
           <div className="mb-2">
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
             <img
               src={image}
               alt={title}
               className="img-fluid w-100 rounded"
               style={{ height: "220px", objectFit: "cover" }}
-            />
+            /> </Link>
           </div>
 
           {/* Text under image */}
@@ -379,9 +378,7 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
         <div className="col-lg-6  ">
           {/* -----------1st horiz-------------- */}
           <div className="border-bottom p-3">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+          
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -390,21 +387,21 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+                
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>
 
           {/* -----------2nd horiz-------------- */}
           <div className="p-3 ">
-            <p className=" breacking d-inline-block  px-2 py-1 rounded-pill ">
-              breacking
-            </p>
+           
             <p className="fw-bold"> {title}</p>
             <div className="row">
               <div className="col-lg-8">
@@ -413,12 +410,14 @@ function Repeat({ image, title, slug, shortdescription }: ArticleProps) {
               </div>
               <div className="col-lg-4">
                 {" "}
+                 <Link href={`/${category || 'business'}/${slug}`}>
+
                 <img
                   src={image}
                   alt={title}
                   className="img-fluid w-100 rounded"
                   style={{ height: "80px", objectFit: "cover" }}
-                />
+                /> </Link>
               </div>
             </div>
           </div>

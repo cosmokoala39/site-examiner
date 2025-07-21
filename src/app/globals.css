@@ -55,3 +55,27 @@ color: rgb(63, 62, 62);
   background-color: #dddd;
   margin: 10px 20px;
 }
+
+
+/* ----------------------info------------ */
+.info{
+  line-height: 1;
+}
+
+.nav-info{
+  text-transform: uppercase;
+}
+.nav-link02{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+.nav-link02 li{
+  font-size: 0.8rem;
+  list-style-type: none;
+  font-weight: 400;
+  text-transform: uppercase;
+}

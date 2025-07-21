@@ -181,72 +181,70 @@ const Header = () => {
         </div>
 
         {/* Navigation */}
-        <Container fluid className="border-bottom py-0 px-2 bg-white">
-          <Row className="align-items-center">
-            <Col xs={12} md={8}>
-              <Navbar expand="md" className="justify-content-md-end text-black" style={{ fontSize: "0.80rem" }}>
-                <Navbar.Toggle aria-controls="main-nav" />
-                <Navbar.Collapse id="main-nav">
-                  <Nav className="ms-md-auto text-center fw-bold gap-3">
-                    {navItems.map((item, index) => (
-                      <Nav.Link
-                        key={index}
-                        href={`/${item.slug}`}
-                        className="px-2 py-0 text-black fw-normal"
-                      >
-                        {item.label}
-                      </Nav.Link>
-                    ))}
-                  </Nav>
-                </Navbar.Collapse>
-              </Navbar>
-            </Col>
-          </Row>
-        </Container>
+       
+ <div className="row">
+  <div className="col-lg">
+    <ul className="nav-link02 d-flex gap-4 list-unstyled">
+      {navItems.map((item, index) => (
+        <li key={index}>
+          <a
+            href={`/${item.slug}`}
+            className="text-decoration-none"
+            style={{ color: '#333', fontSize: '0.8rem', fontWeight: '500' }}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+
 
         {/* Utility Info Section */}
-        <Container fluid className="border-top border-bottom border-black py-1 bg-white">
+        <Container fluid className="border-top  border-black py-1 bg-white">
           <Row className="text-center text-md-start">
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-1 border-end">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2  border-end">
               <i className="bi bi-newspaper fs-2 mb-1"></i>
-              <div>
+              <div className="info">
                 <p className="mb-0 fw-semibold text-black" style={{ fontSize: "0.75rem" }}>
                   Today’s news highlights
                 </p>
-                <span className="text-muted" style={{ fontSize: "0.8rem" }}>
+                <span className="text-muted" style={{ fontSize: "0.7rem" }}>
                   Read the latest edition online
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 border-end">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2  border-end">
               <i className="bi bi-grid-3x3-gap-fill fs-2 mb-2"></i>
-              <div>
+              <div className="info">
                 <strong className="d-block mb-0 text-black" style={{ fontSize: "0.70rem" }}>
                   Puzzle
                 </strong>
-                <span className="text-muted" style={{ fontSize: "0.8rem" }}>
+                <span className="text-muted" style={{ fontSize: "0.7rem" }}>
                   Test your skills with crossword, Sudoku and ultimate Trivia
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 border-end">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2  border-end">
               <i className="bi bi-envelope fs-2 mb-0"></i>
-              <div>
+              <div className="info">
                 <strong className="d-block mb-0 text-black" style={{ fontSize: "0.75rem" }}>
                   Newsletters
                 </strong>
-                <span className="text-muted" style={{ fontSize: "0.8rem" }}>
+                <span className="text-muted" style={{ fontSize: "0.7rem" }}>
                   Sign up to newsletters tailored to your intrests
                 </span>
               </div>
             </Col>
-            <Col xs={12} md={3} className="d-flex align-items-center gap-2 mb-2 ">
+            <Col xs={12} md={3} className="d-flex align-items-center gap-2  ">
               <i className="bi bi-fingerprint fs-2 mb-0 text-warning"></i>
-              <div>
+              <div className="info">
                 <strong className="d-block mb-0 text-black" style={{ fontSize: "0.75rem" }}>
                   ViewJobs 
                 </strong>
-                <span className="text-muted" style={{ fontSize: "0.8rem" }}>
+                <span className="text-muted" style={{ fontSize: "0.7rem" }}>
                   ViewJobs Brings you the best job oppertunities across Australia
                 </span>
               </div>
@@ -255,7 +253,7 @@ const Header = () => {
         </Container>
 
         {/* Double Line + Blue Banner */}
-        <div style={{ borderTop: "3px double #000" }}>
+        <div style={{ borderTop: "4px double #000" }}>
           <div className="text-center py-3" style={{ backgroundColor: "#DEF0FC" }}>
             <span className="fw-bold text-primary">
               🏠{" "}

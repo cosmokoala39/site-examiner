@@ -80,7 +80,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
                   src={item.image}
                   alt={item.title}
                   className="img-fluid w-100 rounded"
-                  style={{ height: "80px", objectFit: "cover" }}
+                  style={{  objectFit: "cover" }}
                 />
               </div>
             </div>

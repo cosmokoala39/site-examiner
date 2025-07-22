@@ -55,6 +55,7 @@ function Last({
               style={{ height: "220px", objectFit: "cover" }}
             />
           </div>
+          
           <p className="text-muted small mb-0">
             {shortdescription.slice(0, 100)}...
           </p>

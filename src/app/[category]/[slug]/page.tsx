@@ -7,8 +7,8 @@ import healthData from "../../../data/health.json";
 
 import { Metadata } from "next";
 import Image from "next/image";
-import LatestNews from "@/Home/LatestNews";
-import NewsCardGrid from "@/Home/NewsCard";
+import NewsCardGrid from "@/Components/Home/NewsCard";
+import Carousel from "@/Components/Carousel";
 
 interface ArticleProps {
   image: string;
@@ -17,6 +17,10 @@ interface ArticleProps {
   shortdescription: string;
   description: string;
   category: string;
+  author?: string;
+  updated?: string;
+  published?: string;
+  imageCaption?: string;
 }
 
 interface PageProps {
@@ -26,7 +30,6 @@ interface PageProps {
   };
 }
 
-// Generate static params
 export async function generateStaticParams() {
   const allData = [
     { category: "business", articles: businessData },
@@ -45,7 +48,6 @@ export async function generateStaticParams() {
   );
 }
 
-// Generate metadata
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -93,7 +95,6 @@ export async function generateMetadata({
   };
 }
 
-// Article Detail Page
 export default async function DetailPage({ params }: PageProps) {
   const { category, slug } = params;
 
@@ -117,41 +118,72 @@ export default async function DetailPage({ params }: PageProps) {
   return (
     <div className="container py-5">
       <div className="row">
-        {/* -----------------------left------------------------ */}
+        {/* ----------------------- Main Article ------------------------ */}
         <div className="col-lg-8">
-          <h1 className="fs-2 fw-bold mb-4">{article.title}</h1>
+          {/* Title */}
+          <h1 className="fw-bold mb-3">{article.title}</h1>
 
-          {/* ✅ Image matches text width */}
-          <div className="mb-4">
+          {/* Author and Meta */}
+          <div className="text-muted mb-2">
+            <div>
+              By <span className="fw-semibold text-dark">{article.author || "Unknown"}</span>
+            </div>
+            <div>
+              <strong>Updated</strong> {article.updated || "N/A"},
+              first published {article.published || "N/A"}
+            </div>
+          </div>
+
+          {/* Social Icons */}
+          <div className="d-flex gap-3 my-3">
+            <i className="bi bi-facebook fs-5"></i>
+            <i className="bi bi-twitter-x fs-5"></i>
+            <i className="bi bi-whatsapp fs-5"></i>
+            <i className="bi bi-envelope fs-5"></i>
+            <i className="bi bi-link-45deg fs-5"></i>
+          </div>
+
+          {/* Image */}
+          <div className="mb-3">
             <Image
               src={article.image}
               alt={article.title}
-              width={768}
-              height={430}
-              className="img-fluid rounded w-100"
+              width={800}
+              height={450}
+              className="rounded w-100 hy6"
             />
+            {article.imageCaption && (
+              <small className="text-muted d-block mt-1">{article.imageCaption}</small>
+            )}
           </div>
 
-          <p className="text-muted mb-4" >{article.shortdescription}</p>
-          <div className="container">
-            <p
-              className="text-dark mb-3 fs-6 fs-md-5 fs-lg-5"
-              style={{
-                lineHeight: "1.8",
-                textAlign: "justify",
-                wordBreak: "break-word",
-              }}
-            >
-              {article.description}
-            </p>
+          {/* Short Description */}
+          
+          <p className="text-muted fs-6 mb-3">{article.shortdescription}</p>
+
+          {/* Description */}
+         <div className="container mx-auto px-4">
+  <div className="text-gray-800 text-base leading-relaxed text-justify">
+    {article.description}
+  </div>
+</div>
+
+
+          {/* Related Carousel */}
+          <div className="mt-5">
+            <Carousel />
           </div>
 
-          <NewsCardGrid />
+          {/* Related Articles Grid */}
+          <div className="mt-4">
+            <NewsCardGrid />
+          </div>
         </div>
 
-        {/* ----------------------right------------------- */}
-
-        <div className="col-lg-4"></div>
+        {/* ---------------------- Sidebar ------------------- */}
+        <div className="col-lg-4 d-none d-lg-block">
+          {/* Add optional widgets or sidebar features here */}
+        </div>
       </div>
     </div>
   );

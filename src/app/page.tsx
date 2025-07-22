@@ -1,9 +1,9 @@
 import React from "react";
-import Featured from "@/Home/Featured";
-import BreackingNEws from "@/Home/BreackiingNews";
-import LatestNews from "@/Home/LatestNews";
-import NewsCard from "@/Home/NewsCard";
-import RepeatPage from "@/Home/Repeat";
+import Featured from "@/Components/Home/Featured";
+import BreackingNEws from "@/Components/Home/BreackiingNews";
+import LatestNews from "@/Components/Home/LatestNews";
+import NewsCard from "@/Components/Home/NewsCard";
+import RepeatPage from "@/Components/Home/Repeat";
 
 // JSON imports
 import businessJson from "@/data/business.json";
@@ -12,11 +12,11 @@ import healthJson from "@/data/health.json";
 import sportsJson from "@/data/sports.json";
 import scienceJson from "@/data/science.json";
 import technologyJson from "@/data/technology.json";
-import National from "@/Home/ReUsable/National";
-import Sports from "@/Home/ReUsable/Sports";
-import Politics from "@/Home/ReUsable/Politics";
-import Science from "@/Home/ReUsable/Science";
-import Health from "@/Home/ReUsable/Health";
+import National from "@/Components/Home/ReUsable/National";
+import Sports from "@/Components/Home/ReUsable/Sports";
+import Politics from "@/Components/Home/ReUsable/Politics";
+import Science from "@/Components/Home/ReUsable/Science";
+import Health from "@/Components/Home/ReUsable/Health";
 
 // ✅ Add these inline type definitions (or import from "@/types" if you created it separately)
 type Article = {
@@ -92,16 +92,14 @@ function Page() {
 
         {/* NewsCard */}
         <NewsCard />
-       
 
         {/* ---------------------------------Bottom Section */}
         <div className="col-lg-8 border-end">
-          <National data={politicsSection}/>
-           <Sports data={sportsSection}/>
-           <Politics data={politicsSection}/>
-           <Science data={scienceSection}/>
-           <Health data={healthSection}/>
-       
+          <National data={politicsSection} />
+          <Sports data={sportsSection} />
+          <Politics data={politicsSection} />
+          <Science data={scienceSection} />
+          <Health data={healthSection} />
         </div>
       </div>
     </div>

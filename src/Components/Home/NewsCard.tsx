@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Button, Card, Row, Col } from "react-bootstrap";
-import healthData from "../data/health.json"; // Adjust the path as needed
+import healthData from "../../data/health.json"; // Adjust the path as needed
 
 interface NewsItem {
   image: string;
@@ -18,31 +18,30 @@ const NewsCardGrid: React.FC = () => {
   return (
     <Row className="gx-2 gy-3 pt-5">
       <Row className="mb-3">
-  {/* Title and Line */}
-  <Col>
-    <div className="d-flex align-items-center">
-      <h6 className="fw-bold mb-0 me-2">Newsletters &amp; Alerts</h6>
-      <div
-        style={{
-          flexGrow: 1,
-          borderTop: "3px solid black", // ⬅ Black, thicker line
-        }}
-      ></div>
-    </div>
+        {/* Title and Line */}
+        <Col>
+          <div className="d-flex align-items-center">
+            <h6 className="fw-bold mb-0 me-2">Newsletters &amp; Alerts</h6>
+            <div
+              style={{
+                flexGrow: 1,
+                borderTop: "3px solid black", // ⬅ Black, thicker line
+              }}
+            ></div>
+          </div>
 
-    {/* View All Under End of Line */}
-    <div className="d-flex justify-content-end">
-      <a
-        href="#"
-        className="text-decoration-none  small mt-1"
-        style={{ color: "black" }}
-      >
-        View all
-      </a>
-    </div>
-  </Col>
-</Row>
-
+          {/* View All Under End of Line */}
+          <div className="d-flex justify-content-end">
+            <a
+              href="#"
+              className="text-decoration-none  small mt-1"
+              style={{ color: "black" }}
+            >
+              View all
+            </a>
+          </div>
+        </Col>
+      </Row>
 
       {newsItems.map((item, index) => (
         <Col key={index} xs={12} sm={6} md={3}>
@@ -59,17 +58,17 @@ const NewsCardGrid: React.FC = () => {
                 borderRadius: "4px",
               }}
             >
-                 
-              
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 style={{ objectFit: "cover", borderRadius: "4px" }}
-              /> 
+              />
             </div>
             <p className="mb-1 text-muted small">{item.slug.substring(0, 5)}</p>
-            <h6 className="mb-1" style={{ fontFamily: 'Merriweather, serif' }}>{item.title.substring(0, 10)}</h6>
+            <h6 className="mb-1" style={{ fontFamily: "Merriweather, serif" }}>
+              {item.title.substring(0, 10)}
+            </h6>
             <p
               className="mb-1"
               style={{
@@ -78,8 +77,8 @@ const NewsCardGrid: React.FC = () => {
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                 fontFamily: 'Merriweather, serif' 
-              }} 
+                fontFamily: "Merriweather, serif",
+              }}
             >
               {item.shortdescription}
             </p>

@@ -20,8 +20,8 @@ export async function generateStaticParams() {
   return categories.map((category) => ({ category }));
 }
 
-export default async function CategoryPage({ params }: { params: Params }) {
-  const { category } = params;
+export default async function CategoryPage({ params }: { params: Promise<Params> }) {
+  const { category } =await params;
   const filePath = path.join(process.cwd(), "src", "data", `${category}.json`);
 
   let data: Article[] = [];

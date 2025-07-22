@@ -57,10 +57,7 @@ function Page() {
     "science",
     scienceJson as Article[]
   );
-  const technologySection = createCategoryData(
-    "technology",
-    technologyJson as Article[]
-  );
+ 
 
   return (
     <div className="container p-3">

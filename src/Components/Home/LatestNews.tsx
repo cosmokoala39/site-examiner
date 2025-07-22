@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ArticleProps {
   image: string;
@@ -9,28 +12,44 @@ interface ArticleProps {
   category?: string;
 }
 
-function LatestNews({ image, title, slug, shortdescription, category = "business" }: ArticleProps) {
+const LatestNews: React.FC<ArticleProps> = ({
+  image,
+  title,
+  slug,
+  category = "business",
+}) => {
   return (
-    <div className="row p-3">
-      <Link href={`/${category}/${slug}`} className="text-decoration-none text-dark d-flex w-100">
+    <div className="row py-3 border-bottom">
+      <Link
+        href={`/${category}/${slug}`}
+        className="text-decoration-none text-dark d-flex w-100 align-items-center"
+      >
         <div className="col-lg-8">
-          <p className="fw-semibold" style={{ fontFamily: 'Merriweather, serif' }}>{title}</p>
-          <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+          <p className="fw-semibold mb-1" style={{ fontFamily: "Merriweather, serif" }}>
+            {title}
+          </p>
+          <p className="text-muted small mb-0" style={{ fontFamily: "Merriweather, serif" }}>
             Author · 30 min ago
           </p>
         </div>
-        <div className="col-lg-4">
-          <img
-            src={image}
-            alt={title}
-            className="img-fluid w-100 rounded"
-            style={{ height: "80px", objectFit: "cover" }}
-          />
+        <div className="col-lg-4 d-flex justify-content-end">
+          <div
+            className="position-relative"
+            style={{ width: "100px", height: "80px" }}
+          >
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="rounded"
+              style={{ objectFit: "cover" }}
+              sizes="100px"
+            />
+          </div>
         </div>
       </Link>
-      <div className="divider"></div>
     </div>
   );
-}
+};
 
 export default LatestNews;

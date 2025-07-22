@@ -22,11 +22,11 @@ function Sports({ data }: { data: CategoryData }) {
   const others = articles.slice(1, 10);
 
   return (
-    <div className="div">
+    <div className="border-bottom">
       {/* Section Header */}
       <Row className="mb-3 pt-5">
         <Col>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center ">
             <h6 className="fw-bold mb-0 me-2">Sports</h6>
             <div
               style={{
@@ -80,7 +80,7 @@ function Sports({ data }: { data: CategoryData }) {
           ))}
         </div>
         {/* Main Article */}
-        <div className="col-lg-6 border-end p-3">
+        <div className="col-lg-6 border-end p-3 border-bottom">
           <p className="fw-bold mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{main.title}</p>
 
           <Link href={`/${category}/${main.slug}`} className="d-block">

@@ -1,8 +1,10 @@
 // components/CategoryPage.tsx
 import Link from "next/link";
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import Image from "next/image";
+import NewsCardGrid from "../Home/NewsCard";
+
+
 
 interface Article {
   image: string;
@@ -45,10 +47,10 @@ function RenderCategorySection({ articles, category }: Props) {
 
   return (
     <div className="div">  
-    <div className="row">
+    <div className="row border-bottom">
       <div className="col-lg">
          <div className="px-4 pt-6 pb-3 border-b border-gray-200">
-      <h1 className="text-3xl font-bold text-gray-900 mb-3">Sport</h1>
+      <h1 className="text-3xl font-bold text-gray-900 mb-3">{category}</h1>
       <div className="flex hhh77 overflow-x-auto scrollbar-hide">
         {navItems.map((item, index) => (
           <button
@@ -80,24 +82,7 @@ function RenderCategorySection({ articles, category }: Props) {
         />
       </div>
 
-      {/* Category heading with View all */}
-      <Row className="mb-3 pt-5">
-        <Col>
-          <div className="d-flex align-items-center">
-            <h6 className="fw-bold mb-0 me-2 text-capitalize">{category}</h6>
-            <div style={{ flexGrow: 1, borderTop: "3px solid black" }}></div>
-          </div>
-          <div className="d-flex justify-content-end">
-            <Link
-              href={`/${category}`}
-              className="text-decoration-none small mt-1"
-              style={{ color: "black" }}
-            >
-              View all
-            </Link>
-          </div>
-        </Col>
-      </Row>
+    
 
       {/* Article Grid Layout */}
       <div className="row pt-2">
@@ -134,13 +119,102 @@ function RenderCategorySection({ articles, category }: Props) {
                       src={article.image}
                       alt={article.title}
                       className="img-fluid w-100 rounded"
-                      style={{ height: "80px", objectFit: "cover" }}
+                      style={{  objectFit: "cover" }}
                     />
                   </Link>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+         {/* Bottom-right horizontal pair */}
+        <div className="col-lg-6 border-top">
+          {horizontals2.map((article, idx) => (
+            <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+              <p className="fw-bold">{article.title}</p>
+              <div className="row">
+                <div className="col-lg-8">
+                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted">46 min ago</p>
+                </div>
+                <div className="col-lg-4">
+                  <Link href={`/${category}/${article.slug}`}>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="img-fluid w-100 rounded"
+                      style={{  objectFit: "cover" }}
+                    />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom-left vertical */}
+        <div className="col-lg-6 border-end p-3 border-top border-bottom">
+          <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
+          <div className="mb-2">
+            <Link href={`/${category}/${vertical2.slug}`}>
+              <img
+                src={vertical2.image}
+                alt={vertical2.title}
+                className="img-fluid w-100 rounded"
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+            </Link>
+          </div>
+          <p className="text-muted small mb-0">{vertical2.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2">Author</p>
+        </div>
+
+       
+      </div>
+
+      {/* --------------------2nd--------------- */}
+      <div className="row pt-2">
+       
+
+        {/* Top-right horizontal pair */}
+        <div className="col-lg-6">
+          {horizontals1.map((article, idx) => (
+            <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+              <p className="fw-bold">{article.title}</p>
+              <div className="row">
+                <div className="col-lg-8">
+                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted">46 min ago</p>
+                </div>
+                <div className="col-lg-4">
+                  <Link href={`/${category}/${article.slug}`}>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="img-fluid w-100 rounded"
+                      style={{  objectFit: "cover" }}
+                    />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+         {/* Left vertical */}
+        <div className="col-lg-6 border-end p-3">
+          <p className="fw-bold text-muted mb-2">{vertical1.title}</p>
+          <div className="mb-2">
+            <Link href={`/${category}/${vertical1.slug}`}>
+              <img
+                src={vertical1.image}
+                alt={vertical1.title}
+                className="img-fluid w-100 rounded"
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+            </Link>
+          </div>
+          <p className="text-muted small mb-0">{vertical1.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2">Author</p>
         </div>
 
         {/* Bottom-left vertical */}
@@ -176,7 +250,7 @@ function RenderCategorySection({ articles, category }: Props) {
                       src={article.image}
                       alt={article.title}
                       className="img-fluid w-100 rounded"
-                      style={{ height: "80px", objectFit: "cover" }}
+                      style={{  objectFit: "cover" }}
                     />
                   </Link>
                 </div>
@@ -188,6 +262,7 @@ function RenderCategorySection({ articles, category }: Props) {
     </div>
       </div>
      </div>
+    <NewsCardGrid />
     </div>
   );
 }

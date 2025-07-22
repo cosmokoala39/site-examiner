@@ -24,10 +24,10 @@ interface ArticleProps {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     category: string;
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -51,7 +51,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { category, slug } = params;
+  const { category, slug } =await params;
 
   const allArticles: Record<string, ArticleProps[]> = {
     business: businessData,
@@ -96,7 +96,7 @@ export async function generateMetadata({
 }
 
 export default async function DetailPage({ params }: PageProps) {
-  const { category, slug } = params;
+  const { category, slug } =await params;
 
   const allArticles: Record<string, ArticleProps[]> = {
     business: businessData,

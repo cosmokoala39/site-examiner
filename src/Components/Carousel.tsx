@@ -6,61 +6,92 @@ import logo from '../../public/images/union-leaders-exit-dnc-democratic-party-te
 function Carousel() {
   return (
     <div className="container my-4">
-        
       <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
-          {/* First slide */}
+
+          {/* First Slide */}
           <div className="carousel-item active">
             <div className="row">
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 1" className="d-block w-100 h-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 2" className="d-block w-100 h-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 3" className="d-block w-100 h-100" />
-              </div>
+              {[1, 2, 3].map((_, index) => (
+                <div className="col-lg-4" key={`slide1-${index}`}>
+                  <div className="card">
+                    <Image
+                      src={logo}
+                      alt={`Image ${index + 1}`}
+                      className="card-img-top"
+                      style={{ height: '200px', objectFit: 'cover' }}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">Card Title {index + 1}</h5>
+                      <p className="card-text">Some quick example text below the image.</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Second slide (uses same image as placeholder) */}
+          {/* Second Slide */}
           <div className="carousel-item">
             <div className="row">
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 4" className="d-block w-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 5" className="d-block w-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 6" className="d-block w-100" />
-              </div>
+              {[4, 5, 6].map((_, index) => (
+                <div className="col-lg-4" key={`slide2-${index}`}>
+                  <div className="card">
+                    <Image
+                      src={logo}
+                      alt={`Image ${index + 4}`}
+                      className="card-img-top"
+                      style={{ height: '200px', objectFit: 'cover' }}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">Card Title {index + 4}</h5>
+                      <p className="card-text">Some quick example text below the image.</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Third slide */}
+          {/* Third Slide */}
           <div className="carousel-item">
             <div className="row">
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 7" className="d-block w-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 8" className="d-block w-100" />
-              </div>
-              <div className="col-lg-4">
-                <Image src={logo} alt="Image 9" className="d-block w-100" />
-              </div>
+              {[7, 8, 9].map((_, index) => (
+                <div className="col-lg-4" key={`slide3-${index}`}>
+                  <div className="card">
+                    <Image
+                      src={logo}
+                      alt={`Image ${index + 7}`}
+                      className="card-img-top"
+                      style={{ height: '200px', objectFit: 'cover' }}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">Card Title {index + 7}</h5>
+                      <p className="card-text">Some quick example text below the image.</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Controls */}
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        {/* Carousel Controls */}
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
         </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>

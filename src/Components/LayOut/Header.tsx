@@ -85,7 +85,7 @@ const Header = () => {
           <div className="d-flex align-items-center gap-2 px-3 py-2" style={{ backgroundColor: "#DEF0FC" }}>
             <i className="bi bi-house-door-fill fs-4 text-primary"></i>
             <a href="#" className="text-decoration-underline text-black fw-semibold" style={{ fontSize: "0.85rem" }}>
-              The Examiner's complete view of property
+              The Examiners complete view of property
             </a>
           </div>
         </div>

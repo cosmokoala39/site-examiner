@@ -36,11 +36,11 @@ function RenderCategorySection({ articles, category }: Props) {
     return <p className="text-center text-muted">No articles found.</p>;
   }
 
-  console.log("Rendering with", articles.length, "articles");
+  // console.log("Rendering with", articles.length, "articles");
   
 
   const vertical1 = articles[0];
-  console.log("vertical1:",vertical1)
+  // console.log("vertical1:",vertical1)
   const horizontals1 = articles.slice(1, 3);
   const vertical2 = articles[3];
   const horizontals2 = articles.slice(4, 6);

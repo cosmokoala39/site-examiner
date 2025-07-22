@@ -22,7 +22,7 @@ function Featured({ data }: { data: CategoryData }) {
   if (!articles || articles.length === 0) return null;
 
   const main = articles[10];
-  console.log("main:", main);
+  // console.log("main:", main);
 
   return (
     <div className="p-3">

@@ -29,7 +29,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
   try {
     const fileContent = fs.readFileSync(filePath, "utf-8");
     data = JSON.parse(fileContent); // Your JSON is an array, so parse directly into Article[]
-    console.log("Loaded articles:", data);
+    // console.log("Loaded articles:", data);
   } catch (error) {
     console.error("Error reading file:", error);
     notFound();

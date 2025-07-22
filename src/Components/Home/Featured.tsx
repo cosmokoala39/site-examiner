@@ -21,7 +21,7 @@ function Featured({ data }: { data: CategoryData }) {
 
   if (!articles || articles.length === 0) return null;
 
-  const main = articles[0];
+  const main = articles[10];
   console.log("main:", main);
 
   return (

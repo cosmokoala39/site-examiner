@@ -67,7 +67,7 @@ function Page() {
 
           <BreackingNEws data={politicsSection} />
 
-          <RepeatPage data={healthJson} />
+          <RepeatPage data={sportsSection} />
         </div>
 
         {/* Right Section */}

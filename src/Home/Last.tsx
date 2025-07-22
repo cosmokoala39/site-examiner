@@ -95,7 +95,7 @@ function Last({ image, title, slug, shortdescription,category }: ArticleProps) {
             <div className="row">
               <div className="col-lg-8">
                 <p className="text-muted small"style={{ fontFamily: 'Merriweather, serif' }}>{shortdescription.slice(0, 100)}</p>
-                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 mint ago</p>
+                <p className="text-muted small" >46 mint ago</p>
               </div>
               <div className="col-lg-4">
                 {" "}

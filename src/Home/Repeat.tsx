@@ -247,7 +247,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
               <div className="row">
                 <div className="col-lg-8">
                   <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{item.shortdescription.slice(0, 100)}</p>
-                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                  <p className="text-muted" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${item.category || 'business'}/${item.slug}`}>

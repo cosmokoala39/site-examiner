@@ -132,7 +132,7 @@ export default async function DetailPage({ params }: PageProps) {
             />
           </div>
 
-          <p className="text-muted mb-4">{article.shortdescription}</p>
+          <p className="text-muted mb-4" >{article.shortdescription}</p>
           <div className="container">
             <p
               className="text-dark mb-3 fs-6 fs-md-5 fs-lg-5"
@@ -146,11 +146,8 @@ export default async function DetailPage({ params }: PageProps) {
             </p>
           </div>
 
-          <NewsCardGrid/>
-          
+          <NewsCardGrid />
         </div>
-
-        
 
         {/* ----------------------right------------------- */}
 

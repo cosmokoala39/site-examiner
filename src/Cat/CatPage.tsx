@@ -179,7 +179,7 @@ function Last({
       <div className="row pt-2">
         {/* ------------vertical------------ */}
         <div className="col-lg-6 border-end p-3">
-          <p className="fw-bold text-muted mb-2">{title}</p>
+          <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{title}</p>
           <div className="mb-2">
             <Link href={`/${category || "business"}/${slug}`}>
               <img
@@ -189,10 +189,10 @@ function Last({
                 style={{ height: "220px", objectFit: "cover" }}
               /></Link>
           </div>
-          <p className="text-muted small mb-0">
+          <p className="text-muted small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
             {shortdescription.slice(0, 100)}...
           </p>
-          <p className="text-muted mb-2">Author</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
         </div>
 
         {/* -----------horizontal-------------- */}

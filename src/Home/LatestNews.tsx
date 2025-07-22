@@ -11,8 +11,8 @@ function LatestNews({ image, title, slug, shortdescription }: ArticleProps) {
   return (
     <div className='row p-3 '>
         <div className="col-lg-8"> 
-            <div className="div "> <p className='fw-bold' style={{ fontFamily: 'Times New Roman, serif' }}> {title}</p>
-           <p className="text-muted small"> Author  . 30 min ago</p>
+            <div className="div " style={{ fontFamily: 'Merriweather, serif' }}> <p className='fw-semibold' > {title}</p>
+           <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}> Author  . 30 min ago</p>
 </div>
             
         </div>

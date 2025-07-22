@@ -255,7 +255,7 @@ const Header = () => {
         {/* Double Line + Blue Banner */}
         <div style={{ borderTop: "4px double #000" }}>
           <div className="text-center py-3" style={{ backgroundColor: "#DEF0FC" }}>
-            <span className="fw-bold text-primary">
+            <span className="fw-normal text-primary">
               🏠{" "}
               <a href="#" className="text-decoration-underline text-black">
                 The Examiner’s complete view of property

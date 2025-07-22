@@ -69,7 +69,7 @@ const NewsCardGrid: React.FC = () => {
               /> 
             </div>
             <p className="mb-1 text-muted small">{item.slug.substring(0, 5)}</p>
-            <h6 className="mb-1">{item.title.substring(0, 10)}</h6>
+            <h6 className="mb-1" style={{ fontFamily: 'Merriweather, serif' }}>{item.title.substring(0, 10)}</h6>
             <p
               className="mb-1"
               style={{
@@ -78,7 +78,8 @@ const NewsCardGrid: React.FC = () => {
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-              }}
+                 fontFamily: 'Merriweather, serif' 
+              }} 
             >
               {item.shortdescription}
             </p>

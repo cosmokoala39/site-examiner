@@ -11,6 +11,18 @@ interface Article {
   shortdescription: string;
   category: string;
 }
+const navItems = [
+  { name: "Top News", active: true },
+  { name: "Toyota Hub", icon: "🚗" },
+  { name: "Live", icon: "📡" },
+  { name: "Local Footy" },
+
+  { name: "NRL", icon: "🏉" },
+  { name: "Scores and Draws" },
+  { name: "A-League", icon: "⚽" },
+  { name: "Football" },
+  { name: "More", icon: "⬇️" },
+];
 
 interface Props {
   articles: Article[];
@@ -32,6 +44,30 @@ function RenderCategorySection({ articles, category }: Props) {
   const horizontals2 = articles.slice(4, 6);
 
   return (
+    <div className="div">  
+    <div className="row">
+      <div className="col-lg">
+         <div className="px-4 pt-6 pb-3 border-b border-gray-200">
+      <h1 className="text-3xl font-bold text-gray-900 mb-3">Sport</h1>
+      <div className="flex hhh77 overflow-x-auto scrollbar-hide">
+        {navItems.map((item, index) => (
+          <button
+            key={index}
+            className={`whitespace-nowrap doco344 flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium ${
+              item.active
+                ? "bg-blue-700 text-white"
+                : "bg-gray-100 text-black hover:bg-gray-200"
+            }`}
+          >
+            {item.icon && <span>{item.icon}</span>}
+            {item.name}
+          </button>
+        ))}
+      </div>
+    </div></div></div> 
+     <div className="row">
+      <div className="col-lg-8">
+       
     <div className="container">
       {/* Top ad image */}
       <div className="my-4 text-center">
@@ -149,6 +185,9 @@ function RenderCategorySection({ articles, category }: Props) {
           ))}
         </div>
       </div>
+    </div>
+      </div>
+     </div>
     </div>
   );
 }

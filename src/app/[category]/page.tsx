@@ -35,7 +35,8 @@ export default async function CategoryPage({ params }: { params: Params }) {
     notFound();
   }
 
-  return (
+  return ( 
+    <div className="container">
     <main className="pt-4">
       {data.length >= 6 ? (
         <RenderCategorySection articles={data} category={category} />
@@ -43,5 +44,6 @@ export default async function CategoryPage({ params }: { params: Params }) {
         <p className="text-center text-muted py-5">No articles found for this category.</p>
       )}
     </main>
+    </div>
   );
 }

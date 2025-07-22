@@ -3,7 +3,6 @@ import Featured from "@/Home/Featured";
 import BreackingNEws from "@/Home/BreackiingNews";
 import LatestNews from "@/Home/LatestNews";
 import NewsCard from "@/Home/NewsCard";
-import Last from "@/Home/Last";
 import RepeatPage from "@/Home/Repeat";
 
 // JSON imports
@@ -13,6 +12,11 @@ import healthJson from "@/data/health.json";
 import sportsJson from "@/data/sports.json";
 import scienceJson from "@/data/science.json";
 import technologyJson from "@/data/technology.json";
+import National from "@/Home/ReUsable/National";
+import Sports from "@/Home/ReUsable/Sports";
+import Politics from "@/Home/ReUsable/Politics";
+import Science from "@/Home/ReUsable/Science";
+import Health from "@/Home/ReUsable/Health";
 
 // ✅ Add these inline type definitions (or import from "@/types" if you created it separately)
 type Article = {
@@ -67,7 +71,7 @@ function Page() {
 
           <BreackingNEws data={politicsSection} />
 
-          <RepeatPage data={sportsSection} />
+          <RepeatPage data={politicsSection} />
         </div>
 
         {/* Right Section */}
@@ -88,16 +92,16 @@ function Page() {
 
         {/* NewsCard */}
         <NewsCard />
+       
 
-        {/* Bottom Section */}
+        {/* ---------------------------------Bottom Section */}
         <div className="col-lg-8 border-end">
-          <Last
-            image={businessJson[8].image}
-            title={businessJson[8].title}
-            shortdescription={businessJson[8].shortdescription}
-            slug={businessJson[8].slug}
-            category={businessJson[8].category}
-          />
+          <National data={politicsSection}/>
+           <Sports data={sportsSection}/>
+           <Politics data={politicsSection}/>
+           <Science data={scienceSection}/>
+           <Health data={healthSection}/>
+       
         </div>
       </div>
     </div>

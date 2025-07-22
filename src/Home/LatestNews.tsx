@@ -7,7 +7,7 @@ interface ArticleProps {
   shortdescription: string;
 }
 
-function LatestNews({ image, title, slug, shortdescription }: ArticleProps) {
+function LatestNews({ image, title, slug, shortdescription, }: ArticleProps) {
   return (
     <div className='row p-3 '>
         <div className="col-lg-8"> 

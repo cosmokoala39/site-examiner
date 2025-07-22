@@ -1,9 +1,7 @@
-// app/[category]/page.tsx
 import fs from "fs";
 import path from "path";
 import { notFound } from "next/navigation";
 import RenderCategorySection from "../../../src/Components/Cat/CatPage";
-import { Metadata } from "next";
 
 interface Article {
   image: string;
@@ -11,10 +9,6 @@ interface Article {
   slug: string;
   shortdescription: string;
   category: string;
-}
-
-interface CategoryData {
-  articles: Article[];
 }
 
 interface Params {
@@ -26,29 +20,16 @@ export async function generateStaticParams() {
   return categories.map((category) => ({ category }));
 }
 
-// export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-//   const { category } = params;
-//   return {
-//     title: `${category.toUpperCase()} - News`,
-//     description: `Latest news and articles in ${category}`,
-//   };
-// }
-
 export default async function CategoryPage({ params }: { params: Params }) {
-  const { category } = await params;
- console.log("category:",category);
-  const filePath = path.join(process.cwd(),"src",  "data", `${category}.json`);
+  const { category } = params;
+  const filePath = path.join(process.cwd(), "src", "data", `${category}.json`);
 
-
-  
-  let data: CategoryData;
+  let data: Article[] = [];
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf-8");
-
-    data = JSON.parse(fileContent);
-    console.log("articlesssssssssssssssssssssss:",data.articles)
-    
+    data = JSON.parse(fileContent); // Your JSON is an array, so parse directly into Article[]
+    console.log("Loaded articles:", data);
   } catch (error) {
     console.error("Error reading file:", error);
     notFound();
@@ -56,7 +37,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
 
   return (
     <main className="pt-4">
-      {data.articles && data.articles.length >= 6 ? (
+      {data.length >= 6 ? (
         <RenderCategorySection articles={data} category={category} />
       ) : (
         <p className="text-center text-muted py-5">No articles found for this category.</p>

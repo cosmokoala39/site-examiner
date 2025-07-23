@@ -97,11 +97,8 @@ function Page() {
         </div>
 
         {/* NewsCard */}
-        <NewsCard />
-         <ImageCarousel
-        title="Top Business News"
-        items={businessItems}
-        viewAllLink="/business"
+        <NewsCard data={businessJson} />
+         <ImageCarousel data={businessJson}
       />
 
         {/* ---------------------------------Bottom Section */}

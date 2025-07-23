@@ -1,7 +1,15 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+type RawItem = {
+  image: string;
+  title: string;
+  slug: string;
+  category?: string;
+};
 
 type CarouselItem = {
   id: number;
@@ -13,12 +21,12 @@ type CarouselItem = {
 };
 
 type Props = {
-  title: string;
-  items: CarouselItem[];
+  data: RawItem[];
+  title?: string;
   viewAllLink?: string;
 };
 
-const ImageCarousel: React.FC<Props> = ({ title, items, viewAllLink }) => {
+const ImageCarousel: React.FC<Props> = ({ data, title = "Business", viewAllLink }) => {
   const scroll = (direction: "left" | "right") => {
     const container = document.getElementById(`carousel-${title}`);
     if (container) {
@@ -28,6 +36,15 @@ const ImageCarousel: React.FC<Props> = ({ title, items, viewAllLink }) => {
       });
     }
   };
+
+  const items: CarouselItem[] = data.map((item, i) => ({
+    id: i,
+    image: item.image,
+    title: item.title,
+    slug: item.slug,
+    tag: item.category || "general",
+    time: "Jul 23, 2025",
+  }));
 
   return (
     <div className="mb-5">
@@ -58,49 +75,50 @@ const ImageCarousel: React.FC<Props> = ({ title, items, viewAllLink }) => {
         >
           {items.map((item) => (
             <Link
-              href={`/${item.slug}`}
+              href={`/${item.tag}/${item.slug}`}
               key={item.id}
-              className="text-decoration-none text-dark carousel-item-custom"
+              className="text-decoration-none text-dark"
               style={{
-                flex: "0 0 50%",        // Desktop default
-                maxWidth: "20%",
-                minWidth: "140px",     // Mobile fallback
+                flex: "0 0 auto",
+                width: "180px",
               }}
             >
-              <div className="card border-0 h-100">
+              <div
+                className="card border-0 rounded-4 shadow-sm overflow-hidden"
+                style={{ height: "300px", position: "relative" }}
+              >
                 {/* Image */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+
+                {/* Play Icon */}
                 <div
-                  className="position-relative"
-                  style={{
-                    height: "360px",
-                    borderRadius: "0.6rem",
-                    overflow: "hidden",
-                  }}
+                  className="position-absolute top-50 start-50 translate-middle"
+                  style={{ color: "white", fontSize: "2.5rem", opacity: 0.9 }}
                 >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-100 h-100 img-fluid"
-                    style={{ objectFit: "cover" }}
-                  />
-                  {/* Play Button */}
-                  <div
-                    className="position-absolute top-50 start-50 translate-middle"
-                    style={{ color: "white", fontSize: "2rem" }}
-                  >
-                    <i className="bi bi-play-circle-fill"></i>
-                  </div>
+                  <i className="bi bi-play-circle-fill"></i>
                 </div>
 
-                {/* Info */}
-                <div className="card-body px-0 pt-2 pb-0">
-                  <h6 className="mb-1" style={{ fontSize: "0.8rem" }}>
+                {/* Text Overlay */}
+                <div
+                  className="position-absolute bottom-0 start-0 w-100 p-2"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))",
+                    color: "white",
+                  }}
+                >
+                  <div
+                    className="fw-bold"
+                    style={{ fontSize: "0.9rem", lineHeight: "1.2em" }}
+                  >
                     {item.title}
-                  </h6>
-                  <small className="text-muted">{item.time}</small>
+                  </div>
+                  <small className="text-light">{item.time}</small>
                 </div>
               </div>
             </Link>

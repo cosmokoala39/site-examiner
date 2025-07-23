@@ -75,14 +75,16 @@ function RenderCategorySection({ articles, category }: Props) {
        
     <div className="container">
       {/* Top ad image */}
-      <div className="my-4 text-center">
+      <div className="my-4 text-center border radio">
         <Image
-          src="/images/Ads.jpg"
-          alt="Advertisement"
-          width={728}
-          height={90}
-          style={{ maxWidth: "100%", height: "auto" }}
-        />
+  src="/images/Ads.jpg"
+  alt="Advertisement"
+  width={728}
+  height={90}
+  className="rounded"
+  style={{ maxWidth: "100%", height: "auto" }}
+/>
+
       </div>
 
     

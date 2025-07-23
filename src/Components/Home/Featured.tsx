@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export type Article = {
   image: string;
@@ -22,58 +22,62 @@ function Featured({ data }: { data: CategoryData }) {
   if (!articles || articles.length === 0) return null;
 
   const main = articles[10];
-  // console.log("main:", main);
 
   return (
     <div className="p-3">
-      <div className="row">
-        {/* Left Section: Text */}
-        <div className="col-lg-5">
-          
-          <p className="fw-bold fs-3">{main.title}</p>
-          <p
-            className="text-muted"
-            style={{ fontFamily: "Merriweather, serif" }}
-          >
-            {main.shortdescription?.slice(0, 170)}
-          </p>
-          <p
-            className="text-muted small"
-            style={{ fontFamily: "Merriweather, serif" }}
-          >
-            2 hrs ago
-          </p>
-        </div>
+      <Link
+        href={`/${category || 'business'}/${main.slug}`}
+        className="text-decoration-none text-dark"
+      >
+        <div className="row">
+          {/* ✅ Title on top for mobile only */}
+          <div className="col-12 d-block d-lg-none mb-2">
+            <h5 className="fw-bold">{main.title}</h5>
+          </div>
 
-        {/* Right Section: Image */}
-        <div className="col-lg-7">
-          <div
-            className="position-relative"
-            style={{ fontFamily: "Merriweather, serif" }}
-          >
-            {/* ✅ Image wrapped in div */}
-            <Link href={`/${category || "business"}/${main.slug}`}>
+          {/* ✅ Image (Right on desktop, Top on mobile) */}
+          <div className="col-12 col-lg-7 order-1 order-lg-2 mb-3 mb-lg-0">
+            <div style={{ position: 'relative', width: '100%', height: '250px' }}>
+              <Image
+                src={main.image}
+                alt={main.title}
+                fill
+                className="rounded"
+                style={{ objectFit: 'cover' }}
+              />
+              {/* Play Icon Overlay */}
               <div
-                style={{ position: "relative", width: "100%", height: "250px" }}
+                className="position-absolute top-50 start-50 translate-middle"
+                style={{
+                  width: '55px',
+                  height: '55px',
+                  backgroundColor: 'rgba(255,255,255,0.75)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
               >
-                <Image
-                  src={main.image}
-                  alt={main.title}
-                  fill
-                  className="rounded"
-                  style={{ objectFit: "cover" }}
-                />
+                <i className="bi bi-play-fill fs-3 text-dark"></i>
               </div>
-            </Link>
+            </div>
+          </div>
+
+          {/* ✅ Text Section (Left on desktop, below image on mobile) */}
+          <div className="col-12 col-lg-5 order-2 order-lg-1">
+            {/* Hide title on desktop since it's already shown in mobile */}
+            <h5 className="fw-bold mb-2 d-none d-lg-block">{main.title}</h5>
+            <p className="text-muted" style={{ fontFamily: 'Merriweather, serif' }}>
+              {main.shortdescription?.slice(0, 170)}...
+            </p>
+            <p className="text-muted small mb-0"style={{ fontFamily: 'Merriweather, serif' }}>2 hrs ago</p>
+            <p className="text-secondary small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>Joe Colbrook</p>
           </div>
         </div>
-      </div>
 
-      {/* Divider */}
-      <div
-        className="divider mt-3 mb-3"
-        style={{ borderBottom: "1px solid #ddd" }}
-      ></div>
+        {/* Divider */}
+        <hr className="mt-4" />
+      </Link>
     </div>
   );
 }

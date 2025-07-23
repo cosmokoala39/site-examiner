@@ -117,31 +117,41 @@ export default async function DetailPage({ params }: PageProps) {
 
   return (
     <div className="container py-5">
-      <div className="row">
+<div className=" py-4 border-bottom">
+  {/* Title */}
+  <h1 className="fw-bold mb-3">{article.title}</h1>
+
+  <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
+    {/* Author and Meta */}
+    <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 text-muted flex-wrap">
+      <div>
+        By <span className="fw-semibold text-dark">{article.author || "Unknown"}</span>
+      </div>
+
+      {/* Divider */}
+      <div className="vr d-none d-sm-block"></div>
+
+      <div>
+        <strong>Updated</strong> {article.updated || "N/A"}, first published {article.published || "N/A"}
+      </div>
+    </div>
+
+    {/* Social Icons */}
+    <div className="d-flex align-items-center gap-3 fs-5">
+      <i className="bi bi-facebook"></i>
+      <i className="bi bi-twitter-x"></i>
+      <i className="bi bi-whatsapp"></i>
+      <i className="bi bi-envelope"></i>
+      <i className="bi bi-link-45deg"></i>
+    </div>
+  </div>
+</div>
+
+      
+      <div className="row pt-5">
         {/* ----------------------- Main Article ------------------------ */}
-        <div className="col-lg-8">
-          {/* Title */}
-          <h1 className="fw-bold mb-3">{article.title}</h1>
-
-          {/* Author and Meta */}
-          <div className="text-muted mb-2">
-            <div>
-              By <span className="fw-semibold text-dark">{article.author || "Unknown"}</span>
-            </div>
-            <div>
-              <strong>Updated</strong> {article.updated || "N/A"},
-              first published {article.published || "N/A"}
-            </div>
-          </div>
-
-          {/* Social Icons */}
-          <div className="d-flex gap-3 my-3">
-            <i className="bi bi-facebook fs-5"></i>
-            <i className="bi bi-twitter-x fs-5"></i>
-            <i className="bi bi-whatsapp fs-5"></i>
-            <i className="bi bi-envelope fs-5"></i>
-            <i className="bi bi-link-45deg fs-5"></i>
-          </div>
+        <div className="col-lg-8 ">
+        
 
           {/* Image */}
           <div className="mb-3">

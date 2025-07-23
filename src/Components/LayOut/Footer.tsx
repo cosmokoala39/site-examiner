@@ -1,102 +1,87 @@
 // components/Footer.tsx
+
+"use client";
+
 import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white pt-5 pb-4 mt-5">
-      <div className="container">
-        
-        <div className="row align-items-start">
+    <footer className="bg-dark text-light pt-5 pb-4 mt-5">
+      <Container>
+        {/* Top 4 Columns */}
+        <Row className="gy-4">
+          {/* Logo & Section 1 */}
+          <Col xs={12} md={3}>
+            <h5 className="fw-bold mb-3">THE EXAMINER</h5>
+            <p className="small text-muted">© 2025</p>
+          </Col>
 
-         
-
-          {/* ACM Section */}
-          <div className="col-md-2 mb-4">
-            <h6 className="text-uppercase fw-bold mb-3 small">AUSTRALIAN COMMUNITY MEDIA</h6>
+          {/* Section 2 */}
+          <Col xs={6} md={3}>
+            <h6 className="fw-bold mb-3">AUSTRALIAN COMMUNITY MEDIA</h6>
             <ul className="list-unstyled small">
-              <li><a href="#" className="text-white-50 text-decoration-none">ACM Website</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Conditions of Use</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Privacy</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Terms and Conditions - Digital Subscription</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Terms and Conditions - Newspaper Subscription</a></li>
+              <li><a href="#" className="text-light text-decoration-none">ACM Websites</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Conditions of Use</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Privacy</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Newspaper Subscription</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Digital Subscription</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Terms and Conditions</a></li>
             </ul>
-          </div>
+          </Col>
 
-          {/* Examiner Section */}
-          <div className="col-md-2 mb-4">
-            <h6 className="text-uppercase fw-bold mb-3 small">THE EXAMINER</h6>
+          {/* Section 3 */}
+          <Col xs={6} md={3}>
+            <h6 className="fw-bold mb-3">THE EXAMINER</h6>
             <ul className="list-unstyled small">
-              <li><a href="#" className="text-white-50 text-decoration-none">Contact</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">About Us</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Working With Us</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Today’s Paper</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Commenting Guidelines</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">View Property Edition</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Help Centre</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Contact Us</a></li>
+              <li><a href="#" className="text-light text-decoration-none">About Us</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Working With Us</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Today’s Paper</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Help Centre</a></li>
+              <li><a href="#" className="text-light text-decoration-none">New Property Edition</a></li>
             </ul>
-          </div>
+          </Col>
 
-          {/* Our Sites Section */}
-          <div className="col-md-3 mb-4">
-            <h6 className="text-uppercase fw-bold mb-3 small">OUR SITES</h6>
+          {/* Section 4 */}
+          <Col xs={12} md={3}>
+            <h6 className="fw-bold mb-3">OUR SITES</h6>
             <ul className="list-unstyled small">
-              <li><a href="#" className="text-white-50 text-decoration-none">View</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Explore</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">View Insurance</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Beevo</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Place an Ad</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Classifieds</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Cars</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Tributes & Funerals</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Celebrations</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Promo Codes</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">AgTrader</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">MeHelp</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Farmer’s Finance</a></li>
-              <li><a href="#" className="text-white-50 text-decoration-none">Garage Sales</a></li>
+              <li><a href="#" className="text-light text-decoration-none">View Insurance</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Buy Search</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Real Estate</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Classifieds</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Tributes</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Obituaries</a></li>
             </ul>
-          </div>
+          </Col>
+        </Row>
 
-          {/* Submit + Social */}
-          <div className="col-md-2 mb-4 d-flex flex-column align-items-end">
-            <div className="mb-3">
-              <h6 className="text-uppercase fw-bold mb-2 small">SUBMIT</h6>
-              <a href="#" className="text-white-50 text-decoration-none small">Send a letter to the Editor</a>
-            </div>
-            <div className="d-flex gap-3">
-              <a href="#" className="text-white fs-5"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="text-white fs-5"><i className="bi bi-instagram"></i></a>
-            </div>
-          </div>
-        </div>
+        {/* Divider */}
+        <hr className="border-secondary my-4" />
 
         {/* Subscribe Section */}
-        <hr className="border-secondary my-4" />
-        <div className="row align-items-center">
-          <div className="col-md-10">
-            <h6 className="text-uppercase fw-bold small">SUBSCRIBE TO THE EXAMINER</h6>
-            <p className="small text-white-50 mb-0">
-              Stay updated with the latest news, sports, and community events in Launceston and around Tasmania.
-              Dive into in-depth analysis and storytelling from The Examiner.
+        <Row className="align-items-center gy-3">
+          <Col xs={12} md={9}>
+            <p className="mb-0 small">
+              <strong>SUBSCRIBE TO THE EXAMINER</strong><br />
+              Stay updated with the latest news, sports, and community events in Launceston and around Tasmania. Dive into in-depth analysis and storytelling from The Examiner.
             </p>
-          </div>
-          <div className="col-md-2 text-end mt-3 mt-md-0">
-            <button className="btn btn-danger">Subscribe</button>
-          </div>
-        </div>
+          </Col>
+          <Col xs={12} md={3} className="text-md-end">
+            <Button variant="danger" size="sm">Subscribe</Button>
+          </Col>
+        </Row>
 
         {/* Disclaimer */}
-        <hr className="border-secondary my-4" />
-        <div className="text-white-50 small">
-          <p className="mb-0">
-            We collect information about the content (including advertisements) you interact with across this site.
-            This helps us make advertising and content more relevant for you across the ACM network.
-            You can find out more about our <a href="#" className="text-primary text-decoration-none">conditions of use here</a>.
-            Sometimes articles you engage with will help you find a product and make your shopping experience easier.
-            We may receive compensation from affiliate partners if you choose to make a purchase through the links on our site.
-          </p>
-        </div>
-      </div>
+        <Row className="pt-3">
+          <Col>
+            <p className="text-muted small mb-0">
+              We collect information about the content (including advertisements) you use across this site and use it to make both advertising and content more relevant to you on our network and other sites. Sometimes our articles will try to help you find the right product at the right price. We may receive compensation from affiliates if you choose to purchase through our site.
+            </p>
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 };

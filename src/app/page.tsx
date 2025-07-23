@@ -11,12 +11,21 @@ import politicsJson from "@/data/politics.json";
 import healthJson from "@/data/health.json";
 import sportsJson from "@/data/sports.json";
 import scienceJson from "@/data/science.json";
-import technologyJson from "@/data/technology.json";
 import National from "@/Components/Home/ReUsable/National";
 import Sports from "@/Components/Home/ReUsable/Sports";
 import Politics from "@/Components/Home/ReUsable/Politics";
 import Science from "@/Components/Home/ReUsable/Science";
 import Health from "@/Components/Home/ReUsable/Health";
+import ImageCarousel from "@/Components/Home/ImageCarousel";
+
+const businessItems = businessJson.map((item, i) => ({
+  id: i,
+  title: item.title,
+  image: item.image,
+  tag: item.category,
+  time: "Jul 23, 2025",
+  slug: item.slug,
+}));
 
 // ✅ Add these inline type definitions (or import from "@/types" if you created it separately)
 type Article = {
@@ -89,15 +98,23 @@ function Page() {
 
         {/* NewsCard */}
         <NewsCard />
+         <ImageCarousel
+        title="Top Business News"
+        items={businessItems}
+        viewAllLink="/business"
+      />
 
         {/* ---------------------------------Bottom Section */}
         <div className="col-lg-8 border-end">
           <National data={politicsSection} />
+         
           <Sports data={sportsSection} />
           <Politics data={politicsSection} />
           <Science data={scienceSection} />
           <Health data={healthSection} />
         </div>
+          
+      
       </div>
     </div>
   );

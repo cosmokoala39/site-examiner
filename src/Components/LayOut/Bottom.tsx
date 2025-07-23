@@ -1,24 +1,25 @@
-'use client';
-import React from 'react';
+"use client";
+
+import React from "react";
+import Link from "next/link";
 
 const Bottom = () => {
-  const navItems = [
-    'News',
-    'Sport',
-    'Noticeboard',
-    'Classifieds',
-    'Explore Travel',
-    'Entertainment',
-    'Lifestyle',
+  const items = [
+    { label: "Home", href: "/" },
+    { label: "Politics", href: "/politics" },
+    { label: "Health", href: "/health" },
+    { label: "Sports", href: "/sports" },
+    { label: "Science", href: "/science" },
+    { label: "Business", href: "/business" },
+    { label: "Technology", href: "/technology" },
   ];
 
   return (
     <>
-      {/* Desktop View */}
+      {/* ✅ Desktop View */}
       <section className="d-none d-md-block mt-5 pt-3">
         <div className="container px-4">
-
-          {/* Date and Weather Row */}
+          {/* Date and Weather */}
           <div className="d-flex justify-content-between align-items-center py-1">
             <div className="fw-semibold small">Wednesday 23 July 2025</div>
             <div className="d-flex align-items-center gap-2 small text-secondary">
@@ -31,16 +32,21 @@ const Bottom = () => {
           {/* Navigation Menu */}
           <nav
             className="d-flex justify-content-center border-top border-bottom pt-2 pb-2 gap-4 fw-semibold text-uppercase"
-            style={{ fontSize: '0.72rem' }}
+            style={{ fontSize: "0.72rem" }}
           >
-            {navItems.map((item, index) => (
-              <span key={index}>{item}</span>
+            {items.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className="text-dark text-decoration-none"
+              >
+                {item.label}
+              </Link>
             ))}
           </nav>
 
           {/* Feature Grid */}
           <div className="row text-center text-md-start align-items-center py-1 gx-4 small">
-            {/* Today's Paper */}
             <div className="col-md-3 d-flex align-items-center gap-2">
               <i className="bi bi-newspaper fs-4"></i>
               <div>
@@ -48,8 +54,6 @@ const Bottom = () => {
                 <div className="small">Read the latest edition online</div>
               </div>
             </div>
-
-            {/* Puzzles */}
             <div className="col-md-3 d-flex align-items-center gap-2 border-start ps-3">
               <i className="bi bi-grid-3x3-gap fs-4"></i>
               <div>
@@ -59,8 +63,6 @@ const Bottom = () => {
                 </div>
               </div>
             </div>
-
-            {/* Newsletters */}
             <div className="col-md-3 d-flex align-items-center gap-2 border-start ps-3">
               <i className="bi bi-envelope fs-4"></i>
               <div>
@@ -70,8 +72,6 @@ const Bottom = () => {
                 </div>
               </div>
             </div>
-
-            {/* ViewJobs */}
             <div className="col-md-3 d-flex align-items-center gap-2 border-start ps-3">
               <div className="bg-warning rounded p-1">
                 <i className="bi bi-fingerprint fs-5"></i>
@@ -88,9 +88,7 @@ const Bottom = () => {
           {/* Property Banner */}
           <div
             className="bg-primary bg-opacity-10 py-3 px-3 d-flex justify-content-center align-items-center gap-2 text-center"
-            style={{
-              borderTop: '3px double #000',
-            }}
+            style={{ borderTop: "3px double #000" }}
           >
             <i className="bi bi-house-door-fill text-primary fs-5"></i>
             <span className="text-primary fw-semibold">view</span>
@@ -102,40 +100,39 @@ const Bottom = () => {
       </section>
 
       {/* ✅ Mobile View */}
-     <section className="d-block pt-5 d-md-none mt-3">
-  <div className="container px-3">
-    {/* Weather Card */}
-    <div className="d-flex justify-content-between align-items-center mb-2">
-      <div>
-        <div className="fw-semibold small">Launceston</div>
-        <div className="small text-muted">Rain</div>
-      </div>
-      <div className="d-flex align-items-center gap-2">
-        <i className="bi bi-cloud-rain text-muted fs-5"></i>
-        <div className="text-end">
-          <div className="fw-semibold small text-dark">11.6°</div>
-          <div className="small text-muted">5° / 17°</div>
+      <section className="d-block pt-5 d-md-none mt-3">
+        <div className="container px-3">
+          {/* Weather Card */}
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <div>
+              <div className="fw-semibold small">Launceston</div>
+              <div className="small text-muted">Rain</div>
+            </div>
+            <div className="d-flex align-items-center gap-2">
+              <i className="bi bi-cloud-rain text-muted fs-5"></i>
+              <div className="text-end">
+                <div className="fw-semibold small text-dark">11.6°</div>
+                <div className="small text-muted">5° / 17°</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  {/* Full-Width Property Banner */}
-  <div className="w-100 bg-primary bg-opacity-10">
-    <div className="d-flex align-items-center gap-2 py-2 px-3">
-      <i className="bi bi-house-door-fill text-primary fs-5"></i>
-      <span className="text-primary fw-semibold">view</span>
-      <a
-        href="#"
-        className="ms-2 small text-decoration-none text-dark"
-        style={{ whiteSpace: 'nowrap' }}
-      >
-        The Examiner&apos;s complete view of property
-      </a>
-    </div>
-  </div>
-</section>
-
+        {/* Mobile Property Banner */}
+        <div className="w-100 bg-primary bg-opacity-10">
+          <div className="d-flex align-items-center gap-2 py-2 px-3">
+            <i className="bi bi-house-door-fill text-primary fs-5"></i>
+            <span className="text-primary fw-semibold">view</span>
+            <Link
+              href="#"
+              className="ms-2 small text-decoration-none text-dark"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              The Examiner&apos;s complete view of property
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

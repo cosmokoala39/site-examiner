@@ -62,7 +62,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
 
         {/* ------------Horizontal articles (others[0] and others[1]) ------------ */}
         
-<div className="col-lg-6">
+<div className="col-lg-6 ">
   {others.slice(0, 2).map((item, index) => (
     <div
       className={`p-3 ${index === 0 ? "border-bottom" : ""}`}
@@ -233,7 +233,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
         </div>
 
         {/* ------------Horizontal articles (others[0] and others[1]) ------------ */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 ">
           {others.slice(0, 2).map((item, index) => (
             <div
               className={`p-3 ${index === 0 ? "border-bottom" : ""}`}
@@ -280,48 +280,52 @@ function BreackingNEws({ data }: { data: CategoryData }) {
 
       <div className="divider"></div>
 
-      {/* ------------Lower horizontal articles (others[2] and others[3]) ------------ */}
-      <div className="row border-bottom">
-        {others.slice(2, 4).map((item, index) => (
-          <div className="col-lg-6  p-3 border-end" key={index}>
-            <p
-              className="custom-headline"
-              style={{ fontFamily: "Merriweather, serif" }}
+     
+      <div className="row">
+         {/* ------------Horizontal articles (others[0] and others[1]) ------------ */}
+        <div className="col-lg-6 border-end">
+          {others.slice(0, 2).map((item, index) => (
+            <div
+              className={`p-3 ${index === 0 ? "border-bottom" : ""}`}
+              key={index}
             >
-              {item.title}
-            </p>
-            <div className="row">
-              <div className="col-lg-8">
-                <p
-                  className="text-muted small"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  {item.shortdescription.slice(0, 100)}
-                </p>
-                <p
-                  className="text-muted small"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  46 min ago
-                </p>
-              </div>
-              <div className="col-lg-4">
-                <Link href={`/${category}/${item.slug}`} className="d-block">
-                  <div style={{ cursor: "pointer" }}>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="img-fluid w-100 rounded"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                </Link>
+              <p
+                className="fw-bold"
+                style={{ fontFamily: "Merriweather, serif" }}
+              >
+                {item.title}
+              </p>
+              <div className="row">
+                <div className="col-lg-8">
+                  <p
+                    className="text-muted small"
+                    style={{ fontFamily: "Merriweather, serif" }}
+                  >
+                    {item.shortdescription.slice(0, 30)}
+                  </p>
+                  <p
+                    className="text-muted small"
+                    style={{ fontFamily: "Merriweather, serif" }}
+                  >
+                    46 min ago
+                  </p>
+                </div>
+                <div className="col-lg-4">
+                  <Link href={`/${category}/${item.slug}`} className="d-block">
+                    <div style={{ cursor: "pointer" }}>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="img-fluid w-100 rounded"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div className="row">
+          ))}
+        </div>
         {/* ------------Vertical main article------------ */}
         <div className="col-lg-6 border-end p-3">
           <p
@@ -355,95 +359,12 @@ function BreackingNEws({ data }: { data: CategoryData }) {
           </p>
         </div>
 
-        {/* ------------Horizontal articles (others[0] and others[1]) ------------ */}
-        <div className="col-lg-6">
-          {others.slice(0, 2).map((item, index) => (
-            <div
-              className={`p-3 ${index === 0 ? "border-bottom" : ""}`}
-              key={index}
-            >
-              <p
-                className="fw-bold"
-                style={{ fontFamily: "Merriweather, serif" }}
-              >
-                {item.title}
-              </p>
-              <div className="row">
-                <div className="col-lg-8">
-                  <p
-                    className="text-muted small"
-                    style={{ fontFamily: "Merriweather, serif" }}
-                  >
-                    {item.shortdescription.slice(0, 30)}
-                  </p>
-                  <p
-                    className="text-muted small"
-                    style={{ fontFamily: "Merriweather, serif" }}
-                  >
-                    46 min ago
-                  </p>
-                </div>
-                <div className="col-lg-4">
-                  <Link href={`/${category}/${item.slug}`} className="d-block">
-                    <div style={{ cursor: "pointer" }}>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="img-fluid w-100 rounded"
-                        style={{ objectFit: "cover" }}
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+       
       </div>
 
       <div className="divider"></div>
 
-      {/* ------------Lower horizontal articles (others[2] and others[3]) ------------ */}
-      <div className="row border-bottom">
-        {others.slice(2, 4).map((item, index) => (
-          <div className="col-lg-6  p-3 border-end" key={index}>
-            <p
-              className="custom-headline"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              {item.title}
-            </p>
-            <div className="row">
-              <div className="col-lg-8">
-                <p
-                  className="text-muted small"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  {item.shortdescription.slice(0, 100)}
-                </p>
-                <p
-                  className="text-muted small"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  46 min ago
-                </p>
-              </div>
-              <div className="col-lg-4">
-                <Link href={`/${category}/${item.slug}`} className="d-block">
-                  <div style={{ cursor: "pointer" }}>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="img-fluid w-100 rounded"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+     
     </div>
   );
 }

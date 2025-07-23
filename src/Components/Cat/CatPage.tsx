@@ -18,7 +18,6 @@ const navItems = [
   { name: "Toyota Hub", icon: "🚗" },
   { name: "Live", icon: "📡" },
   { name: "Local Footy" },
-
   { name: "NRL", icon: "🏉" },
   { name: "Scores and Draws" },
   { name: "A-League", icon: "⚽" },
@@ -88,7 +87,7 @@ function RenderCategorySection({ articles, category }: Props) {
       <div className="row pt-2">
         {/* Left vertical */}
         <div className="col-lg-6 border-end p-3">
-          <p className="fw-bold text-muted mb-2">{vertical1.title}</p>
+          
           <div className="mb-2">
             <Link href={`/${category}/${vertical1.slug}`}>
               <img
@@ -99,19 +98,20 @@ function RenderCategorySection({ articles, category }: Props) {
               />
             </Link>
           </div>
-          <p className="text-muted small mb-0">{vertical1.shortdescription.slice(0, 100)}...</p>
-          <p className="text-muted mb-2">Author</p>
+          <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.title}</p>
+          <p className="text-muted small mb-0 " style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
         </div>
 
         {/* Top-right horizontal pair */}
         <div className="col-lg-6">
           {horizontals1.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-              <p className="fw-bold">{article.title}</p>
+              <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
               <div className="row">
                 <div className="col-lg-8">
-                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
-                  <p className="text-muted">46 min ago</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${article.slug}`}>
@@ -131,11 +131,11 @@ function RenderCategorySection({ articles, category }: Props) {
         <div className="col-lg-6 border-top">
           {horizontals2.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-              <p className="fw-bold">{article.title}</p>
+              <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
               <div className="row">
                 <div className="col-lg-8">
-                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
-                  <p className="text-muted">46 min ago</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${article.slug}`}>
@@ -154,7 +154,7 @@ function RenderCategorySection({ articles, category }: Props) {
 
         {/* Bottom-left vertical */}
         <div className="col-lg-6 border-end p-3 border-top border-bottom">
-          <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
+          <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{vertical2.title}</p>
           <div className="mb-2">
             <Link href={`/${category}/${vertical2.slug}`}>
               <img
@@ -165,8 +165,8 @@ function RenderCategorySection({ articles, category }: Props) {
               />
             </Link>
           </div>
-          <p className="text-muted small mb-0">{vertical2.shortdescription.slice(0, 100)}...</p>
-          <p className="text-muted mb-2">Author</p>
+          <p className="text-muted small mb-0 small" style={{ fontFamily: 'Merriweather, serif' }}>{vertical2.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
         </div>
 
        
@@ -180,11 +180,11 @@ function RenderCategorySection({ articles, category }: Props) {
         <div className="col-lg-6">
           {horizontals1.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-              <p className="fw-bold">{article.title}</p>
+              <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
               <div className="row">
                 <div className="col-lg-8">
-                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
-                  <p className="text-muted">46 min ago</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${article.slug}`}>
@@ -202,7 +202,7 @@ function RenderCategorySection({ articles, category }: Props) {
         </div>
          {/* Left vertical */}
         <div className="col-lg-6 border-end p-3">
-          <p className="fw-bold text-muted mb-2">{vertical1.title}</p>
+          <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.title}</p>
           <div className="mb-2">
             <Link href={`/${category}/${vertical1.slug}`}>
               <img
@@ -213,13 +213,13 @@ function RenderCategorySection({ articles, category }: Props) {
               />
             </Link>
           </div>
-          <p className="text-muted small mb-0">{vertical1.shortdescription.slice(0, 100)}...</p>
-          <p className="text-muted mb-2">Author</p>
+          <p className="text-muted small mb-0 small" style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
         </div>
 
         {/* Bottom-left vertical */}
         <div className="col-lg-6 border-end p-3 border-top">
-          <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
+          <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{vertical2.title}</p>
           <div className="mb-2">
             <Link href={`/${category}/${vertical2.slug}`}>
               <img
@@ -230,19 +230,19 @@ function RenderCategorySection({ articles, category }: Props) {
               />
             </Link>
           </div>
-          <p className="text-muted small mb-0">{vertical2.shortdescription.slice(0, 100)}...</p>
-          <p className="text-muted mb-2">Author</p>
+          <p className="text-muted small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>{vertical2.shortdescription.slice(0, 100)}...</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
         </div>
 
         {/* Bottom-right horizontal pair */}
         <div className="col-lg-6 border-top">
           {horizontals2.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-              <p className="fw-bold">{article.title}</p>
+              <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
               <div className="row">
                 <div className="col-lg-8">
-                  <p className="text-muted">{article.shortdescription.slice(0, 100)}</p>
-                  <p className="text-muted">46 min ago</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{article.shortdescription.slice(0, 100)}</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${article.slug}`}>

@@ -171,3 +171,14 @@ aspect-ratio: 4/3;
     max-height: 30px;
   }
 }
+
+/* -----------------------================ */
+
+/* globals.css */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

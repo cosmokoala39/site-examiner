@@ -16,12 +16,19 @@ type RawItem = {
 };
 
 type Props = {
-  data: RawItem[];
+  data?: RawItem[] | RawItem; // Accepts single item or array
 };
 
 const NewsCardGrid: React.FC<Props> = ({ data }) => {
-  if (!Array.isArray(data)) {
-    console.error("NewsCardGrid: Invalid data passed", data);
+  // Normalize single object to array
+  const items = Array.isArray(data)
+    ? data
+    : typeof data === "object" && data !== null
+    ? [data]
+    : [];
+
+  if (items.length === 0) {
+    console.warn("NewsCardGrid: No valid data provided", data);
     return null;
   }
 
@@ -35,9 +42,7 @@ const NewsCardGrid: React.FC<Props> = ({ data }) => {
           </h6>
           <div className="flex-grow-1 border-top border-3 border-dark"></div>
         </div>
-        <a href="#" className="text-decoration-none small ms-2 text-dark">
-          View all
-        </a>
+       
       </div>
 
       {/* Cards Scrollable Row */}
@@ -45,7 +50,7 @@ const NewsCardGrid: React.FC<Props> = ({ data }) => {
         className="d-flex flex-nowrap overflow-auto gap-3 pb-2"
         style={{ scrollbarWidth: "none" }}
       >
-        {data.map((item, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             className="flex-shrink-0"

@@ -8,7 +8,7 @@ import healthData from "../../../data/health.json";
 import { Metadata } from "next";
 import Image from "next/image";
 import NewsCardGrid from "@/Components/Home/NewsCard";
-import Carousel from "@/Components/Carousel";
+import AFLSection from "@/Components/AlfaSection";
 
 interface ArticleProps {
   image: string;
@@ -29,6 +29,15 @@ interface PageProps {
     slug: string;
   }>;
 }
+
+// Helper function to create category data
+const createCategoryData = (
+  category: string,
+  articles: ArticleProps[]
+) => ({
+  category,
+  articles,
+});
 
 export async function generateStaticParams() {
   const allData = [
@@ -51,7 +60,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { category, slug } =await params;
+  const { category, slug } = await params;
 
   const allArticles: Record<string, ArticleProps[]> = {
     business: businessData,
@@ -96,7 +105,7 @@ export async function generateMetadata({
 }
 
 export default async function DetailPage({ params }: PageProps) {
-  const { category, slug } =await params;
+  const { category, slug } = await params;
 
   const allArticles: Record<string, ArticleProps[]> = {
     business: businessData,
@@ -115,44 +124,48 @@ export default async function DetailPage({ params }: PageProps) {
     );
   }
 
+  // Create category data sections dynamically
+  const businessSection = createCategoryData("business", businessData);
+  const politicsSection = createCategoryData("politics", politicsData);
+  const healthSection = createCategoryData("health", healthData);
+  const sportsSection = createCategoryData("sports", sportsData);
+  const scienceSection = createCategoryData("science", scienceData);
+
   return (
     <div className="container py-5">
-<div className=" py-4 border-bottom">
-  {/* Title */}
-  <h1 className="fw-bold mb-3">{article.title}</h1>
+      <div className="py-4 border-bottom">
+        {/* Title */}
+        <h1 className="fw-bold mb-3">{article.title}</h1>
 
-  <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
-    {/* Author and Meta */}
-    <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 text-muted flex-wrap">
-      <div>
-        By <span className="fw-semibold text-dark">{article.author || "Unknown"}</span>
+        <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
+          {/* Author and Meta */}
+          <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 text-muted flex-wrap">
+            <div>
+              By <span className="fw-semibold text-dark">{article.author || "Unknown"}</span>
+            </div>
+
+            {/* Divider */}
+            <div className="vr d-none d-sm-block"></div>
+
+            <div>
+              <strong>Updated</strong> {article.updated || "N/A"}, first published {article.published || "N/A"}
+            </div>
+          </div>
+
+          {/* Social Icons */}
+          <div className="d-flex align-items-center gap-3 fs-5">
+            <i className="bi bi-facebook"></i>
+            <i className="bi bi-twitter-x"></i>
+            <i className="bi bi-whatsapp"></i>
+            <i className="bi bi-envelope"></i>
+            <i className="bi bi-link-45deg"></i>
+          </div>
+        </div>
       </div>
 
-      {/* Divider */}
-      <div className="vr d-none d-sm-block"></div>
-
-      <div>
-        <strong>Updated</strong> {article.updated || "N/A"}, first published {article.published || "N/A"}
-      </div>
-    </div>
-
-    {/* Social Icons */}
-    <div className="d-flex align-items-center gap-3 fs-5">
-      <i className="bi bi-facebook"></i>
-      <i className="bi bi-twitter-x"></i>
-      <i className="bi bi-whatsapp"></i>
-      <i className="bi bi-envelope"></i>
-      <i className="bi bi-link-45deg"></i>
-    </div>
-  </div>
-</div>
-
-      
       <div className="row pt-5">
         {/* ----------------------- Main Article ------------------------ */}
-        <div className="col-lg-8 ">
-        
-
+        <div className="col-lg-8">
           {/* Image */}
           <div className="mb-3">
             <Image
@@ -168,32 +181,37 @@ export default async function DetailPage({ params }: PageProps) {
           </div>
 
           {/* Short Description */}
-          
           <p className="text-muted fs-6 mb-3">{article.shortdescription}</p>
 
           {/* Description */}
-         <div className="container mx-auto px-4">
-  <div className="text-gray-800 text-base leading-relaxed text-justify">
-    {article.description}
-  </div>
-</div>
-
-
-          {/* Related Carousel */}
-          <div className="mt-5">
-            <Carousel />
+          <div className="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6">
+            <div
+              className="text-sm sm:text-base text-gray-800 text-justify"
+              style={{
+                textAlign: "justify",
+                textJustify: "inter-word", // clean spacing between words
+                lineHeight: "1.8", // better vertical gap between lines
+                letterSpacing: "0.015em", // smooth horizontal alignment
+                wordSpacing: "0.1em", // increases gap between words slightly
+              }}
+            >
+              {article.description}
+            </div>
           </div>
+          <AFLSection data={businessData} />
 
-          {/* Related Articles Grid */}
-          <div className="mt-4">
-            <NewsCardGrid />
-          </div>
+          <NewsCardGrid data={businessData} />
         </div>
 
         {/* ---------------------- Sidebar ------------------- */}
         <div className="col-lg-4 d-none d-lg-block">
           {/* Add optional widgets or sidebar features here */}
         </div>
+      </div>
+
+      {/* Category Sections */}
+      <div className="col-lg-8 border-end">
+       
       </div>
     </div>
   );

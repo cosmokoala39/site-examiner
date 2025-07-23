@@ -49,7 +49,11 @@ function RenderCategorySection({ articles, category }: Props) {
     <div className="row border-bottom">
       <div className="col-lg">
          <div className="px-4 pt-6 pb-3 border-b border-gray-200">
-      <h1 className="text-3xl font-bold text-gray-900 mb-3">{category}</h1>
+   <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
+  {category.charAt(0).toUpperCase() + category.slice(1)}
+</h1>
+
+
       <div className="flex hhh77 overflow-x-auto scrollbar-hide">
         {navItems.map((item, index) => (
           <button

@@ -98,7 +98,7 @@ function Page() {
 
         {/* NewsCard */}
         <NewsCard data={businessJson} />
-         <ImageCarousel data={businessJson}
+         <ImageCarousel data={scienceJson}
       />
 
         {/* ---------------------------------Bottom Section */}

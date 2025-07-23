@@ -198,7 +198,7 @@ export default async function DetailPage({ params }: PageProps) {
               {article.description}
             </div>
           </div>
-          <AFLSection data={businessData} />
+          <AFLSection data={sportsData} />
 
           <NewsCardGrid data={businessData} />
         </div>

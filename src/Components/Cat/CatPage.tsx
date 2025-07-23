@@ -239,7 +239,7 @@ function RenderCategorySection({ articles, category }: Props) {
         </div>
 
         {/* Bottom-right horizontal pair */}
-        <div className="col-lg-6 border-top">
+        <div className="col-lg-6 border-top border-end">
           {horizontals2.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
               <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>

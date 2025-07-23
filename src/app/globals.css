@@ -145,3 +145,29 @@ aspect-ratio: 4/3;
   height: 130px;
   z-index: 9999;
 }
+
+
+
+
+
+
+/* Header styles */
+
+.header {
+  transition: all 0.3s ease;
+  z-index: 1030;
+}
+
+.logo-img {
+  max-height: 40px;
+}
+
+.bg-lightblue {
+  background-color: #e3f2fd;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    max-height: 30px;
+  }
+}

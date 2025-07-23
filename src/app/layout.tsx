@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import Footer from "@/Components/LayOut/Footer";
-import NavBar from "@/Components/LayOut/NavBar";
 import Header from "@/Components/LayOut/Header";
+import Bottom from "@/Components/LayOut/Bottom";
 
 
 const geistSans = Geist({
@@ -32,8 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-      <NavBar />
       <Header/>
+      <Bottom/>
         {children}
         <Footer/>
       </body>

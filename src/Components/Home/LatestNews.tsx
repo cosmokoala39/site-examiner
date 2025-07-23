@@ -19,13 +19,13 @@ const LatestNews: React.FC<ArticleProps> = ({
   category = "business",
 }) => {
   return (
-    <div className="row py-3 border-bottom">
+    <div className="row py-3 border-bottom ">
       <Link
         href={`/${category}/${slug}`}
         className="text-decoration-none text-dark d-flex w-100 align-items-center"
       >
         <div className="col-lg-8">
-          <p className="fw-semibold mb-1" style={{ fontFamily: "Merriweather, serif" }}>
+          <p className="fw-bold mb-1" style={{ fontFamily: "Merriweather, serif" }}>
             {title}
           </p>
           <p className="text-muted small mb-0" style={{ fontFamily: "Merriweather, serif" }}>

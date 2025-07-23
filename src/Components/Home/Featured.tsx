@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -26,34 +26,36 @@ function Featured({ data }: { data: CategoryData }) {
 
   return (
     <div className="p-3">
-      
-        <div className="row">
-          {/* Left Section: Text */}
-          <div className="col-lg-5">
-            <p className="fw-bold fs-3">{main.title}</p>
-            <p
-              className="text-muted"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              {main.shortdescription?.slice(0, 170)}
-            </p>
-            <p
-              className="text-muted small"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              2 hrs ago
-            </p>
-          </div>
+      <div className="row">
+        {/* Left Section: Text */}
+        <div className="col-lg-5">
+          
+          <p className="fw-bold fs-3">{main.title}</p>
+          <p
+            className="text-muted"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            {main.shortdescription?.slice(0, 170)}
+          </p>
+          <p
+            className="text-muted small"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            2 hrs ago
+          </p>
+        </div>
 
-          {/* Right Section: Image */}
-          <div className="col-lg-7">
-            <div
-              className="position-relative"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              {/* ✅ Image wrapped in div */}
-              <Link href={`/${category || 'business'}/${main.slug}`}>
-              <div style={{ position: "relative", width: "100%", height: "250px" }}>
+        {/* Right Section: Image */}
+        <div className="col-lg-7">
+          <div
+            className="position-relative"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            {/* ✅ Image wrapped in div */}
+            <Link href={`/${category || "business"}/${main.slug}`}>
+              <div
+                style={{ position: "relative", width: "100%", height: "250px" }}
+              >
                 <Image
                   src={main.image}
                   alt={main.title}
@@ -62,11 +64,10 @@ function Featured({ data }: { data: CategoryData }) {
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              </Link>
-            </div>
+            </Link>
           </div>
         </div>
-      
+      </div>
 
       {/* Divider */}
       <div

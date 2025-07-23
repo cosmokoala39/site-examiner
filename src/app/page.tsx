@@ -57,7 +57,6 @@ function Page() {
     "science",
     scienceJson as Article[]
   );
- 
 
   return (
     <div className="container p-3">
@@ -72,9 +71,10 @@ function Page() {
         </div>
 
         {/* Right Section */}
-        <div className="col-lg-4">
-          <div className="divider"></div>
-          <p className="fw-bold align-items-center p-2">Latest News</p>
+        <div className="col-lg-4 pt-3">
+          <p className="fw-bold align-items-center pt-2 border-top border-2 border-dark">
+            Latest News
+          </p>
 
           {businessJson.slice(2, 8).map((item, index) => (
             <LatestNews

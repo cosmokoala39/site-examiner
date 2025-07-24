@@ -3,8 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import MatchCard from "../MatchCard";
-import cow from '../../../public/images/cow.svg'
-import dragon from '../../../public/images/dragon.svg'
+
 
 
 

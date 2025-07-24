@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="text-light text-decoration-none">Promo Codes</a></li>
               <li><a href="#" className="text-light text-decoration-none">AgTrader</a></li>
               <li><a href="#" className="text-light text-decoration-none">MeHelp</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Farmer's Finance</a></li>
+              <li><a href="#" className="text-light text-decoration-none">Farmers Finance</a></li>
               <li><a href="#" className="text-light text-decoration-none">Garage Sales</a></li>
             </ul>
           </Col>

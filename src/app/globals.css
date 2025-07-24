@@ -189,3 +189,11 @@ aspect-ratio: 4/3;
 .hide-scrollbar::-webkit-scrollbar {
   display: none;                 /* Safari and Chrome */
 }
+
+/* -------------------sticky----------- */
+.str{
+  position: sticky;
+  top: 60px;
+  height: fit-content;
+  z-index: 3;
+}

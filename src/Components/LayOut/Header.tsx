@@ -65,7 +65,6 @@ const Header = () => {
                   onClick={() => setIsDrawerOpen(true)}
                   style={{ cursor: "pointer" }}
                 ></i>
-                <i className="bi bi-search fs-5"></i>
               </div>
             </div>
 
@@ -95,7 +94,6 @@ const Header = () => {
               >
                 SUBSCRIBE
               </button>
-              
             </div>
           </div>
         </div>
@@ -119,13 +117,7 @@ const Header = () => {
             style={{ cursor: "pointer" }}
             onClick={() => setIsDrawerOpen(false)}
           ></i>
-          <input
-            type="text"
-            className="form-control form-control-sm"
-            placeholder="Search"
-            style={{ width: "70%" }}
-          />
-          <i className="bi bi-search ms-2"></i>
+          
         </div>
 
         {/* Drawer Links */}

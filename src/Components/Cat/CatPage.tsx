@@ -2,6 +2,9 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import MatchCard from "../MatchCard";
+import cow from '../../../public/images/cow.svg'
+import dragon from '../../../public/images/dragon.svg'
 
 
 
@@ -92,7 +95,7 @@ function RenderCategorySection({ articles, category }: Props) {
       {/* Article Grid Layout */}
       <div className="row pt-2">
         {/* Left vertical */}
-        <div className="col-lg-6 border-end p-3">
+        <div className="col-lg-6 border-end p-3 ">
           
           <div className="mb-2">
             <Link href={`/${category}/${vertical1.slug}`}>
@@ -110,7 +113,7 @@ function RenderCategorySection({ articles, category }: Props) {
         </div>
 
         {/* Top-right horizontal pair */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 border-end">
           {horizontals1.map((article, idx) => (
             <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
               <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
@@ -265,6 +268,30 @@ function RenderCategorySection({ articles, category }: Props) {
           ))}
         </div>
       </div>
+    </div>
+      </div>
+      
+      <div className="col-lg-4">
+        <div className="container py-5">
+      <MatchCard
+        teamA={{
+          name: "Cowboys",
+          logo: "/images/cow.svg",
+          rank: "13th",
+        }}
+        teamB={{
+          name: "Dragons",
+          logo: "/images/dragon.svg",
+          rank: "11th",
+        }}
+        date="Fri 25 July"
+        time="1:30 pm"
+        summary={[
+          "Head-to-Head - 39 games played. Cowboys 22 wins – Dragons 17 wins. The Cowboys lead 3-1 at Queensland Country Bank Stadium.",
+          "The Cowboys have won their last 5 matches against the Dragons – dating back to 2021.",
+        ]}
+        readMoreLink="/match-preview/cowboys-vs-dragons"
+      />
     </div>
       </div>
      </div>

@@ -60,9 +60,9 @@ const ImageCarousel: React.FC<Props> = ({ data, title = "Business", viewAllLink 
 
       {/* Carousel */}
       <div className="position-relative">
-        {/* Left Arrow */}
+        {/* Left Arrow (visible on all devices) */}
         <button
-          className="btn btn-light position-absolute top-50 start-0 translate-middle-y z-1 d-none d-md-block"
+          className="btn btn-light position-absolute top-50 start-0 translate-middle-y z-1"
           onClick={() => scroll("left")}
         >
           <i className="bi bi-chevron-left"></i>
@@ -125,9 +125,9 @@ const ImageCarousel: React.FC<Props> = ({ data, title = "Business", viewAllLink 
           ))}
         </div>
 
-        {/* Right Arrow */}
+        {/* Right Arrow (visible on all devices) */}
         <button
-          className="btn btn-light position-absolute top-50 end-0 translate-middle-y z-1 d-none d-md-block"
+          className="btn btn-light position-absolute top-50 end-0 translate-middle-y z-1"
           onClick={() => scroll("right")}
         >
           <i className="bi bi-chevron-right"></i>

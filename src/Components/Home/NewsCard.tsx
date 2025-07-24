@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button, Card } from "react-bootstrap";
@@ -16,11 +16,12 @@ type RawItem = {
 };
 
 type Props = {
-  data?: RawItem[] | RawItem; // Accepts single item or array
+  data?: RawItem[] | RawItem;
 };
 
 const NewsCardGrid: React.FC<Props> = ({ data }) => {
-  // Normalize single object to array
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const items = Array.isArray(data)
     ? data
     : typeof data === "object" && data !== null
@@ -32,8 +33,19 @@ const NewsCardGrid: React.FC<Props> = ({ data }) => {
     return null;
   }
 
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const newScroll =
+        direction === "right"
+          ? scrollLeft + clientWidth
+          : scrollLeft - clientWidth;
+      scrollRef.current.scrollTo({ left: newScroll, behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="pt-5">
+    <div className="pt-5 position-relative">
       {/* Header */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <div className="d-flex align-items-center w-100">
@@ -42,22 +54,28 @@ const NewsCardGrid: React.FC<Props> = ({ data }) => {
           </h6>
           <div className="flex-grow-1 border-top border-3 border-dark"></div>
         </div>
-       
       </div>
 
-      {/* Cards Scrollable Row */}
+      {/* Scroll Left Button */}
+      <button
+        className="btn btn-light position-absolute top-50 start-0 translate-middle-y z-1"
+        onClick={() => scroll("left")}
+        aria-label="Scroll Left"
+      >
+        <i className="bi bi-chevron-left"></i>
+      </button>
+
+      {/* Cards */}
       <div
+        ref={scrollRef}
         className="d-flex flex-nowrap overflow-auto gap-3 pb-2"
-        style={{ scrollbarWidth: "none" }}
+        style={{ scrollbarWidth: "none", scrollBehavior: "smooth" }}
       >
         {items.map((item, index) => (
           <div
             key={index}
             className="flex-shrink-0"
-            style={{
-              width: "280px",
-              maxWidth: "90vw",
-            }}
+            style={{ width: "280px", maxWidth: "90vw" }}
           >
             <Link
               href={`/${item.category || "general"}/${item.slug}`}
@@ -127,6 +145,15 @@ const NewsCardGrid: React.FC<Props> = ({ data }) => {
           </div>
         ))}
       </div>
+
+      {/* Scroll Right Button */}
+      <button
+        className="btn btn-light position-absolute top-50 end-0 translate-middle-y z-1"
+        onClick={() => scroll("right")}
+        aria-label="Scroll Right"
+      >
+        <i className="bi bi-chevron-right"></i>
+      </button>
     </div>
   );
 };

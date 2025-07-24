@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import NewsCardGrid from "@/Components/Home/NewsCard";
 import AFLSection from "@/Components/AlfaSection";
+import HeartFoundationCard from "@/Components/HeartFoundationCard";
 
 interface ArticleProps {
   image: string;
@@ -137,7 +138,8 @@ export default async function DetailPage({ params }: PageProps) {
         {/* Title */}
         <h1 className="fw-bold mb-3">{article.title}</h1>
 
-        <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
+     <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 justify-content-between">
+
           {/* Author and Meta */}
           <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 text-muted flex-wrap">
             <div>
@@ -165,7 +167,7 @@ export default async function DetailPage({ params }: PageProps) {
 
       <div className="row pt-5">
         {/* ----------------------- Main Article ------------------------ */}
-        <div className="col-lg-8">
+        <div className="col-lg-8 border-end">
           {/* Image */}
           <div className="mb-3">
             <Image
@@ -204,8 +206,8 @@ export default async function DetailPage({ params }: PageProps) {
         </div>
 
         {/* ---------------------- Sidebar ------------------- */}
-        <div className="col-lg-4 d-none d-lg-block">
-          {/* Add optional widgets or sidebar features here */}
+        <div className="col-lg-4 d-none d-lg-block str">
+         <HeartFoundationCard/>
         </div>
       </div>
 

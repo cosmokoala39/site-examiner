@@ -245,14 +245,14 @@ function RepeatPage({ data }: { data: CategoryData }) {
         <div className="row">
           <div className="col-lg-8">
             <p className="text-muted">{item.shortdescription.slice(0, 30)}</p>
-            <p className="text-muted">46 min ago</p>
+            <p className="text-muted small">46 min ago</p>
           </div>
           <div className="col-lg-4">
             <img
               src={item.image}
               alt={item.title}
               className="img-fluid w-100 rounded"
-              style={{ height: "80px", objectFit: "cover" }}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>

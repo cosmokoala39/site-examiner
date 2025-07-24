@@ -3,6 +3,17 @@
 import React from "react";
 import Link from "next/link";
 
+// ✅ Utility function to get current formatted date
+const getFormattedDate = () => {
+  const date = new Date();
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  return `${days[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+};
+
 const Bottom = () => {
   const items = [
     { label: "Home", href: "/" },
@@ -21,7 +32,7 @@ const Bottom = () => {
         <div className="container px-4">
           {/* Date and Weather */}
           <div className="d-flex justify-content-between align-items-center py-1">
-            <div className="fw-semibold small">Wednesday 23 July 2025</div>
+            <div className="fw-semibold small">{getFormattedDate()}</div>
             <div className="d-flex align-items-center gap-2 small text-secondary">
               <i className="bi bi-cloud-rain fs-5 text-muted"></i>
               <span className="fw-semibold text-dark">11.6°</span>

@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import NewsCardGrid from "../Home/NewsCard";
 
 
 
@@ -54,7 +53,8 @@ function RenderCategorySection({ articles, category }: Props) {
 </h1>
 
 
-      <div className="flex hhh77 overflow-x-auto scrollbar-hide">
+      <div className="d-none d-md-flex flex-wrap gap-2 py-2">
+
         {navItems.map((item, index) => (
           <button
             key={index}
@@ -73,9 +73,9 @@ function RenderCategorySection({ articles, category }: Props) {
      <div className="row">
       <div className="col-lg-8">
        
-    <div className="container">
+    <div className="container ">
       {/* Top ad image */}
-      <div className="my-4 text-center border radio">
+      <div className="my-4 text-center  radio" >
         <Image
   src="/images/Ads.jpg"
   alt="Advertisement"
@@ -268,7 +268,7 @@ function RenderCategorySection({ articles, category }: Props) {
     </div>
       </div>
      </div>
-    <NewsCardGrid />
+   
     </div>
   );
 }

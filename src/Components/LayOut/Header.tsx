@@ -8,14 +8,30 @@ import logo from "../../../public/images/examiner-head.svg";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
+
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", checkScreen);
+    checkScreen(); // Run on load
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkScreen);
+    };
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isDrawerOpen ? "hidden" : "auto";
+  }, [isDrawerOpen]);
 
   const items = [
     { label: "Home", href: "/" },
@@ -44,7 +60,11 @@ const Header = () => {
 
               {/* DESKTOP ICONS */}
               <div className="d-none d-md-flex align-items-center gap-3">
-                <i className="bi bi-list fs-4"></i>
+                <i
+                  className="bi bi-list fs-4"
+                  onClick={() => setIsDrawerOpen(true)}
+                  style={{ cursor: "pointer" }}
+                ></i>
                 <i className="bi bi-search fs-5"></i>
               </div>
             </div>
@@ -75,20 +95,21 @@ const Header = () => {
               >
                 SUBSCRIBE
               </button>
-              <span className="text-muted">Log In</span>
+              
             </div>
           </div>
         </div>
       </header>
 
-      {/* SLIDE-IN DRAWER FOR MOBILE */}
+      {/* SLIDE-IN DRAWER (Responsive) */}
       <div
-        className="position-fixed top-0 start-0 h-100 bg-white shadow d-md-none"
+        className="position-fixed top-0 start-0 h-100 bg-white shadow"
         style={{
-          width: "260px",
+          width: isDesktop ? "320px" : "100%",
           zIndex: 1050,
           transform: isDrawerOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.3s ease-in-out",
+          maxWidth: "100vw",
         }}
       >
         {/* Drawer Header */}
@@ -108,9 +129,9 @@ const Header = () => {
         </div>
 
         {/* Drawer Links */}
-        <ul className="list-unstyled px-3 mt-3">
+        <ul className="list-unstyled px-4 mt-4">
           {items.map((item, index) => (
-            <li key={index} className="mb-3 fw-semibold small">
+            <li key={index} className="mb-4 fw-semibold fs-5">
               <Link
                 href={item.href}
                 className="text-dark text-decoration-none"
@@ -123,7 +144,7 @@ const Header = () => {
         </ul>
       </div>
 
-      {/* OVERLAY / BACKDROP */}
+      {/* OVERLAY */}
       {isDrawerOpen && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100"

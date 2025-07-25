@@ -113,18 +113,22 @@ const Bottom = () => {
       {/* ✅ Mobile View */}
       <section className="d-block pt-5 d-md-none mt-3">
         <div className="container px-3">
-          {/* Weather Card */}
-          <div className="d-flex justify-content-between align-items-center mb-2">
+          {/* Date & Subscribe */}
+          <div className="d-flex justify-content-between align-items-center mb-2 border-top pt-2">
             <div>
-              <div className="fw-semibold small">Launceston</div>
-              <div className="small text-muted">Rain</div>
+              <div className="fw-semibold small">{getFormattedDate()}</div>
             </div>
             <div className="d-flex align-items-center gap-2">
-              <i className="bi bi-cloud-rain text-muted fs-5"></i>
-              <div className="text-end">
-                <div className="fw-semibold small text-dark">11.6°</div>
-                <div className="small text-muted">5° / 17°</div>
-              </div>
+              <button
+                className="btn btn-danger px-2 fw-normal"
+                style={{
+                  paddingTop: "3px",
+                  paddingBottom: "6px",
+                  fontSize: "0.70rem",
+                }}
+              >
+                SUBSCRIBE
+              </button>
             </div>
           </div>
         </div>

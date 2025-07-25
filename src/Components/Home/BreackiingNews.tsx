@@ -83,7 +83,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
               className="text-muted small"
               style={{ fontFamily: "Merriweather, serif" }}
             >
-              {item.shortdescription.slice(0, 30)}
+              {item.shortdescription.slice(0, 100)}
             </p>
             <p
               className="text-muted small"
@@ -262,7 +262,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
               className="text-muted small"
               style={{ fontFamily: "Merriweather, serif" }}
             >
-              {item.shortdescription.slice(0, 30)}
+              {item.shortdescription.slice(0, 100)}
             </p>
             <p
               className="text-muted small"
@@ -313,7 +313,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
               className="text-muted small"
               style={{ fontFamily: "Merriweather, serif" }}
             >
-              {item.shortdescription.slice(0, 30)}
+              {item.shortdescription.slice(0, 100)}
             </p>
             <p
               className="text-muted small"

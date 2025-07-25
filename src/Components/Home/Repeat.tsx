@@ -75,7 +75,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
         <div className="row">
           <div className="col-lg-8">
             <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
-              {item.shortdescription.slice(0, 30)}
+              {item.shortdescription.slice(0, 100)}
             </p>
             <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
               46 min ago
@@ -122,7 +122,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
                 className="text-muted small"
                 style={{ fontFamily: 'Merriweather, serif' }}
               >
-                {item.shortdescription.slice(0, 30)}
+                {item.shortdescription.slice(0, 100)}
               </p>
               <p
                 className="text-muted small"
@@ -209,7 +209,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
               <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{item.title}</p>
               <div className="row">
                 <div className="col-lg-8">
-                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{item.shortdescription.slice(0, 30)}</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{item.shortdescription.slice(0, 100)}</p>
                   <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
                 </div>
                 <div className="col-lg-4">
@@ -241,11 +241,11 @@ function RepeatPage({ data }: { data: CategoryData }) {
       style={{ cursor: "pointer" }}
     >
       <div className="p-3">
-        <p className="fw-bold">{item.title}</p>
+        <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{item.title}</p>
         <div className="row">
           <div className="col-lg-8">
-            <p className="text-muted">{item.shortdescription.slice(0, 30)}</p>
-            <p className="text-muted small">46 min ago</p>
+            <p className="text-muted" style={{ fontFamily: 'Merriweather, serif' }}>{item.shortdescription.slice(0, 100)}</p>
+            <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
           </div>
           <div className="col-lg-4">
             <img
@@ -365,7 +365,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
           <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
             {item.shortdescription.slice(0, 100)}
           </p>
-          <p className="text-muted small">46 min ago</p>
+          <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
         </div>
         <div className="col-lg-4">
           <img
@@ -384,7 +384,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
       </div>
       <div className="divider"></div>
 
-      
+
     </div>
   );
 }

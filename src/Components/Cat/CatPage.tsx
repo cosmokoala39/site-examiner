@@ -73,7 +73,7 @@ function RenderCategorySection({ articles, category }: Props) {
       </div>
     </div></div></div> 
      <div className="row">
-      <div className="col-lg-8">
+      <div className="col-lg-8 ">
        
     <div className="container ">
       {/* Top ad image */}

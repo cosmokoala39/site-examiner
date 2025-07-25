@@ -120,10 +120,10 @@ const Bottom = () => {
             </div>
             <div className="d-flex align-items-center gap-2">
               <button
-                className="btn btn-danger px-2 fw-normal"
+                className="btn btn-danger px-1 fw-normal"
                 style={{
                   paddingTop: "3px",
-                  paddingBottom: "6px",
+                  paddingBottom: "4px",
                   fontSize: "0.70rem",
                 }}
               >

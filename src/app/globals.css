@@ -205,3 +205,16 @@ aspect-ratio: 4/3;
     height: 100px;
   }
 }
+
+@media (min-width: 992px) { /* lg breakpoint in Bootstrap */
+  .rounded {
+    height: 100px;
+  }
+}
+
+@media (min-width: 992px) { /* lg breakpoint in Bootstrap */
+  .img-fluid {
+    height: 100px;
+  }
+}
+

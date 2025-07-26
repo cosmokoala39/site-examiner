@@ -21,7 +21,7 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", checkScreen);
-    checkScreen(); // Run on load
+    checkScreen();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -49,16 +49,13 @@ const Header = () => {
       <header className={`bg-white fixed-top py-2 ${isScrolled ? "shadow-sm" : ""}`}>
         <div className={`px-3 ${isScrolled ? "container-fluid" : "container"}`}>
           <div className="row align-items-center">
-            {/* LEFT SECTION */}
+            {/* LEFT */}
             <div className="col-2 col-md-4 d-flex align-items-center gap-3">
-              {/* MOBILE MENU BUTTON */}
               <i
                 className="bi bi-list fs-4 d-md-none"
                 onClick={() => setIsDrawerOpen(true)}
                 style={{ cursor: "pointer" }}
               ></i>
-
-              {/* DESKTOP ICONS */}
               <div className="d-none d-md-flex align-items-center gap-3">
                 <i
                   className="bi bi-list fs-4"
@@ -82,15 +79,11 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* RIGHT SECTION (DESKTOP ONLY) */}
+            {/* RIGHT */}
             <div className="col-2 col-md-4 d-none d-md-flex justify-content-end align-items-center gap-3">
               <button
                 className="btn btn-danger px-2 fw-normal"
-                style={{
-                  paddingTop: "6px",
-                  paddingBottom: "6px",
-                  fontSize: "0.75rem",
-                }}
+                style={{ paddingTop: "6px", paddingBottom: "6px", fontSize: "0.75rem" }}
               >
                 SUBSCRIBE
               </button>
@@ -99,7 +92,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* SLIDE-IN DRAWER (Responsive) */}
+      {/* SLIDE-IN DRAWER */}
       <div
         className="position-fixed top-0 start-0 h-100 bg-white shadow"
         style={{
@@ -108,6 +101,8 @@ const Header = () => {
           transform: isDrawerOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.3s ease-in-out",
           maxWidth: "100vw",
+          overflowY: "auto",
+          maxHeight: "100vh",
         }}
       >
         {/* Drawer Header */}
@@ -117,33 +112,65 @@ const Header = () => {
             style={{ cursor: "pointer" }}
             onClick={() => setIsDrawerOpen(false)}
           ></i>
-          
         </div>
 
-        {/* Drawer Links */}
+        {/* Categories */}
         <ul className="list-unstyled px-4 mt-4">
           {items.map((item, index) => (
-            <li key={index} className="mb-4 fw-semibold fs-5">
+            <li key={index} className="mb-3">
               <Link
                 href={item.href}
-                className="text-dark text-decoration-none"
+                className="d-block text-dark text-decoration-none fw-semibold fs-5"
                 onClick={() => setIsDrawerOpen(false)}
+                style={{ padding: "4px 0", transition: "color 0.2s ease" }}
               >
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
+
+        {/* Divider */}
+        <hr className="mx-4 my-3" />
+
+        {/* Social Links */}
+        <div className="px-4 d-flex flex-column gap-3 mb-4">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
+          >
+            <i className="bi bi-facebook fs-5"></i> Facebook
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
+          >
+            <i className="bi bi-twitter-x fs-5"></i> Twitter
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
+          >
+            <i className="bi bi-instagram fs-5"></i> Instagram
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
+          >
+            <i className="bi bi-youtube fs-5"></i> YouTube
+          </a>
+        </div>
       </div>
 
       {/* OVERLAY */}
       {isDrawerOpen && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100"
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
-            zIndex: 1040,
-          }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", zIndex: 1040 }}
           onClick={() => setIsDrawerOpen(false)}
         ></div>
       )}

@@ -197,3 +197,11 @@ aspect-ratio: 4/3;
   height: fit-content;
   z-index: 3;
 }
+
+/* -------------------------------w-100 */
+
+@media (min-width: 992px) { /* lg breakpoint in Bootstrap */
+  .v.w-100 {
+    height: 100px;
+  }
+}

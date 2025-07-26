@@ -74,9 +74,9 @@ function Page() {
         <div className="col-lg-8 border-end">
           <Featured data={businessSection} />
 
-          <BreackingNEws data={politicsSection} />
+          <BreackingNEws data={sportsSection} />
 
-          <RepeatPage data={politicsSection} />
+          <RepeatPage data={scienceSection} />
         </div>
 
         {/* Right Section */}
@@ -85,7 +85,7 @@ function Page() {
             Latest News
           </p>
 
-          {businessJson.slice(2, 8).map((item, index) => (
+          {businessJson.slice(8,12 ).map((item, index) => (
             <LatestNews
               key={index}
               image={item.image}

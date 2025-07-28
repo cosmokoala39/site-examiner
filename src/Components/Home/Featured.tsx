@@ -32,16 +32,15 @@ function Featured({ data }: { data: CategoryData }) {
         <div className="row">
           {/* ✅ Title on top for mobile only */}
           <div className="col-12 d-block d-lg-none mb-2">
-              <span
-      className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-      style={{
-        fontSize: 'clamp(0.6rem, 1vw, 0.75rem)', // Responsive text size
-        backgroundColor: '#ffe5e5' // Light pink background
-      }}
-    >
-      Breaking
-    </span>
-            
+            <span
+              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+              style={{
+                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+                backgroundColor: '#ffe5e5'
+              }}
+            >
+              {category || 'Breaking'}
+            </span>
             <h5 className="fw-bold">{main.title}</h5>
           </div>
 
@@ -75,22 +74,22 @@ function Featured({ data }: { data: CategoryData }) {
 
           {/* ✅ Text Section (Left on desktop, below image on mobile) */}
           <div className="col-12 col-lg-5 order-2 order-lg-1">
-        
-            {/* Hide title on desktop since it's already shown in mobile */}
-              <span
-      className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-      style={{
-        fontSize: 'clamp(0.6rem, 1vw, 0.75rem)', // Responsive text size
-        backgroundColor: '#ffe5e5' // Light pink background
-      }}
-    >
-      Breaking
-    </span>
+            <span
+              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2 d-none d-lg-inline-block"
+              style={{
+                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+                backgroundColor: '#ffe5e5'
+              }}
+            >
+              {category || 'Breaking'}
+            </span>
             <h5 className="fw-bold mb-2 d-none d-lg-block">{main.title}</h5>
             <p className="text-muted" style={{ fontFamily: 'Merriweather, serif' }}>
               {main.shortdescription?.slice(0, 170)}...
             </p>
-            <p className="text-muted fw-semibold small mb-0"style={{ fontFamily: 'Merriweather, serif' }}> Joe Colbrook. 2 hrs ago</p>
+            <p className="text-muted fw-semibold small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
+              Joe Colbrook. 2 hrs ago
+            </p>
           </div>
         </div>
 

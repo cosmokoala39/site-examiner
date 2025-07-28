@@ -169,18 +169,25 @@ export default async function DetailPage({ params }: PageProps) {
         {/* ----------------------- Main Article ------------------------ */}
         <div className="col-lg-8 border-end">
           {/* Image */}
-          <div className="mb-3">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={800}
-              height={450}
-              className="rounded w-100 hy6"
-            />
-            {article.imageCaption && (
-              <small className="text-muted d-block mt-1">{article.imageCaption}</small>
-            )}
-          </div>
+         {/* Image */}
+<div className="mb-3">
+  <Image
+    src={article.image}
+    alt={article.title}
+    width={1200}
+    height={700}
+    className="img-fluid w-100 rounded"
+    style={{
+      objectFit: "cover",
+      height: "auto",
+      maxHeight: "600px", // adjust if needed
+    }}
+  />
+  {article.imageCaption && (
+    <small className="text-muted d-block mt-1">{article.imageCaption}</small>
+  )}
+</div>
+
 
           {/* Short Description */}
           <p className="text-muted fs-6 mb-3">{article.shortdescription}</p>

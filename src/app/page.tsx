@@ -17,6 +17,7 @@ import Politics from "@/Components/Home/ReUsable/Politics";
 import Science from "@/Components/Home/ReUsable/Science";
 import Health from "@/Components/Home/ReUsable/Health";
 import ImageCarousel from "@/Components/Home/ImageCarousel";
+import HeartFoundationCard from "@/Components/HeartFoundationCard";
 
 const businessItems = businessJson.map((item, i) => ({
   id: i,
@@ -81,6 +82,7 @@ function Page() {
 
         {/* Right Section */}
         <div className="col-lg-4 pt-3">
+       
           <p className="fw-bold align-items-center pt-2 border-top border-2 border-dark">
             Latest News
           </p>
@@ -94,6 +96,11 @@ function Page() {
               slug={item.slug}
             />
           ))}
+              {/* ---------------------- Sidebar ------------------- */}
+        <div className=" d-none d-lg-block str mt-5">
+         <HeartFoundationCard/>
+        </div>
+          
         </div>
 
         {/* NewsCard */}

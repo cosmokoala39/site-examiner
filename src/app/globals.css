@@ -277,3 +277,47 @@ aspect-ratio: 4/3;
   }
 }
 
+.custom-img-container {
+  position: relative;
+  width: 100%;
+  height: 80px; /* default for desktop */
+}
+
+@media (max-width: 991.98px) {
+  .custom-img-container {
+    height: 240px !important; /* taller on mobile */
+  }
+}
+
+
+.custom-img-wrapper {
+  width: 100%;
+  height: 100px; /* Default for desktop */
+}
+
+@media (max-width: 991.98px) {
+  .custom-img-wrapper {
+    height: 160px; /* Increased height for mobile */
+  }
+}
+.responsive-img-wrapper {
+  height: 100px; /* default for desktop */
+  width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .responsive-img-wrapper {
+    height: 260px; /* increased for mobile view */
+  }
+}
+
+.img-wrapper {
+  height: 80px; /* default for desktop */
+  width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .img-wrapper {
+    height: 200px; /* taller image for tablets/mobile */
+  }
+}

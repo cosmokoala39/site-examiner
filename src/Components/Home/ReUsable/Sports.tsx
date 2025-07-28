@@ -28,17 +28,18 @@ function ArticleCard({ item, category, bordered = false }: { item: Article; cate
           <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
         </div>
         <div className="col-lg-4">
-          <Link href={`/${category}/${item.slug}`} className="d-block">
-            <div style={{ cursor: 'pointer' }}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="img-fluid w-100 rounded"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </Link>
-        </div>
+  <Link href={`/${category}/${item.slug}`} className="d-block">
+    <div className="custom-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-100 h-100"
+        style={{ objectFit: "cover" }}
+      />
+    </div>
+  </Link>
+</div>
+
       </div>
     </div>
   );
@@ -150,18 +151,19 @@ function Sports({ data }: { data: CategoryData }) {
                 </p>
                 <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
               </div>
-              <div className="col-lg-4">
-                <Link href={`/${category}/${item.slug}`} className="d-block">
-                  <div style={{ cursor: 'pointer' }}>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="img-fluid w-100 rounded"
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                </Link>
-              </div>
+             <div className="col-lg-4">
+  <Link href={`/${category}/${item.slug}`} className="d-block">
+    <div className="responsive-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-100 h-100"
+        style={{ objectFit: "cover" }}
+      />
+    </div>
+  </Link>
+</div>
+
             </div>
           </div>
         ))}

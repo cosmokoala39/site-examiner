@@ -212,23 +212,33 @@ function RenderCategorySection({ articles, category }: Props) {
               </div>
 
               {/* Bottom-right horizontals */}
-              <div className="col-lg-6 border-top border-end">
-                {horizontals4.map((article, idx) => (
-                  <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-                    <p className="fw-bold">{article.title}</p>
-                    <div className="row">
-                      <div className="col-lg-8">
-                        <p className="text-muted small">{article.shortdescription.slice(0, 100)}</p>
-                      </div>
-                      <div className="col-lg-4">
-                        <Link href={`/${category}/${article.slug}`}>
-                          <img src={article.image} alt={article.title} className="img-fluid w-100 rounded" style={{ objectFit: "cover" }} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+             <div className="col-lg-6 border-top border-end">
+  {horizontals4.map((article, idx) => (
+    <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+      <p className="fw-bold">{article.title}</p>
+      <div className="row">
+        <div className="col-lg-8">
+          <p className="text-muted small">
+            {article.shortdescription.slice(0, 100)}
+          </p>
+        </div>
+        <div className="col-lg-4">
+          <Link href={`/${category}/${article.slug}`}>
+            <div className="img-wrapper rounded overflow-hidden">
+              <img
+                src={article.image}
+                alt={article.title}
+                className="w-100 h-100"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
             </div>
           </div>
         </div>

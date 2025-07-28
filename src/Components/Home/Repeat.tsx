@@ -36,7 +36,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
         backgroundColor: '#ffe5e5' // Light pink background
       }}
     >
-      Breaking
+     {data.category}
     </span>
   <p
     className="fw-bold text-muted mb-2"
@@ -69,7 +69,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
 
 
         {/* 2 horizontal right */}
-        <div className="col-lg-6">
+  <div className="col-lg-6">
   {articles.slice(1, 3).map((item, index) => (
     <Link
       href={`/${item.category || 'business'}/${item.slug}`}
@@ -90,19 +90,25 @@ function RepeatPage({ data }: { data: CategoryData }) {
               46 min ago
             </p>
           </div>
+
+          {/* ✅ Custom class for responsive image height */}
           <div className="col-lg-4">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="img-fluid w-100 rounded"
-              style={{ objectFit: "cover" }}
-            />
+            <div className="custom-img-container rounded overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-100 h-100"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
           </div>
         </div>
       </div>
     </Link>
   ))}
 </div>
+
+
 
       </div>
       <div className="divider"></div>
@@ -223,12 +229,14 @@ function RepeatPage({ data }: { data: CategoryData }) {
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${item.category || 'business'}/${item.slug}`}>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="img-fluid w-100 rounded"
-                      style={{  objectFit: "cover" }}
-                    />
+                    <div className="custom-img-container rounded overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-100 h-100"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
                   </Link>
                 </div>
               </div>
@@ -246,7 +254,7 @@ function RepeatPage({ data }: { data: CategoryData }) {
     <Link
       href={`/${item.category || 'business'}/${item.slug}`}
       key={index + 9}
-      className={`d-block text-decoration-none text-dark ${index === 0 ? "border-bottom" : ""}`}
+      className={`d-block text-decoration-none text-dark ${index === 0 ? "" : ""}`}
       style={{ cursor: "pointer" }}
     >
       <div className="p-3">

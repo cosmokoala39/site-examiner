@@ -397,32 +397,29 @@ function RepeatPage({ data }: { data: CategoryData }) {
             style={{ height: "220px", objectFit: "cover" }}
           />
 
-          {/* Description */}
-          <p
-            className="text-muted small mb-0"
-            style={{ fontFamily: "Merriweather, serif" }}
-          >
-            {articles[15].shortdescription.slice(0, 100)}...
-          </p>
-           <p
-              className="text-muted mt-2 small"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              {articles[0].date}
-            </p>
+         {/* Description */}
+<p
+  className="text-muted small mb-0"
+  style={{ fontFamily: "Merriweather, serif" }}
+>
+  {articles[15].shortdescription.slice(0, 100)}...
+</p>
 
-          {/* Author */}
-          <p
-            className="text-muted mb-2 small"
-            style={{ fontFamily: "Merriweather, serif" }}
-          >
-            <p
-              className="text-muted mt-2 small"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              {articles[0].date}
-            </p>
-          </p>
+<p
+  className="text-muted mt-2 small"
+  style={{ fontFamily: "Merriweather, serif" }}
+>
+  {articles[0].date}
+</p>
+
+{/* Author */}
+<p
+  className="text-muted mb-2 small"
+  style={{ fontFamily: "Merriweather, serif" }}
+>
+  {articles[0].date}
+</p>
+
         </Link>
 
         {/* --------------------------hori */}

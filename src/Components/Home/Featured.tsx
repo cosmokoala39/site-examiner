@@ -8,7 +8,7 @@ export type Article = {
   image: string;
   title: string;
   slug: string;
-  date:string;
+  date: string;
   shortdescription: string;
 };
 
@@ -33,17 +33,20 @@ function Featured({ data }: { data: CategoryData }) {
         <div className="row">
           {/* ✅ Title on top for mobile only */}
           <div className="col-12 d-block d-lg-none mb-2">
-           <span
-  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-  style={{
-    fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
-    backgroundColor: '#ffe5e5'
-  }}
->
-  {(category || 'Breaking').charAt(0).toUpperCase() + (category || 'Breaking').slice(1)}
-</span>
+            <span
+              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+              style={{
+                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+                backgroundColor: '#ffe5e5',
+              }}
+            >
+              {(category || 'Breaking').charAt(0).toUpperCase() +
+                (category || 'Breaking').slice(1)}
+            </span>
 
-            <h5 className="fw-bold" >{main.title}</h5>
+            <h5 className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>
+              {main.title}
+            </h5>
           </div>
 
           {/* ✅ Image (Right on desktop, Top on mobile) */}
@@ -56,7 +59,6 @@ function Featured({ data }: { data: CategoryData }) {
                 className="rounded"
                 style={{ objectFit: 'cover' }}
               />
-            
             </div>
           </div>
 
@@ -66,16 +68,28 @@ function Featured({ data }: { data: CategoryData }) {
               className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2 d-none d-lg-inline-block"
               style={{
                 fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
-                backgroundColor: '#ffe5e5'
+                backgroundColor: '#ffe5e5',
               }}
             >
               {category || 'Breaking'}
             </span>
-            <h5 className="fw-bold mb-2 d-none d-lg-block">{main.title}</h5>
+            <h5
+              className="fw-bold mb-2 d-none d-lg-block"
+              style={{ fontFamily: 'Merriweather, serif' }}
+            >
+              {main.title}
+            </h5>
+
+            {/* ✅ Short Description with Merriweather */}
             <p className="text-muted" style={{ fontFamily: 'Merriweather, serif' }}>
               {main.shortdescription?.slice(0, 170)}...
             </p>
-            <p className="text-muted fw-semibold small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
+
+            {/* ✅ Date */}
+            <p
+              className="text-muted fw-semibold small mb-0"
+              style={{ fontFamily: 'Merriweather, serif' }}
+            >
               {main.date}
             </p>
           </div>

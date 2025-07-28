@@ -118,6 +118,7 @@ function Page() {
 
         {/* ---------------------------------Bottom Section */}
         
+        
         <div className="col-lg-8 border-end">
           <National data={technologyData} />
          

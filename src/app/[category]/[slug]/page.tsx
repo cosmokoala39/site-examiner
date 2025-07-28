@@ -15,6 +15,7 @@ import HeartFoundationCard from "@/Components/HeartFoundationCard";
 interface ArticleProps {
   image: string;
   title: string;
+  date: string;
   slug: string;
   shortdescription: string;
   description?: string; // <-- now optional
@@ -90,7 +91,7 @@ const descriptionParagraphs = splitDescriptionIntoParagraphs(article.description
             <div className="vr d-none d-sm-block"></div>
             <div>
               <strong>Updated</strong> {article.updated || "N/A"}, first
-              published {article.published || "N/A"}
+              published {article.date}
             </div>
           </div>
 

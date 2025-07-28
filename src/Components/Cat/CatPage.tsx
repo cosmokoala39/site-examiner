@@ -111,7 +111,7 @@ function CategoryBlock({
                 className="text-muted small"
                 style={{ fontFamily: "Merriweather, serif" }}
               >
-                {verticalTop.shortdescription}...
+                {verticalTop.shortdescription.slice(0, 100)}...
               </p>
             </Link>
           </div>
@@ -143,7 +143,7 @@ function CategoryBlock({
                 className="text-muted small"
                 style={{ fontFamily: "Merriweather, serif" }}
               >
-                {verticalTop.shortdescription}...
+                {verticalTop.shortdescription.slice(0, 100)}...
               </p>
             </Link>
           </div>
@@ -168,7 +168,7 @@ function CategoryBlock({
                         className="text-muted small"
                         style={{ fontFamily: "Merriweather, serif" }}
                       >
-                        {article.shortdescription}...
+                        {article.shortdescription.slice(0, 100)}...
                       </p>
                     </div>
                     <div className="col-lg-4">
@@ -214,7 +214,7 @@ function CategoryBlock({
             className="text-muted small"
             style={{ fontFamily: "Merriweather, serif" }}
           >
-            {verticalBottom.shortdescription}...
+            {verticalBottom.shortdescription.slice(0, 100)}...
           </p>
         </Link>
       </div>
@@ -233,7 +233,7 @@ function CategoryBlock({
                   className="text-muted small"
                   style={{ fontFamily: "Merriweather, serif" }}
                 >
-                  {article.shortdescription}...
+                  {article.shortdescription.slice(0, 100)}...
                 </p>
               </div>
               <div className="col-lg-4">

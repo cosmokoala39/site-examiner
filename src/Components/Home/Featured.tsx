@@ -33,16 +33,17 @@ function Featured({ data }: { data: CategoryData }) {
         <div className="row">
           {/* ✅ Title on top for mobile only */}
           <div className="col-12 d-block d-lg-none mb-2">
-            <span
-              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-              style={{
-                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
-                backgroundColor: '#ffe5e5',
-              }}
-            >
-              {(category || 'Breaking').charAt(0).toUpperCase() +
-                (category || 'Breaking').slice(1)}
-            </span>
+          <span
+  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+  style={{
+    fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+    backgroundColor: '#ffe5e5',
+  }}
+>
+  {(category?.trim() || 'Breaking').charAt(0).toUpperCase() +
+    (category?.trim() || 'Breaking').slice(1)}
+</span>
+
 
             <h5 className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>
               {main.title}
@@ -64,15 +65,19 @@ function Featured({ data }: { data: CategoryData }) {
 
           {/* ✅ Text Section (Left on desktop, below image on mobile) */}
           <div className="col-12 col-lg-5 order-2 order-lg-1">
-            <span
-              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2 d-none d-lg-inline-block"
-              style={{
-                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
-                backgroundColor: '#ffe5e5',
-              }}
-            >
-              {category || 'Breaking'}
-            </span>
+           <span
+  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2 d-none d-lg-inline-block"
+  style={{
+    fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+    backgroundColor: '#ffe5e5',
+  }}
+>
+  {(() => {
+    const raw = (category || 'breaking').toLowerCase();
+    return raw.charAt(0).toUpperCase() + raw.slice(1);
+  })()}
+</span>
+
             <h5
               className="fw-bold mb-2 d-none d-lg-block"
               style={{ fontFamily: 'Merriweather, serif' }}

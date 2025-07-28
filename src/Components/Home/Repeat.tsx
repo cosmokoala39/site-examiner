@@ -30,15 +30,19 @@ function RepeatPage({ data }: { data: CategoryData }) {
           className="col-lg-6 border-end p-3 text-decoration-none text-dark"
           style={{ cursor: "pointer" }}
         >
-          <span
-            className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-            style={{
-              fontSize: "clamp(0.6rem, 1vw, 0.75rem)", // Responsive text size
-              backgroundColor: "#ffe5e5", // Light pink background
-            }}
-          >
-            {data.category}
-          </span>
+         <span
+  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+  style={{
+    fontSize: "clamp(0.6rem, 1vw, 0.75rem)", // Responsive text size
+    backgroundColor: "#ffe5e5", // Light pink background
+  }}
+>
+  {(() => {
+    const raw = (data.category || "breaking").toLowerCase();
+    return raw.charAt(0).toUpperCase() + raw.slice(1);
+  })()}
+</span>
+
           <p
             className="fw-bold text-muted mb-2"
             style={{ fontFamily: "Merriweather, serif" }}

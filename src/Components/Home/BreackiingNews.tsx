@@ -46,15 +46,19 @@ function BreackingNEws({ data }: { data: CategoryData }) {
       <div className="row">
         {/* ------------Main Vertical Article------------ */}
         <div className="col-lg-6 border-end p-3">
-          <span
-            className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-            style={{
-              fontSize: "clamp(0.6rem, 1vw, 0.75rem)",
-              backgroundColor: "#ffe5e5",
-            }}
-          >
-            {category}
-          </span>
+         <span
+  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+  style={{
+    fontSize: "clamp(0.6rem, 1vw, 0.75rem)",
+    backgroundColor: "#ffe5e5",
+  }}
+>
+  {(() => {
+    const raw = (category || "breaking").toLowerCase();
+    return raw.charAt(0).toUpperCase() + raw.slice(1);
+  })()}
+</span>
+
           <p
             className="fw-bold mb-2"
             style={{ fontFamily: "Merriweather, serif" }}

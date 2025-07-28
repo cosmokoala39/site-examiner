@@ -78,7 +78,7 @@ const descriptionParagraphs = splitDescriptionIntoParagraphs(article.description
     <div className="container py-5">
       {/* ---------- Header ---------- */}
       <div className="py-4 border-bottom">
-        <h1 className="fw-bold mb-3">{article.title}</h1>
+        <h1 className="fw-bold mb-3" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</h1>
 
         <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3 justify-content-between">
           <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 text-muted flex-wrap">
@@ -90,8 +90,8 @@ const descriptionParagraphs = splitDescriptionIntoParagraphs(article.description
             </div>
             <div className="vr d-none d-sm-block"></div>
             <div>
-              <strong>Updated</strong> {article.updated || "N/A"}, first
-              published {article.date}
+              <strong></strong>
+              published  {article.date}
             </div>
           </div>
 

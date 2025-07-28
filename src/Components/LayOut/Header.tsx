@@ -41,6 +41,7 @@ const Header = () => {
     { label: "Science", href: "/science" },
     { label: "Business", href: "/business" },
     { label: "Technology", href: "/technology" },
+    
   ];
 
   return (
@@ -104,14 +105,13 @@ const Header = () => {
           overflowY: "scroll",
           maxHeight: "100vh",
 
-          // Hide scrollbar
           scrollbarWidth: "none", // Firefox
           msOverflowStyle: "none", // IE 10+
         }}
       >
         <style jsx>{`
           div::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Edge */
+            display: none;
           }
         `}</style>
 
@@ -145,32 +145,16 @@ const Header = () => {
 
         {/* Social Links */}
         <div className="px-4 d-flex flex-column gap-3 mb-4">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
-          >
+          <a href="https://facebook.com" target="_blank" className="text-dark d-flex align-items-center gap-2 text-decoration-none">
             <i className="bi bi-facebook fs-5"></i> Facebook
           </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
-          >
+          <a href="https://twitter.com" target="_blank" className="text-dark d-flex align-items-center gap-2 text-decoration-none">
             <i className="bi bi-twitter-x fs-5"></i> Twitter
           </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
-          >
+          <a href="https://instagram.com" target="_blank" className="text-dark d-flex align-items-center gap-2 text-decoration-none">
             <i className="bi bi-instagram fs-5"></i> Instagram
           </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            className="text-dark d-flex align-items-center gap-2 text-decoration-none"
-          >
+          <a href="https://youtube.com" target="_blank" className="text-dark d-flex align-items-center gap-2 text-decoration-none">
             <i className="bi bi-youtube fs-5"></i> YouTube
           </a>
         </div>

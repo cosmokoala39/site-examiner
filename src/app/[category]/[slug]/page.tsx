@@ -24,10 +24,10 @@ interface ArticleProps {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     category: string;
     slug: string;
-  };
+  }>;
 }
 
 // Helper function to format description
@@ -45,8 +45,8 @@ function splitDescriptionIntoParagraphs(
   return paragraphs;
 }
 
-export default function DetailPage({ params }: PageProps) {
-  const { category, slug } = params;
+export default async function DetailPage({ params }: PageProps) {
+  const { category, slug } = await params;
 
   const allArticles: Record<string, ArticleProps[]> = {
     business: businessData,

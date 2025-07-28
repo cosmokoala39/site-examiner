@@ -16,7 +16,7 @@ interface Params {
 }
 
 export async function generateStaticParams() {
-  const categories = ["business", "sports", "politics", "health", "technology"];
+  const categories = ["business", "sports", "politics", "health","science", "technology"];
   return categories.map((category) => ({ category }));
 }
 

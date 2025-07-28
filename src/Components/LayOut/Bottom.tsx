@@ -32,7 +32,7 @@ const Bottom = () => {
         <div className="container px-4">
           {/* Date and Weather */}
           <div className="d-flex justify-content-between align-items-center py-1">
-            <div className="fw-semibold small">{getFormattedDate()}</div>
+            <div className="fw-semibold small date-text">{getFormattedDate()}</div>
             <div className="d-flex align-items-center gap-2 small text-secondary">
               <i className="bi bi-cloud-rain fs-5 text-muted"></i>
               <span className="fw-semibold text-dark">11.6°</span>
@@ -84,7 +84,7 @@ const Bottom = () => {
               </div>
             </div>
             <div className="col-md-3 d-flex align-items-center gap-2 border-start ps-3">
-              <div className="bg-warning rounded p-1">
+              <div className="bg-warning roundedd p-1">
                 <i className="bi bi-fingerprint fs-5"></i>
               </div>
               <div>
@@ -116,7 +116,7 @@ const Bottom = () => {
           {/* Date & Subscribe */}
           <div className="d-flex justify-content-between align-items-center mb-2 border-top pt-2">
             <div>
-              <div className="fw-semibold small">{getFormattedDate()}</div>
+              <div className="fw-semibold small date-text">{getFormattedDate()}</div>
             </div>
             <div className="d-flex align-items-center gap-2">
               <button
@@ -148,6 +148,19 @@ const Bottom = () => {
           </div>
         </div>
       </section>
+
+      {/* ✅ Scoped CSS */}
+      <style jsx>{`
+        .date-text {
+          font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+          .date-text {
+            font-size: 0.55rem;
+          }
+        }
+      `}</style>
     </>
   );
 };

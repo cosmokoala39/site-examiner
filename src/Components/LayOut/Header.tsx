@@ -101,10 +101,20 @@ const Header = () => {
           transform: isDrawerOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.3s ease-in-out",
           maxWidth: "100vw",
-          overflowY: "auto",
+          overflowY: "scroll",
           maxHeight: "100vh",
+
+          // Hide scrollbar
+          scrollbarWidth: "none", // Firefox
+          msOverflowStyle: "none", // IE 10+
         }}
       >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+          }
+        `}</style>
+
         {/* Drawer Header */}
         <div className="d-flex justify-content-between align-items-center p-3 border-bottom">
           <i

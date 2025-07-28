@@ -28,26 +28,257 @@ interface Props {
   category: string;
 }
 
+function CategoryBlock({
+  verticalTop,
+  horizontalTop,
+  verticalBottom,
+  horizontalBottom,
+  reverse,
+  category,
+}: {
+  verticalTop: Article;
+  horizontalTop: Article[];
+  verticalBottom: Article;
+  horizontalBottom: Article[];
+  reverse: boolean;
+  category: string;
+}) {
+  return (
+    <div className="row pt-2">
+      {reverse ? (
+        <>
+          {/* Horizontals Left */}
+          <div className="col-lg-6 border-end">
+            {horizontalTop.map((article, idx) => (
+              <Link
+                href={`/${category}/${article.slug}`}
+                key={idx}
+                className="text-decoration-none text-dark"
+              >
+                <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+                  <p
+                    className="fw-bold"
+                    style={{ fontFamily: "Merriweather, serif" }}
+                  >
+                    {article.title}
+                  </p>
+                  <div className="row">
+                    <div className="col-lg-8">
+                      <p
+                        className="text-muted small"
+                        style={{ fontFamily: "Merriweather, serif" }}
+                      >
+                        {article.shortdescription.slice(0, 100)}...
+                      </p>
+                    </div>
+                    <div className="col-lg-4">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        width={400}
+                        height={300}
+                        className="img-fluid w-100 rounded"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          {/* Vertical Right */}
+          <div className="col-lg-6 border-end p-3">
+            <Link
+              href={`/${category}/${verticalTop.slug}`}
+              className="text-decoration-none text-dark"
+            >
+              <p
+                className="fw-bold text-muted mb-2"
+                style={{ fontFamily: "Merriweather, serif" }}
+              >
+                {verticalTop.title}
+              </p>
+              <Image
+                src={verticalTop.image}
+                alt={verticalTop.title}
+                width={800}
+                height={450}
+                className="img-fluid w-100 rounded mb-2"
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+
+              <p
+                className="text-muted small"
+                style={{ fontFamily: "Merriweather, serif" }}
+              >
+                {verticalTop.shortdescription}...
+              </p>
+            </Link>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Vertical Left */}
+          <div className="col-lg-6 border-end p-3">
+            <Link
+              href={`/${category}/${verticalTop.slug}`}
+              className="text-decoration-none text-dark"
+            >
+              <p
+                className="fw-bold text-muted mb-2"
+                style={{ fontFamily: "Merriweather, serif" }}
+              >
+                {verticalTop.title}
+              </p>
+
+              <Image
+                src={verticalTop.image}
+                alt={verticalTop.title}
+                width={800}
+                height={450}
+                className="img-fluid w-100 rounded mb-2"
+                style={{ height: "220px", objectFit: "cover" }}
+              />
+              <p
+                className="text-muted small"
+                style={{ fontFamily: "Merriweather, serif" }}
+              >
+                {verticalTop.shortdescription}...
+              </p>
+            </Link>
+          </div>
+          {/* Horizontals Right */}
+          <div className="col-lg-6 border-end">
+            {horizontalTop.map((article, idx) => (
+              <Link
+                href={`/${category}/${article.slug}`}
+                key={idx}
+                className="text-decoration-none text-dark"
+              >
+                <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+                  <p
+                    className="fw-bold"
+                    style={{ fontFamily: "Merriweather, serif" }}
+                  >
+                    {article.title}
+                  </p>
+                  <div className="row">
+                    <div className="col-lg-8">
+                      <p
+                        className="text-muted small"
+                        style={{ fontFamily: "Merriweather, serif" }}
+                      >
+                        {article.shortdescription}...
+                      </p>
+                    </div>
+                    <div className="col-lg-4">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        width={400}
+                        height={300}
+                        className="img-fluid w-100 rounded"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Bottom Row */}
+      <div className="col-lg-6 border-end p-3 border-top border-bottom">
+        <Link
+          href={`/${category}/${verticalBottom.slug}`}
+          className="text-decoration-none text-dark"
+        >
+          <p
+            className="fw-bold text-muted mb-2"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            {verticalBottom.title}
+          </p>
+
+          <Image
+            src={verticalBottom.image}
+            alt={verticalBottom.title}
+            width={800}
+            height={450}
+            className="img-fluid w-100 rounded mb-2"
+            style={{ height: "220px", objectFit: "cover" }}
+          />
+          <p
+            className="text-muted small"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            {verticalBottom.shortdescription}...
+          </p>
+        </Link>
+      </div>
+      <div className="col-lg-6 border-top border-end">
+        {horizontalBottom.map((article, idx) => (
+          <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+            <p
+              className="fw-bold"
+              style={{ fontFamily: "Merriweather, serif" }}
+            >
+              {article.title}
+            </p>
+            <div className="row">
+              <div className="col-lg-8">
+                <p
+                  className="text-muted small"
+                  style={{ fontFamily: "Merriweather, serif" }}
+                >
+                  {article.shortdescription}...
+                </p>
+              </div>
+              <div className="col-lg-4">
+                <Link href={`/${category}/${article.slug}`}>
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={400}
+                    height={300}
+                    className="img-fluid w-100 rounded"
+                    style={{ objectFit: "cover" }}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function RenderCategorySection({ articles, category }: Props) {
-  if (!articles || articles.length < 12) {
+  if (articles.length < 12) {
     return (
       <p className="text-center text-muted py-5">
-        Not enough articles for full layout.
+        Not enough articles for layout.
       </p>
     );
   }
 
-  // First layout
-  const vertical1 = articles[0];
-  const horizontals1 = articles.slice(1, 3);
-  const vertical2 = articles[1];
-  const horizontals2 = articles.slice(4, 5);
-
-  // Second layout with next unique articles
-  const vertical3 = articles[6];
-  const horizontals3 = articles.slice(7, 9);
-  const vertical4 = articles[9];
-  const horizontals4 = articles.slice(10, 12);
+  // Break into chunks of 6: [0-5], [6-11], repeat if needed
+  const sections = [];
+  for (let i = 0; i + 5 < articles.length && sections.length < 4; i += 6) {
+    const verticalTop = articles[i];
+    const horizontalTop = articles.slice(i + 1, i + 3);
+    const verticalBottom = articles[i + 3];
+    const horizontalBottom = articles.slice(i + 4, i + 6);
+    sections.push({
+      verticalTop,
+      horizontalTop,
+      verticalBottom,
+      horizontalBottom,
+    });
+  }
 
   return (
     <div className="div">
@@ -93,211 +324,15 @@ function RenderCategorySection({ articles, category }: Props) {
               />
             </div>
 
-            {/* ----------- First Section ----------- */}
-            <div className="row pt-2">
-              {/* Left vertical */}
-            <div className="col-lg-6 border-end p-3">
-  <Link href={`/${category}/${vertical1.slug}`} className="text-decoration-none text-dark">
-    <div>
-      <Image
-        src={vertical1.image}
-        alt={vertical1.title}
-        width={800}
-        height={450}
-        className="img-fluid w-100 rounded mb-2"
-        style={{ height: "220px", objectFit: "cover" }}
-      />
-      <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>
-        {vertical1.title}
-      </p>
-      <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
-        {vertical1.shortdescription.slice(0, 100)}...
-      </p>
-    </div>
-  </Link>
-</div>
-              {/* Right horizontals */}
-             <div className="col-lg-6 border-end">
-  {horizontals1.map((article, idx) => (
-    <Link
-      href={`/${category}/${article.slug}`}
-      key={idx}
-      className="text-decoration-none text-dark"
-    >
-      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-        <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>
-          {article.title}
-        </p>
-        <div className="row">
-          <div className="col-lg-8">
-            <p className="text-muted small">
-              {article.shortdescription.slice(0, 100)}...
-            </p>
-          </div>
-          <div className="col-lg-4">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={400}
-              height={300}
-              className="img-fluid w-100 rounded"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
-              {/* Bottom-right horizontals */}
-              <div className="col-lg-6 border-top">
-  {horizontals2.map((article, idx) => (
-    <Link
-      href={`/${category}/${article.slug}`}
-      key={idx}
-      className="text-decoration-none text-dark"
-    >
-      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-        <p className="fw-bold">{article.title}</p>
-        <div className="row">
-          <div className="col-lg-8">
-            <p className="text-muted small">
-              {article.shortdescription.slice(0, 100)}...
-            </p>
-          </div>
-          <div className="col-lg-4">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={400}
-              height={300}
-              className="img-fluid w-100 rounded"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
-              {/* Bottom-left vertical */}
-            
-<Link href={`/${category}/${vertical2.slug}`} className="text-decoration-none text-dark">
-  <div className="col-lg-6 border-end p-3 border-top border-bottom">
-    <Image
-      src={vertical2.image}
-      alt={vertical2.title}
-      width={800}
-      height={450}
-      className="img-fluid w-100 rounded mb-2"
-      style={{ height: "220px", objectFit: "cover" }}
-    />
-    <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
-    <p className="text-muted small">
-      {vertical2.shortdescription.slice(0, 100)}...
-    </p>
-  </div>
-</Link>
-            </div>
-
-            {/* ----------- Second Section ----------- */}
-            <div className="row pt-2">
-              {/* Top-right horizontals */}
-              
-<div className="col-lg-6">
-  {horizontals3.map((article, idx) => (
-    <Link
-      key={idx}
-      href={`/${category}/${article.slug}`}
-      className="text-decoration-none text-dark"
-    >
-      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-        <p className="fw-bold">{article.title}</p>
-        <div className="row">
-          <div className="col-lg-8">
-            <p className="text-muted small">
-              {article.shortdescription.slice(0, 100)}...
-            </p>
-          </div>
-          <div className="col-lg-4">
-            <Image
-              src={article.image}
-              alt={article.title}
-              width={400}
-              height={300}
-              className="img-fluid w-100 rounded"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
-              {/* Left vertical */}
-              <div className="col-lg-6 border-end p-3">
-                <Link href={`/${category}/${vertical3.slug}`}>
-                  <img
-                    src={vertical3.image}
-                    alt={vertical3.title}
-                    className="img-fluid w-100 rounded mb-2"
-                    style={{ height: "220px", objectFit: "cover" }}
-                  />
-                </Link>
-                <p className="fw-bold text-muted mb-2">{vertical3.title}</p>
-                <p className="text-muted small">{vertical3.shortdescription.slice(0, 100)}...</p>
-              </div>
-
-              {/* Bottom-left vertical */}
-              <Link href={`/${category}/${vertical3.slug}`} className="text-decoration-none text-dark">
-  <div className="col-lg-6 border-end p-3">
-    <Image
-      src={vertical3.image}
-      alt={vertical3.title}
-      width={800}
-      height={450}
-      className="img-fluid w-100 rounded mb-2"
-      style={{ height: "220px", objectFit: "cover" }}
-    />
-    <p className="fw-bold text-muted mb-2">{vertical3.title}</p>
-    <p className="text-muted small">
-      {vertical3.shortdescription.slice(0, 100)}...
-    </p>
-  </div>
-</Link>
-
-              {/* Bottom-right horizontals */}
-             <div className="col-lg-6 border-top border-end">
-  {horizontals4.map((article, idx) => (
-    <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-      <p className="fw-bold">{article.title}</p>
-      <div className="row">
-        <div className="col-lg-8">
-          <p className="text-muted small">
-            {article.shortdescription.slice(0, 100)}
-          </p>
-        </div>
-        <div className="col-lg-4">
-          <Link href={`/${category}/${article.slug}`}>
-            <div className="img-wrapper rounded overflow-hidden">
-              <img
-                src={article.image}
-                alt={article.title}
-                className="w-100 h-100"
-                style={{ objectFit: "cover" }}
+            {/* Repeated Sections */}
+            {sections.map((section, index) => (
+              <CategoryBlock
+                key={index}
+                {...section}
+                reverse={index % 2 !== 0}
+                category={category}
               />
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-            </div>
+            ))}
           </div>
         </div>
 
@@ -306,7 +341,11 @@ function RenderCategorySection({ articles, category }: Props) {
           <div className="container py-5">
             <MatchCard
               teamA={{ name: "Cowboys", logo: "/images/cow.svg", rank: "13th" }}
-              teamB={{ name: "Dragons", logo: "/images/dragon.svg", rank: "11th" }}
+              teamB={{
+                name: "Dragons",
+                logo: "/images/dragon.svg",
+                rank: "11th",
+              }}
               date="Fri 25 July"
               time="1:30 pm"
               summary={[

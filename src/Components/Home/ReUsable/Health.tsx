@@ -32,7 +32,13 @@ function Health({ data }: { data: CategoryData }) {
       <Row className="mb-3 pt-5">
         <Col>
           <div className="d-flex align-items-center">
-            <h6 className="fw-bold mb-0 me-2">{category}</h6>
+           <h6 className="fw-bold mb-0 me-2">
+  {(() => {
+    const raw = (category || "breaking").toLowerCase();
+    return raw.charAt(0).toUpperCase() + raw.slice(1);
+  })()}
+</h6>
+
             <div
               style={{
                 flexGrow: 1,

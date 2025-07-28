@@ -67,7 +67,9 @@ function National({ data }: { data: CategoryData }) {
           <p className="text-muted small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
             {main.shortdescription.slice(0, 100)}...
           </p>
-          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
+          <div className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>
+            {main.title}
+          </div>
         </div>
 
         {/* Top Two Horizontal Articles */}
@@ -80,7 +82,9 @@ function National({ data }: { data: CategoryData }) {
                   <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
                     {item.shortdescription.slice(0, 30)}
                   </p>
-                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                  <div className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+                    {item.title}
+                  </div>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${item.slug}`} className="d-block">
@@ -116,7 +120,9 @@ function National({ data }: { data: CategoryData }) {
                 <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
                   {item.shortdescription.slice(0, 100)}
                 </p>
-                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                <div className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+                  {item.title}
+                </div>
               </div>
               <div className="col-lg-4">
                 <Link href={`/${category}/${item.slug}`} className="d-block">

@@ -40,8 +40,8 @@ function RenderCategorySection({ articles, category }: Props) {
   // First layout
   const vertical1 = articles[0];
   const horizontals1 = articles.slice(1, 3);
-  const vertical2 = articles[3];
-  const horizontals2 = articles.slice(4, 6);
+  const vertical2 = articles[1];
+  const horizontals2 = articles.slice(4, 5);
 
   // Second layout with next unique articles
   const vertical3 = articles[6];
@@ -96,92 +96,146 @@ function RenderCategorySection({ articles, category }: Props) {
             {/* ----------- First Section ----------- */}
             <div className="row pt-2">
               {/* Left vertical */}
-              <div className="col-lg-6 border-end p-3">
-                <Link href={`/${category}/${vertical1.slug}`}>
-                  <img
-                    src={vertical1.image}
-                    alt={vertical1.title}
-                    className="img-fluid w-100 rounded mb-2"
-                    style={{ height: "220px", objectFit: "cover" }}
-                  />
-                </Link>
-                <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.title}</p>
-                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{vertical1.shortdescription.slice(0, 100)}...</p>
-              </div>
-
+            <div className="col-lg-6 border-end p-3">
+  <Link href={`/${category}/${vertical1.slug}`} className="text-decoration-none text-dark">
+    <div>
+      <Image
+        src={vertical1.image}
+        alt={vertical1.title}
+        width={800}
+        height={450}
+        className="img-fluid w-100 rounded mb-2"
+        style={{ height: "220px", objectFit: "cover" }}
+      />
+      <p className="fw-bold text-muted mb-2" style={{ fontFamily: 'Merriweather, serif' }}>
+        {vertical1.title}
+      </p>
+      <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+        {vertical1.shortdescription.slice(0, 100)}...
+      </p>
+    </div>
+  </Link>
+</div>
               {/* Right horizontals */}
-              <div className="col-lg-6 border-end">
-                {horizontals1.map((article, idx) => (
-                  <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-                    <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>{article.title}</p>
-                    <div className="row">
-                      <div className="col-lg-8">
-                        <p className="text-muted small">{article.shortdescription.slice(0, 100)}</p>
-                      </div>
-                      <div className="col-lg-4">
-                        <Link href={`/${category}/${article.slug}`}>
-                          <img src={article.image} alt={article.title} className="img-fluid w-100 rounded" style={{ objectFit: "cover" }} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+             <div className="col-lg-6 border-end">
+  {horizontals1.map((article, idx) => (
+    <Link
+      href={`/${category}/${article.slug}`}
+      key={idx}
+      className="text-decoration-none text-dark"
+    >
+      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+        <p className="fw-bold" style={{ fontFamily: 'Merriweather, serif' }}>
+          {article.title}
+        </p>
+        <div className="row">
+          <div className="col-lg-8">
+            <p className="text-muted small">
+              {article.shortdescription.slice(0, 100)}...
+            </p>
+          </div>
+          <div className="col-lg-4">
+            <Image
+              src={article.image}
+              alt={article.title}
+              width={400}
+              height={300}
+              className="img-fluid w-100 rounded"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
 
               {/* Bottom-right horizontals */}
               <div className="col-lg-6 border-top">
-                {horizontals2.map((article, idx) => (
-                  <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-                    <p className="fw-bold">{article.title}</p>
-                    <div className="row">
-                      <div className="col-lg-8">
-                        <p className="text-muted small">{article.shortdescription.slice(0, 100)}</p>
-                      </div>
-                      <div className="col-lg-4">
-                        <Link href={`/${category}/${article.slug}`}>
-                          <img src={article.image} alt={article.title} className="img-fluid w-100 rounded" style={{ objectFit: "cover" }} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+  {horizontals2.map((article, idx) => (
+    <Link
+      href={`/${category}/${article.slug}`}
+      key={idx}
+      className="text-decoration-none text-dark"
+    >
+      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+        <p className="fw-bold">{article.title}</p>
+        <div className="row">
+          <div className="col-lg-8">
+            <p className="text-muted small">
+              {article.shortdescription.slice(0, 100)}...
+            </p>
+          </div>
+          <div className="col-lg-4">
+            <Image
+              src={article.image}
+              alt={article.title}
+              width={400}
+              height={300}
+              className="img-fluid w-100 rounded"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
 
               {/* Bottom-left vertical */}
-              <div className="col-lg-6 border-end p-3 border-top border-bottom">
-                <Link href={`/${category}/${vertical2.slug}`}>
-                  <img
-                    src={vertical2.image}
-                    alt={vertical2.title}
-                    className="img-fluid w-100 rounded mb-2"
-                    style={{ height: "220px", objectFit: "cover" }}
-                  />
-                </Link>
-                <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
-                <p className="text-muted small">{vertical2.shortdescription.slice(0, 100)}...</p>
-              </div>
+            
+<Link href={`/${category}/${vertical2.slug}`} className="text-decoration-none text-dark">
+  <div className="col-lg-6 border-end p-3 border-top border-bottom">
+    <Image
+      src={vertical2.image}
+      alt={vertical2.title}
+      width={800}
+      height={450}
+      className="img-fluid w-100 rounded mb-2"
+      style={{ height: "220px", objectFit: "cover" }}
+    />
+    <p className="fw-bold text-muted mb-2">{vertical2.title}</p>
+    <p className="text-muted small">
+      {vertical2.shortdescription.slice(0, 100)}...
+    </p>
+  </div>
+</Link>
             </div>
 
             {/* ----------- Second Section ----------- */}
             <div className="row pt-2">
               {/* Top-right horizontals */}
-              <div className="col-lg-6">
-                {horizontals3.map((article, idx) => (
-                  <div key={idx} className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
-                    <p className="fw-bold">{article.title}</p>
-                    <div className="row">
-                      <div className="col-lg-8">
-                        <p className="text-muted small">{article.shortdescription.slice(0, 100)}</p>
-                      </div>
-                      <div className="col-lg-4">
-                        <Link href={`/${category}/${article.slug}`}>
-                          <img src={article.image} alt={article.title} className="img-fluid w-100 rounded" style={{ objectFit: "cover" }} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              
+<div className="col-lg-6">
+  {horizontals3.map((article, idx) => (
+    <Link
+      key={idx}
+      href={`/${category}/${article.slug}`}
+      className="text-decoration-none text-dark"
+    >
+      <div className={`p-3 ${idx === 0 ? "border-bottom" : ""}`}>
+        <p className="fw-bold">{article.title}</p>
+        <div className="row">
+          <div className="col-lg-8">
+            <p className="text-muted small">
+              {article.shortdescription.slice(0, 100)}...
+            </p>
+          </div>
+          <div className="col-lg-4">
+            <Image
+              src={article.image}
+              alt={article.title}
+              width={400}
+              height={300}
+              className="img-fluid w-100 rounded"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
 
               {/* Left vertical */}
               <div className="col-lg-6 border-end p-3">
@@ -198,18 +252,22 @@ function RenderCategorySection({ articles, category }: Props) {
               </div>
 
               {/* Bottom-left vertical */}
-              <div className="col-lg-6 border-end p-3 border-top">
-                <Link href={`/${category}/${vertical4.slug}`}>
-                  <img
-                    src={vertical4.image}
-                    alt={vertical4.title}
-                    className="img-fluid w-100 rounded mb-2"
-                    style={{ height: "220px", objectFit: "cover" }}
-                  />
-                </Link>
-                <p className="fw-bold text-muted mb-2">{vertical4.title}</p>
-                <p className="text-muted small">{vertical4.shortdescription.slice(0, 100)}...</p>
-              </div>
+              <Link href={`/${category}/${vertical3.slug}`} className="text-decoration-none text-dark">
+  <div className="col-lg-6 border-end p-3">
+    <Image
+      src={vertical3.image}
+      alt={vertical3.title}
+      width={800}
+      height={450}
+      className="img-fluid w-100 rounded mb-2"
+      style={{ height: "220px", objectFit: "cover" }}
+    />
+    <p className="fw-bold text-muted mb-2">{vertical3.title}</p>
+    <p className="text-muted small">
+      {vertical3.shortdescription.slice(0, 100)}...
+    </p>
+  </div>
+</Link>
 
               {/* Bottom-right horizontals */}
              <div className="col-lg-6 border-top border-end">
@@ -255,7 +313,6 @@ function RenderCategorySection({ articles, category }: Props) {
                 "Head-to-Head - 39 games played. Cowboys 22 wins – Dragons 17 wins.",
                 "The Cowboys have won their last 5 matches against the Dragons – since 2021.",
               ]}
-              readMoreLink="/match-preview/cowboys-vs-dragons"
             />
           </div>
         </div>

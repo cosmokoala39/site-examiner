@@ -8,6 +8,7 @@ export type Article = {
   image: string;
   title: string;
   slug: string;
+  date:string;
   shortdescription: string;
 };
 
@@ -32,16 +33,17 @@ function Featured({ data }: { data: CategoryData }) {
         <div className="row">
           {/* ✅ Title on top for mobile only */}
           <div className="col-12 d-block d-lg-none mb-2">
-            <span
-              className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
-              style={{
-                fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
-                backgroundColor: '#ffe5e5'
-              }}
-            >
-              {category || 'Breaking'}
-            </span>
-            <h5 className="fw-bold">{main.title}</h5>
+           <span
+  className="badge text-danger rounded-pill px-2 py-1 fw-semibold m-2"
+  style={{
+    fontSize: 'clamp(0.6rem, 1vw, 0.75rem)',
+    backgroundColor: '#ffe5e5'
+  }}
+>
+  {(category || 'Breaking').charAt(0).toUpperCase() + (category || 'Breaking').slice(1)}
+</span>
+
+            <h5 className="fw-bold" >{main.title}</h5>
           </div>
 
           {/* ✅ Image (Right on desktop, Top on mobile) */}
@@ -54,21 +56,7 @@ function Featured({ data }: { data: CategoryData }) {
                 className="rounded"
                 style={{ objectFit: 'cover' }}
               />
-              {/* Play Icon Overlay */}
-              <div
-                className="position-absolute top-50 start-50 translate-middle"
-                style={{
-                  width: '55px',
-                  height: '55px',
-                  backgroundColor: 'rgba(255,255,255,0.75)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <i className="bi bi-play-fill fs-3 text-dark"></i>
-              </div>
+            
             </div>
           </div>
 
@@ -88,7 +76,7 @@ function Featured({ data }: { data: CategoryData }) {
               {main.shortdescription?.slice(0, 170)}...
             </p>
             <p className="text-muted fw-semibold small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
-              Joe Colbrook. 2 hrs ago
+              {main.date}
             </p>
           </div>
         </div>

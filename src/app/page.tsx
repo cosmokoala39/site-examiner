@@ -6,6 +6,7 @@ import NewsCard from "@/Components/Home/NewsCard";
 import RepeatPage from "@/Components/Home/Repeat";
 
 // JSON imports
+import technologyJson from "@/data/technology.json";
 import businessJson from "@/data/business.json";
 import politicsJson from "@/data/politics.json";
 import healthJson from "@/data/health.json";
@@ -33,6 +34,7 @@ type Article = {
   image: string;
   title: string;
   slug: string;
+  date:string;
   shortdescription: string;
   category?: string;
 };
@@ -56,6 +58,11 @@ function Page() {
   const businessSection = createCategoryData(
     "business",
     businessJson as Article[]
+  );
+
+  const technologyData = createCategoryData(
+    "technology",
+    technologyJson as Article[]
   );
   const politicsSection = createCategoryData(
     "politics",
@@ -94,6 +101,7 @@ function Page() {
               title={item.title}
               shortdescription={item.shortdescription}
               slug={item.slug}
+              date={item.date}
             />
           ))}
               {/* ---------------------- Sidebar ------------------- */}
@@ -109,17 +117,24 @@ function Page() {
       />
 
         {/* ---------------------------------Bottom Section */}
+        
         <div className="col-lg-8 border-end">
-          <National data={politicsSection} />
+          <National data={technologyData} />
          
           <Sports data={sportsSection} />
           <Politics data={politicsSection} />
           <Science data={scienceSection} />
           <Health data={healthSection} />
+
+          
         </div>
+
+        
+          
           
       
       </div>
+      
     </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 type Team = {
   name: string;
@@ -15,7 +14,6 @@ type MatchCardProps = {
   date: string;
   time: string;
   summary: string[];
-  readMoreLink: string;
 };
 
 const MatchCard: React.FC<MatchCardProps> = ({
@@ -24,7 +22,6 @@ const MatchCard: React.FC<MatchCardProps> = ({
   date,
   time,
   summary,
-  readMoreLink,
 }) => {
   return (
     <div className="card shadow-sm border-success border rounded-3 overflow-hidden">

@@ -33,16 +33,18 @@ const Header = () => {
     document.body.style.overflow = isDrawerOpen ? "hidden" : "auto";
   }, [isDrawerOpen]);
 
-  const items = [
-    { label: "Home", href: "/" },
-    { label: "Politics", href: "/politics" },
-    { label: "Health", href: "/health" },
-    { label: "Sports", href: "/sports" },
-    { label: "Science", href: "/science" },
-    { label: "Business", href: "/business" },
-    { label: "Technology", href: "/technology" },
-    
-  ];
+ const items = [
+  { label: "Home", href: "/" },
+  { label: "Politics", href: "/politics" },
+  { label: "Health", href: "/health" },
+  { label: "Sports", href: "/sports" },
+  { label: "Science", href: "/science" },
+  { label: "Business", href: "/business" },
+  { label: "Technology", href: "/technology" },
+  { label: "Entertainment", href: "/entertainment" },
+  { label: "Education", href: "/education" },
+];
+
 
   return (
     <>

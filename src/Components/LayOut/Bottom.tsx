@@ -23,6 +23,8 @@ const Bottom = () => {
     { label: "Science", href: "/science" },
     { label: "Business", href: "/business" },
     { label: "Technology", href: "/technology" },
+    { label: "Entertainment", href: "/entertainment" },
+  { label: "Education", href: "/education" },
   ];
 
   return (

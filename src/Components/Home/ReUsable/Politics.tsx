@@ -9,6 +9,7 @@ export type Article = {
   title: string;
   slug: string;
   shortdescription: string;
+  date: string; // <-- added
 };
 
 export type CategoryData = {
@@ -20,6 +21,13 @@ function Politics({ data }: { data: CategoryData }) {
   const { articles, category } = data;
   const main = articles[0];
   const others = articles.slice(1, 10);
+
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString("en-IN", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
 
   return (
     <div className="div">
@@ -67,7 +75,9 @@ function Politics({ data }: { data: CategoryData }) {
           <p className="text-muted small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
             {main.shortdescription.slice(0, 100)}...
           </p>
-          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
+          <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>
+            {formatDate(main.date)}
+          </p>
         </div>
 
         {/* Top Two Horizontal Articles */}
@@ -80,7 +90,9 @@ function Politics({ data }: { data: CategoryData }) {
                   <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
                     {item.shortdescription.slice(0, 30)}
                   </p>
-                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                  <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+                    {formatDate(item.date)}
+                  </p>
                 </div>
                 <div className="col-lg-4">
                   <Link href={`/${category}/${item.slug}`} className="d-block">
@@ -112,7 +124,9 @@ function Politics({ data }: { data: CategoryData }) {
                 <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
                   {item.shortdescription.slice(0, 100)}
                 </p>
-                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
+                  {formatDate(item.date)}
+                </p>
               </div>
               <div className="col-lg-4">
                 <Link href={`/${category}/${item.slug}`} className="d-block">

@@ -4,6 +4,8 @@ import technologyData from "../../../data/technology.json";
 import sportsData from "../../../data/sports.json";
 import scienceData from "../../../data/science.json";
 import healthData from "../../../data/health.json";
+import educationData from "../../../data/education.json";
+import entertainmentData from "../../../data/entertainment.json";
 
 import Image from "next/image";
 import NewsCardGrid from "@/Components/Home/NewsCard";
@@ -15,13 +17,14 @@ interface ArticleProps {
   title: string;
   slug: string;
   shortdescription: string;
-  description: string;
+  description?: string; // <-- now optional
   category: string;
   author?: string;
   updated?: string;
   published?: string;
   imageCaption?: string;
 }
+
 
 interface PageProps {
   params: Promise<{
@@ -55,6 +58,8 @@ export default async function DetailPage({ params }: PageProps) {
     sports: sportsData,
     science: scienceData,
     health: healthData,
+    education:educationData,
+    entertainment: entertainmentData,
   };
 
   const article = allArticles[category]?.find((item) => item.slug === slug);
@@ -65,9 +70,8 @@ export default async function DetailPage({ params }: PageProps) {
     );
   }
 
-  const descriptionParagraphs = splitDescriptionIntoParagraphs(
-    article.description
-  );
+const descriptionParagraphs = splitDescriptionIntoParagraphs(article.description || "");
+
 
   return (
     <div className="container py-5">

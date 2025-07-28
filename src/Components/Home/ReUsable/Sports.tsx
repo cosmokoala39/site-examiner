@@ -9,6 +9,7 @@ export type Article = {
   title: string;
   slug: string;
   shortdescription: string;
+  date: string;
 };
 
 export type CategoryData = {
@@ -25,21 +26,20 @@ function ArticleCard({ item, category, bordered = false }: { item: Article; cate
           <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
             {item.shortdescription.slice(0, 30)}
           </p>
-          <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+          <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{item.date}</p>
         </div>
         <div className="col-lg-4">
-  <Link href={`/${category}/${item.slug}`} className="d-block">
-    <div className="custom-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
-      <img
-        src={item.image}
-        alt={item.title}
-        className="w-100 h-100"
-        style={{ objectFit: "cover" }}
-      />
-    </div>
-  </Link>
-</div>
-
+          <Link href={`/${category}/${item.slug}`} className="d-block">
+            <div className="custom-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-100 h-100"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -61,7 +61,7 @@ function MainArticle({ main, category }: { main: Article; category: string }) {
       <p className="text-muted small mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
         {main.shortdescription.slice(0, 100)}...
       </p>
-      <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>Author</p>
+      <p className="text-muted mb-2 small" style={{ fontFamily: 'Merriweather, serif' }}>{main.date}</p>
     </div>
   );
 }
@@ -73,7 +73,6 @@ function Sports({ data }: { data: CategoryData }) {
     return <div className="p-3 text-muted">Not enough articles to display this layout.</div>;
   }
 
-  // Track used indexes to avoid duplicates
   const usedIndexes = new Set<number>();
 
   const mainTopIndex = 0;
@@ -83,7 +82,6 @@ function Sports({ data }: { data: CategoryData }) {
   usedIndexes.add(mainTopIndex);
   usedIndexes.add(mainReverseIndex);
 
-  // Helper to get next unique articles
   const getNextArticles = (count: number): Article[] => {
     const result: Article[] = [];
     for (let i = 0; i < articles.length; i++) {
@@ -96,13 +94,12 @@ function Sports({ data }: { data: CategoryData }) {
     return result;
   };
 
-  const topArticles = getNextArticles(2);      // Next 2
-  const reverseArticles = getNextArticles(2);  // Next 2
-  const lowerArticles = getNextArticles(2);    // Last 2
+  const topArticles = getNextArticles(2);
+  const reverseArticles = getNextArticles(2);
+  const lowerArticles = getNextArticles(2);
 
   return (
     <div className="border-bottom">
-      {/* Section Header */}
       <Row className="mb-3 pt-5">
         <Col>
           <div className="d-flex align-items-center">
@@ -149,21 +146,20 @@ function Sports({ data }: { data: CategoryData }) {
                 <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>
                   {item.shortdescription.slice(0, 100)}
                 </p>
-                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>46 min ago</p>
+                <p className="text-muted small" style={{ fontFamily: 'Merriweather, serif' }}>{item.date}</p>
               </div>
-             <div className="col-lg-4">
-  <Link href={`/${category}/${item.slug}`} className="d-block">
-    <div className="responsive-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
-      <img
-        src={item.image}
-        alt={item.title}
-        className="w-100 h-100"
-        style={{ objectFit: "cover" }}
-      />
-    </div>
-  </Link>
-</div>
-
+              <div className="col-lg-4">
+                <Link href={`/${category}/${item.slug}`} className="d-block">
+                  <div className="responsive-img-wrapper rounded overflow-hidden" style={{ cursor: 'pointer' }}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-100 h-100"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </Link>
+              </div>
             </div>
           </div>
         ))}

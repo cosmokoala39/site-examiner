@@ -9,6 +9,7 @@ export type Article = {
   title: string;
   slug: string;
   shortdescription: string;
+  date:string;
 };
 
 export type CategoryData = {
@@ -82,7 +83,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
             className="text-muted mb-2 small"
             style={{ fontFamily: "Merriweather, serif" }}
           >
-            Author
+            {main.date}
           </p>
         </div>
 
@@ -115,7 +116,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
                       className="text-muted small"
                       style={{ fontFamily: "Merriweather, serif" }}
                     >
-                      46 min ago
+                      {item.date}
                     </p>
                   </div>
                   <div className="col-lg-4">
@@ -168,7 +169,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
                 className="text-muted small"
                 style={{ fontFamily: "Merriweather, serif" }}
               >
-                46 min ago
+                {item.date}
               </p>
             </div>
             <div className="col-lg-4">
@@ -218,7 +219,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
           className="text-muted small"
           style={{ fontFamily: "Merriweather, serif" }}
         >
-          Jel Maco
+          {item.date}
         </p>
       </div>
       <div className="col-lg-3 col-12">
@@ -259,13 +260,13 @@ function BreackingNEws({ data }: { data: CategoryData }) {
       className="text-muted small mb-0"
       style={{ fontFamily: "Merriweather, serif" }}
     >
-      {item.shortdescription.slice(0, 100)}...
+      {item.shortdescription}...
     </p>
     <p
-      className="text-muted mb-2 small"
+      className="text-muted mt-2 small"
       style={{ fontFamily: "Merriweather, serif" }}
     >
-      rportr
+      {item.date}
     </p>
   </Link>
 ))}
@@ -300,7 +301,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
                       className="text-muted small"
                       style={{ fontFamily: "Merriweather, serif" }}
                     >
-                      46 min ago
+                      {item.date}
                     </p>
                   </div>
                    <div className="col-lg-4">
@@ -378,6 +379,7 @@ function BreackingNEws({ data }: { data: CategoryData }) {
     >
       {item.title}
     </p>
+    
     <img
       src={item.image}
       alt={item.title}
@@ -390,10 +392,10 @@ function BreackingNEws({ data }: { data: CategoryData }) {
       {item.shortdescription.slice(0, 100)}...
     </p>
     <p
-      className="text-muted mb-2 small"
+      className="text-muted mt-2 small"
       style={{ fontFamily: "Merriweather, serif" }}
     >
-      aaaaaaaaaaaaaa
+      {item.date}
     </p>
   </Link>
 ))}
